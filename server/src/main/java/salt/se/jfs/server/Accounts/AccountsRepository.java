@@ -14,7 +14,7 @@ public class AccountsRepository {
 
 
     public Account getAccountDetails(long userId) {
-        return repo.findAccountByCustomer_CustomerId(userId);
+        return repo.findAccountByCustomer_CustomerId(userId).orElseThrow();
     }
 
 
@@ -25,6 +25,6 @@ public class AccountsRepository {
 
     public Account getAccount(long accountId) {
 
-        return repo.findById(accountId).orElse(null);
+        return repo.findById(accountId).orElseThrow();
     }
 }
