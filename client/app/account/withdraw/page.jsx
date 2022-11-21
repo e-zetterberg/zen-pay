@@ -1,12 +1,10 @@
 import React from "react";
+import InputAmount from "../InputAmount";
 import "../../../styles/Balance.css";
 
 const page = () => {
   return (
-    <form>
-      <input type="text" />
-      <button type="submit">Confirm</button>
-    </form>
+    <InputAmount />
   );
 };
 

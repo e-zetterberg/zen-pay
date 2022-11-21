@@ -13,7 +13,7 @@ export default function AccountLayout({ children }) {
             <button className="btn btn--withdraw">Withdraw</button>
           </Link>
         </div>
-      {children}
+        {children}
       </main>
     </>
   );
