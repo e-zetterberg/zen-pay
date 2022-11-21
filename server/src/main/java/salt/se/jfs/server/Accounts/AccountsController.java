@@ -9,6 +9,7 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/api/accounts")
+@CrossOrigin
 public class AccountsController {
 
     AccountsService service;

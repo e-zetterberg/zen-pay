@@ -5,7 +5,7 @@ spring:
   sql:
     init:
       platform: postgresql
-      mode: never
+      mode: always
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://abul.db.elephantsql.com:5432/etahwekj
