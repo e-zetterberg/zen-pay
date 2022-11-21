@@ -15,18 +15,21 @@
 .balance--display{
     border: 1px solid black;
     margin: 10px auto;
+    text-align: center;
+    width: 15rem;
     font-size: xx-large;
+    border-radius: 10px;
 }
 
 .balance--button-container{
-    width: 100%;
+    width: 15rem;
     display: flex;
-    justify-content: center;
-    gap: 1em;
+    justify-content: space-between;
+
 }
 
 .btn--withdraw, .btn--deposit{
-  flex-grow: 1;
+  flex-grow: 2;
 
 }
 

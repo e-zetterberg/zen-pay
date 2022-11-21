@@ -1,5 +1,6 @@
 import Header from "./Header"
 import Footer from "./Footer"
+import AuthContext from "./(Components)/AuthContext";
 import "../styles/globals.css"
 import { Poppins } from '@next/font/google';
 
@@ -16,7 +17,9 @@ export default function RootLayout({ children }) {
       <head />
       <body>
         <Header />
-          {children}
+          <AuthContext>
+            {children}
+          </AuthContext>
         <Footer />
         </body>
     </html>
