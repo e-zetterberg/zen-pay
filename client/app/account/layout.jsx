@@ -2,8 +2,9 @@ import Link from "next/link";
 
 export default function AccountLayout({ children }) {
   return (
-    <>
-      <main className="homepage--balance">
+    
+      <main className="main homepage--balance">
+        <section className="balance--container">
         <div className="balance--display">1000 kr</div>
         <div className="balance--button-container">
           <Link href="/account/deposit">
@@ -13,8 +14,9 @@ export default function AccountLayout({ children }) {
             <button className="btn btn--withdraw">Withdraw</button>
           </Link>
         </div>
-        {children}
+            {children}
+        </section>
       </main>
-    </>
+    
   );
 }

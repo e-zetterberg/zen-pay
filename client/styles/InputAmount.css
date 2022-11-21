@@ -1,7 +1,8 @@
 .input-form{
     margin: 20px auto;
     display: flex;
-
+    width: 100%;
+    gap: 10px;
 }
 
 .input-field{
