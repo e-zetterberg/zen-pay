@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import '../styles/Balance.css'
+
 
 const page = () => {
   return (
-    <div>Balance: 1000kr </div>
-  )
-}
+    <main className="homepage--balance">
+        <div>Dashboard</div>
+    </main>
+  );
+};
 
-export default page
+export default page;
