@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import '../styles/Header.css'
 
 const Header = () => {
@@ -7,7 +8,9 @@ const Header = () => {
     <header className='header'>
         <nav className='header--navbar'>
             <div className='navbar--user'>
-            <Image src="/../public/profile.png" alt="Logo" width={55} height={53}></Image>
+              <Link href="/account">
+                <Image src="/../public/profile.png" alt="Logo" width={55} height={53}></Image>
+              </Link>
             </div>
             <div>
                 <Image src="/../public/logo-transparent.png" alt="Logo" width={211} height={73}></Image>

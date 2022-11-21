@@ -7,8 +7,9 @@
 
 .header--navbar{
     display: flex;
+    margin: 0 1em;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
