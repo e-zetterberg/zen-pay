@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     height: 80vh;
 }
 
@@ -12,8 +11,6 @@
     font-size: xx-large;
 }
 
-
-
 .balance--button-container{
     width: 100%;
     display: flex;
@@ -21,7 +18,7 @@
     gap: 1em;
 }
 
-.btn--deposit, .btn--withdraw {
+.btn {
   background-color: #001e5e;
   border: 1px solid transparent;
   border-radius: .75rem;
@@ -43,11 +40,11 @@
   width: auto;
 }
 
-.btn--deposit:hover, .btn--withdraw:hover {
+.btn:hover {
   background-color: #365aa9;
 }
 
-.btn--deposit:focus, .btn--withdraw:focus {
+.btn:focus {
   box-shadow: none;
   outline: 2px solid transparent;
   outline-offset: 2px;

@@ -1,10 +1,11 @@
 .input-form{
     margin: 20px auto;
     display: flex;
-    flex-direction: column;
-    width: 60vw;
+
 }
 
 .input-field{
-    height: 3em;
+    height: 4em;
+    text-align: center;
+    border-radius: 10px;
 }
