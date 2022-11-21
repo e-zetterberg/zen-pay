@@ -3,7 +3,11 @@ import '../styles/footer.css'
 
 function Footer() {
   return (
-    <div className='footer'>String Quartet &#169;</div>
+    <div className='footer'>
+
+      <hr />
+      <div>&#169; String Quartet</div>
+    </div>
   )
 }
 
