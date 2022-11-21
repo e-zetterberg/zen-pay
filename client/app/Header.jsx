@@ -8,16 +8,18 @@ const Header = () => {
     <header className='header'>
         <nav className='header--navbar'>
             <div className='navbar--user'>
-              <Link href="/account">
+              
                 <Image src="/../public/profile.png" alt="Logo" width={55} height={53}></Image>
-              </Link>
+              
             </div>
             <div>
                 <Image src="/../public/logo-transparent.png" alt="Logo" width={211} height={73}></Image>
             </div>
-            <div className='navbar--burger'>
-                &#9776;
-            </div> 
+            <Link href="/account">
+              <div className='navbar--burger'>
+                  &#9776;
+              </div> 
+            </Link>
         </nav>
     </header>
   )
