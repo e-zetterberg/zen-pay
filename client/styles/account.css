@@ -1,12 +1,19 @@
 .homepage--balance{
+
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 80vh;
+    justify-content: center;
+
+}
+
+.balance--container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
 }
 
 .balance--display{
-    
+    border: 1px solid black;
     margin: 10px auto;
     font-size: xx-large;
 }
@@ -16,6 +23,11 @@
     display: flex;
     justify-content: center;
     gap: 1em;
+}
+
+.btn--withdraw, .btn--deposit{
+  flex-grow: 1;
+
 }
 
 .btn {
