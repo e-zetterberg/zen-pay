@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import '../../styles/Balance.css'
+import '../../styles/account.css'
 
 
 const page = () => {

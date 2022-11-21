@@ -1,10 +1,9 @@
 import React from "react";
-import '../styles/Balance.css'
 
 
 const page = () => {
   return (
-    <main className="homepage--balance">
+    <main className="main dashboard">
         <div>Dashboard</div>
     </main>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import InputAmount from "../../(Components)/InputAmount";
-import "../../../styles/Balance.css";
+import "../../../styles/account.css";
 
 const page = () => {
   return (

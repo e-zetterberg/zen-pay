@@ -13,9 +13,21 @@
     align-items: center;
 }
 
+.navbar-menu{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+.navbar--logo{
+    justify-self: end;
+}
+
 .navbar--burger{
     color: white;
     text-align: center;
     font-size: 3em;
-
+    display: inline-block;
+    text-decoration: none;
+    line-height: 0.88em;
 }
