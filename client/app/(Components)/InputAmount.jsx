@@ -8,10 +8,23 @@ const InputAmount = () => {
 
     const [amount, setAmount] = useState("");
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(amount);
-
+        const transaction = {
+          description: "deposit",
+          amount,
+        };
+        const response = await fetch('http://localhost:8080/api/accounts/123/transaction', {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(transaction),
+        })
+        if (response.status !== 201) {
+        return;
+      }
         //send in fetch function as prop and call it here
         //... probably :P
         setAmount("")
