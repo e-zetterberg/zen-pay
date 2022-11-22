@@ -1,9 +1,12 @@
 import Link from "next/link";
 
+
 export default async function AccountLayout({ children }) {
 
     const fetchBalance = async () => {
-        const response = await fetch('http://localhost:8080/api/accounts/1')
+        const response = await fetch('http://localhost:8080/api/accounts/1', {
+          cache: 'no-store',
+        });
         const data = await response.json();
         return data.balance;
     };

@@ -22,12 +22,12 @@ const InputAmount = () => {
           },
           body: JSON.stringify(transaction),
         })
+        setAmount("")
         if (response.status !== 201) {
         return;
       }
         //send in fetch function as prop and call it here
         //... probably :P
-        setAmount("")
     };
 
   return (

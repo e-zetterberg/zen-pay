@@ -1,5 +1,7 @@
 import Header from "./Header"
 import Footer from "./Footer"
+import { headers } from 'next/headers'
+import Login from "./(Components)/Login";
 import AuthContext from "./(Components)/AuthContext";
 import "../styles/globals.css"
 import { Poppins } from '@next/font/google';
@@ -11,13 +13,44 @@ const poppins = Poppins({
 
 
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+
+  const getSession = async (cookie) => {
+      const response = await fetch(`${process.env.NEXTAUTH_URL}/api/auth/session`, {
+        headers: { cookie },
+      })
+      console.log(response.status);
+      if (!response?.ok) {
+        return null
+      }
+      const session = await response.json();
+      console.log(session);
+      return Object.keys(session).length > 0 ? session : null
+    };
+
+    const session = await getSession(headers().get('cookie') ?? '');
+
+    if(!session){
+      return (
+        <html lang="en" className={poppins.className}>
+        <head />
+        <body>
+          <Header />
+          <AuthContext>
+            <Login/>
+          </AuthContext>
+          <Footer />
+          </body>
+      </html>
+      );
+    };
+
   return (
     <html lang="en" className={poppins.className}>
       <head />
       <body>
         <Header />
-          <AuthContext>
+        <AuthContext>
             {children}
           </AuthContext>
         <Footer />
