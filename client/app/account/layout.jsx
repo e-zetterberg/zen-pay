@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 
 export default async function AccountLayout({ children }) {
@@ -17,6 +18,9 @@ export default async function AccountLayout({ children }) {
         <section className="balance--container">
         <div className="balance--display">{data.balance} kr</div>
         <div className="balance--button-container">
+            <Image src="/../public/tx-button.png" alt="Transaction Button" width={50} height={50}></Image>
+          <Link href="/account/send">
+          </Link>
           <Link href="/account/deposit">
             <button className="btn btn--deposit">Deposit</button>
           </Link>

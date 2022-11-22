@@ -16,20 +16,15 @@
     border: 1px solid black;
     margin: 10px auto;
     text-align: center;
-    width: 15rem;
+    width: 20rem;
     font-size: xx-large;
     border-radius: 10px;
 }
 
 .balance--button-container{
-    width: 15rem;
+    width: 20rem;
     display: flex;
     justify-content: space-between;
-
-}
-
-.btn--withdraw, .btn--deposit{
-  flex-grow: 2;
 
 }
 
