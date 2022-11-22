@@ -1,8 +1,9 @@
 import React from 'react'
+import SendForm from '../../../components/SendForm'
 
 const Send = () => {
   return (
-    <div>Send</div>
+    <SendForm />
   )
 }
 
