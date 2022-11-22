@@ -2,7 +2,7 @@
 import React from "react";
 
 
-const Login = () => {
+const Dashboard = () => {
   
   return (
     <main className="main dashboard">
@@ -11,4 +11,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Dashboard;

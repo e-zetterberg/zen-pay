@@ -27,4 +27,8 @@ public class AccountsRepository {
 
         return repo.findById(accountId).orElseThrow();
     }
+
+    public Account createAccount() {
+        return repo.save(new Account());
+    }
 }
