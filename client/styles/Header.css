@@ -1,4 +1,4 @@
-.header{
+/* .header{
     display: block;
     width: 100%;
     background-color: #001e5e;
@@ -31,4 +31,20 @@
     display: inline-block;
     text-decoration: none;
     line-height: 0.88em;
+} */
+
+.header--container {
+    background-color: #001e5e;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+}
+
+.header--logo {
+    align-self: center;
+}
+
+.align--span {
+    width: 18%;
 }
