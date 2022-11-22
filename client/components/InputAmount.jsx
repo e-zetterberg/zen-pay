@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import React from 'react'
-import "../../styles/InputAmount.css"
+import "../styles/InputAmount.css"
 
 const InputAmount = ({type}) => {
 

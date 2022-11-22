@@ -1,8 +1,8 @@
-import Header from "./Header"
-import Footer from "./Footer"
+import Header from "../components/Header"
+import Footer from "../components/Footer"
 import { headers } from 'next/headers'
-import Login from "./(Components)/Login";
-import AuthContext from "./(Components)/AuthContext";
+import Login from "../components/Login";
+import AuthContext from "../components/AuthContext";
 import "../styles/globals.css"
 import { Poppins } from '@next/font/google';
 

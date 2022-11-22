@@ -14,7 +14,7 @@ const Header = () => {
             </Link>
 
             <section className='navbar-menu'>
-              <Link href="/accountDetails">
+              <Link href="/details">
             <div className='navbar--user'>
                 <Image src="/../public/profile.png" alt="Logo" width={55} height={53}></Image>
             </div>

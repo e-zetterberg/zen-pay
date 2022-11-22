@@ -1,5 +1,5 @@
 import React from "react";
-import InputAmount from "../../(Components)/InputAmount";
+import InputAmount from "../../../components/InputAmount";
 import "../../../styles/account.css";
 
 const page = () => {
