@@ -15,6 +15,10 @@ public class AccountsService {
         return repo.getAccountDetails(userId);
     }
 
+    public Account createAccount(){
+        return repo.createAccount();
+    }
+
     public Account updateAccount(Transaction transaction, long accountId) {
         Account account = repo.getAccount(accountId);
         account.getTransactions().add(transaction);

@@ -29,6 +29,12 @@ public class AccountsController {
         }
     }
 
+    @PostMapping
+    ResponseEntity<Account> createAccount(){
+        Account account = service.createAccount();
+        return ResponseEntity.ok(account);
+    }
+
     @PostMapping(path = "/{accountId}/transaction")
     ResponseEntity<Account> updateAccount(@RequestBody Transaction transaction, @PathVariable long accountId){
         try {

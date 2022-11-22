@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Customer {
 
     @Id
-
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "customer_id")
     private long customerId;
 
@@ -41,6 +41,7 @@ public class Customer {
     public void setAccount(Account account) {
         this.account = account;
     }
+
 
     @Override
     public String toString() {

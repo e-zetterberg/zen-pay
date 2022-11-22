@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 public class Account {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "account_id")
     long accountId;
     @Column(name = "balance")
@@ -21,7 +22,7 @@ public class Account {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_acc_id", referencedColumnName = "account_id")
 
-    private List<Transaction> transactions = new ArrayList<>();
+    private List<Transaction> transactions;
 
     public long getAccountId() {
         return accountId;
@@ -45,6 +46,12 @@ public class Account {
 
     public void setTransactions(List<Transaction> transactions) {
         this.transactions = transactions;
+    }
+
+    public Account(){
+        this.balance = 0;
+        this.customer = new Customer();
+        this.transactions = new ArrayList<>();
     }
 
     @Override
