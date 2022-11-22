@@ -4,7 +4,7 @@ import { useState } from 'react';
 import React from 'react'
 import "../../styles/InputAmount.css"
 
-const InputAmount = () => {
+const InputAmount = ({type}) => {
 
     const [amount, setAmount] = useState("");
 
@@ -12,8 +12,8 @@ const InputAmount = () => {
         e.preventDefault();
         console.log(amount);
         const transaction = {
-          description: "deposit",
-          amount,
+          description: type,
+          amount: (type === 'deposit') ? amount : -amount,
         };
         const response = await fetch('http://localhost:8080/api/accounts/123/transaction', {
           method: "POST",

@@ -2,10 +2,10 @@ import React from "react";
 import InputAmount from "../../(Components)/InputAmount";
 import "../../../styles/account.css";
 
-const page = () => {
+const deposit = () => {
   return (
-    <InputAmount />
+    <InputAmount type={'deposit'}/>
   );
 };
 
-export default page;
+export default deposit;

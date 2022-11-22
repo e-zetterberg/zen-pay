@@ -4,7 +4,7 @@ import "../../../styles/account.css";
 
 const page = () => {
   return (
-    <InputAmount />
+    <InputAmount type={'withdraw'}/>
   );
 };
 
