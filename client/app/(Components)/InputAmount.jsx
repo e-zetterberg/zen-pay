@@ -1,19 +1,21 @@
 "use client";
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import React from 'react'
 import "../../styles/InputAmount.css"
 
-const InputAmount = () => {
+const InputAmount = ({type}) => {
 
+    const router = useRouter();
     const [amount, setAmount] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(amount);
         const transaction = {
-          description: "deposit",
-          amount,
+          description: type,
+          amount: (type === 'deposit') ? amount : -amount,
         };
         const response = await fetch('http://localhost:8080/api/accounts/123/transaction', {
           method: "POST",
@@ -23,11 +25,10 @@ const InputAmount = () => {
           body: JSON.stringify(transaction),
         })
         setAmount("")
+        router.refresh();
         if (response.status !== 201) {
         return;
       }
-        //send in fetch function as prop and call it here
-        //... probably :P
     };
 
   return (
@@ -40,6 +41,7 @@ const InputAmount = () => {
         type="text" 
         placeholder='Enter Amount'
       />
+      
       <button className='btn btn--confirm' type="submit">Confirm</button>
     </form>
   )
