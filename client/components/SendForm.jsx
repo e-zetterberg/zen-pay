@@ -5,16 +5,14 @@ import { useRouter } from 'next/navigation';
 import React from 'react'
 import "../styles/InputAmount.css"
 
-const InputAmount = ({type}) => {
+const SendForm = ({type}) => {
 
     const router = useRouter();
     const [amount, setAmount] = useState("");
+    const [accountNumber, setAccountNumber] = useState();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        //UNDER CONSTRUCTION
-
         console.log(amount);
         const transaction = {
           description: type,
@@ -36,6 +34,14 @@ const InputAmount = ({type}) => {
 
   return (
     <form onSubmit={e => handleSubmit(e)} className='input-form'>
+        <input
+            onChange={e => setAccountNumber(e.target.value)} 
+            required={true}
+            value={accountNumber} 
+            type="number"
+            className='input-field'
+            placeholder='Destination Account Number'
+        />
       <input 
         onChange={e => setAmount(e.target.value)}
         required={true}
@@ -50,4 +56,4 @@ const InputAmount = ({type}) => {
   )
 }
 
-export default InputAmount
+export default SendForm
