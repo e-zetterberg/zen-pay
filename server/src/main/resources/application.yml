@@ -8,9 +8,9 @@ spring:
       mode: always
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://abul.db.elephantsql.com:5432/etahwekj
-    username: etahwekj
-    password: 2RvKRwGjwXwV_LDrd-G044S2BkDvzaqj
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres123
     hikari:
       connectionTimeout: 2000
       maximumPoolSize: 5
