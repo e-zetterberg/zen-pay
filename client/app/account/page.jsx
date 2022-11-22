@@ -1,12 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import '../../styles/account.css'
-
+import "../../styles/account.css";
 
 const page = () => {
-  return (
-      <></>
-  );
+  return <></>;
 };
 
 export default page;
