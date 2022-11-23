@@ -30,6 +30,19 @@ public class AccountsController {
         }
     }
 
+    @PatchMapping("/transfer/{fromAccount}/{toAccount}")
+    ResponseEntity<Account> transferMoney(
+            @RequestBody Transaction transaction,
+            @PathVariable long fromAccount,
+            @PathVariable long toAccount){
+        try {
+            Account account = service.transferMoney(transaction, fromAccount, toAccount);
+            return ResponseEntity.ok(account);
+        } catch (NoSuchElementException e){
+            throw  new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+    }
+
     @PostMapping
     ResponseEntity<Account> createAccount(@RequestBody User user){
         Account account = service.createAccount(user);

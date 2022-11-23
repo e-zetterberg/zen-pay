@@ -26,4 +26,14 @@ public class AccountsService {
         account.setBalance(account.getBalance() + transaction.getAmount());
         return repo.updateAccountDetails(account);
     }
+
+    public Account transferMoney(Transaction transaction, long fromAccount, long toAccount) {
+        Account sender = repo.getAccount(fromAccount);
+        Account receiver = repo.getAccount(toAccount);
+        receiver.getTransactions().add(transaction);
+        transaction.setAmount(-transaction.getAmount());
+        sender.getTransactions().add(transaction);
+
+        return repo.saveAccounts(sender, receiver);
+    }
 }

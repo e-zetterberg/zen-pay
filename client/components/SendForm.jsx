@@ -9,20 +9,20 @@ import "../styles/InputAmount.css";
 
 const SendForm = ({ type }) => {
   const router = useRouter();
-  const [amount, setAmount] = useState("");
-  const [accountNumber, setAccountNumber] = useState();
+  const [amount, setAmount] = useState();
+  const [account, setAccount] = useState();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(amount);
     const transaction = {
       description: type,
-      amount: type === amount,
+      amount: amount,
     };
     const response = await toast.promise(fetch(
-      "http://localhost:8080/api/accounts/123/transaction",
+      `http://localhost:8080/api/accounts/transfer/1873771645899017/${account}`,
       {
-        method: "POST",
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
@@ -42,11 +42,13 @@ const SendForm = ({ type }) => {
   };
 
   return (
+    <>
+
     <form onSubmit={(e) => handleSubmit(e)} className="input-form">
       <input
-        onChange={(e) => setAccountNumber(e.target.value)}
+        onChange={(e) => setAccount(e.target.value)}
         required={true}
-        value={accountNumber}
+        value={account}
         minLength={16}
         maxLength={16}
         type="text"
@@ -67,6 +69,8 @@ const SendForm = ({ type }) => {
         Confirm
       </button>
     </form>
+      <ToastContainer />
+    </>
   );
 };
 

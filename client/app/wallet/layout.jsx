@@ -18,7 +18,7 @@ export default async function AccountLayout({ children }) {
         <section className="balance--container">
         <div className="balance--display">{data.balance} kr</div>
         <div className="balance--button-container">
-          <Link href="/wallet/send">
+          <Link href="/wallet/transfer">
             <div>
               <Image src="/../public/tx-button.png" alt="Transaction Button" width={50} height={50}></Image>
             </div>
