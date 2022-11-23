@@ -15,7 +15,6 @@ function Menu() {
             <span></span>
             <span></span>
             <ul id="menu">
-            <input className="lala" type="checkbox"/>
             <Link href="../details"><li className="menu--items"><IoPersonCircle className="menu--icons"/> Account</li></Link>
             <Link href="#"><li className="menu--items"><GoSettings className="menu--icons"/> Settings</li></Link>
             <Link href="#"><li className="menu--items"><MdOutlineEmail className="menu--icons"/> Contact</li></Link>
