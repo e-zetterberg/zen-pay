@@ -1,8 +1,11 @@
 package salt.se.jfs.server.Accounts;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Transaction {
 
     @Id
@@ -11,6 +14,16 @@ public class Transaction {
     private long transactionId;
     private String description;
     private double amount;
+    private String timeStamp;
+
+    public String getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
 
     @Override
     public String toString() {
