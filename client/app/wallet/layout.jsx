@@ -18,15 +18,15 @@ export default async function AccountLayout({ children }) {
         <section className="balance--container">
         <div className="balance--display">{data.balance} kr</div>
         <div className="balance--button-container">
-          <Link href="/account/send">
+          <Link href="/wallet/send">
             <div>
               <Image src="/../public/tx-button.png" alt="Transaction Button" width={50} height={50}></Image>
             </div>
           </Link>
-          <Link href="/account/deposit">
+          <Link href="/wallet/deposit">
             <button className="btn btn--deposit">Deposit</button>
           </Link>
-          <Link href="/account/withdraw">
+          <Link href="/wallet/withdraw">
             <button className="btn btn--withdraw">Withdraw</button>
           </Link>
         </div>
