@@ -1,24 +1,24 @@
 package salt.se.jfs.server.Accounts;
 
-import salt.se.jfs.server.Customer.Customer;
+import salt.se.jfs.server.User.User;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Entity
 public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "account_id")
     long accountId;
     @Column(name = "balance")
     double balance;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_cust_id")
-    Customer customer;
+    @JoinColumn(name = "fk_user_id")
+    User user;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_acc_id", referencedColumnName = "account_id")
 
@@ -48,18 +48,34 @@ public class Account {
         this.transactions = transactions;
     }
 
-    public Account(){
+    public Account() {
+    }
+
+    public Account(User user) {
+        this.accountId = random();
         this.balance = 0;
-        this.customer = new Customer();
+        this.user = user;
         this.transactions = new ArrayList<>();
     }
 
-    @Override
-    public String toString() {
-        return "Accounts{" +
-                "accountId=" + accountId +
-                ", balance=" + balance +
-                ", transactions=" + transactions +
-                '}';
+
+
+    public User getUser() {
+        return user;
     }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public static long  random() {
+        /* return a random long of 16 length */
+        long smallest = 1000_0000_0000_0000L;
+        long biggest =  9999_9999_9999_9999L;
+
+        // return a long between smallest and biggest (+1 to include biggest as well with the upper bound)
+        long random = ThreadLocalRandom.current().nextLong(smallest, biggest+1);
+       return random;
+    }
+
 }
