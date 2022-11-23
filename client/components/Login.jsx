@@ -7,15 +7,13 @@ const Login = () => {
 
   return (
     <main className="main login">
-      <div></div>
-      <p>
-        {session ? `Hello ${session.user.name}` : "Hello user, please sign in"}
-      </p>
+      <div>
       {!session ? (
         <button onClick={signIn}>Sign In</button>
       ) : (
         <button onClick={signOut}>Sign Out</button>
       )}
+      </div>
     </main>
   );
 };

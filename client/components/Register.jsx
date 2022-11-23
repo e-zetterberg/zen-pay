@@ -25,7 +25,8 @@ function Register() {
                 type="email"
                 placeholder="Email"
                 value={email}
-                pattern=".+@globex\.com" size="30" required
+                disabled
+                size="30" required
                 />
                  <br/>
                 <input 
@@ -35,9 +36,10 @@ function Register() {
                 size="30"
                 value={phone}
                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                onChange={(e)=>setPhone(e.target.value)}
                 required />
                  <br/>
-                <input type="submit" />
+                <input type="submit" value="Create Zen Account" />
 
             
             </form>

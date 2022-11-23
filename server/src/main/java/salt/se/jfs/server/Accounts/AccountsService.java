@@ -1,6 +1,7 @@
 package salt.se.jfs.server.Accounts;
 
 import org.springframework.stereotype.Service;
+import salt.se.jfs.server.User.User;
 
 @Service
 public class AccountsService {
@@ -15,8 +16,8 @@ public class AccountsService {
         return repo.getAccountDetails(userId);
     }
 
-    public Account createAccount(){
-        return repo.createAccount();
+    public Account createAccount(User user){
+        return repo.createAccount(user);
     }
 
     public Account updateAccount(Transaction transaction, long accountId) {
