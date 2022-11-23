@@ -6,6 +6,6 @@ import java.util.Optional;
 
 public interface JpaAccountsRepository extends CrudRepository<Account, Long> {
 
-    Optional<Account> findAccountByCustomer_CustomerId(long id);
+    Optional<Account> findAccountByUser_UserId(long id);
 
 }
