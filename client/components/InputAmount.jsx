@@ -18,6 +18,7 @@ const InputAmount = ({ type }) => {
     const transaction = {
       description: type,
       amount: type === "deposit" ? amount : -amount,
+      timeStamp: new Date().toUTCString(),
     };
     const response = await fetch(
       "http://localhost:8080/api/accounts/123/transaction",

@@ -38,7 +38,8 @@ export default async function AccountLayout({ children }) {
             {data.transactions.map(tx => (
               <li key={tx.transactionId}>
                 <span>{tx.description} </span>
-                <span> {tx.amount}</span>
+                <span>{tx.amount}kr </span>
+                <span>{tx.timeStamp} </span>
               </li>
             ))}
           </ul>
