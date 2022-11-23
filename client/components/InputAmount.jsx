@@ -23,7 +23,7 @@ const InputAmount = ({ type }) => {
       timeStamp: new Date().toUTCString(),
     };
     const response = await toast.promise( fetch(
-      "http://localhost:8080/api/accounts/123/transaction",
+      "http://localhost:8080/api/accounts/1873771645899017/transaction",
       {
         method: "POST",
         headers: {

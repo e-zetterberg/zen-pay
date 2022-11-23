@@ -18,6 +18,7 @@ const SendForm = ({ type }) => {
     const transaction = {
       description: type,
       amount: amount,
+      timeStamp: new Date().toUTCString(),
     };
     const response = await toast.promise(fetch(
       `http://localhost:8080/api/accounts/transfer/1873771645899017/${account}`,
