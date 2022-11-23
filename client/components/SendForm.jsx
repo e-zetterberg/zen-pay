@@ -15,7 +15,7 @@ const SendForm = ({ type }) => {
     console.log(amount);
     const transaction = {
       description: type,
-      amount: type === "deposit" ? amount : -amount,
+      amount: type === amount,
     };
     const response = await fetch(
       "http://localhost:8080/api/accounts/123/transaction",
