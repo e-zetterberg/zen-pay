@@ -22,7 +22,7 @@ export default async function RootLayout({ children }) {
     console.log(response.status);
     if (!response?.ok) {
       return null;
-    }
+    } 
     const session = await response.json();
     console.log(session);
     return Object.keys(session).length > 0 ? session : null;
