@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import React from "react";
 import "../styles/InputAmount.css";
 
@@ -17,7 +19,7 @@ const SendForm = ({ type }) => {
       description: type,
       amount: type === amount,
     };
-    const response = await fetch(
+    const response = await toast.promise(fetch(
       "http://localhost:8080/api/accounts/123/transaction",
       {
         method: "POST",
@@ -26,7 +28,12 @@ const SendForm = ({ type }) => {
         },
         body: JSON.stringify(transaction),
       }
-    );
+    ),
+    {
+        pending: 'Processing',
+        success: `Successful sent ${amount} kr  to ${account} 👌`,
+        error: 'Promise rejected 🤯'
+    });
     setAmount("");
     router.refresh();
     if (response.status !== 201) {
@@ -40,7 +47,9 @@ const SendForm = ({ type }) => {
         onChange={(e) => setAccountNumber(e.target.value)}
         required={true}
         value={accountNumber}
-        type="number"
+        minLength={16}
+        maxLength={16}
+        type="text"
         className="input-field"
         placeholder="Destination Account Number"
       />
@@ -48,6 +57,7 @@ const SendForm = ({ type }) => {
         onChange={(e) => setAmount(e.target.value)}
         required={true}
         value={amount}
+        min={1}
         type="number"
         className="input-field"
         placeholder="Amount"

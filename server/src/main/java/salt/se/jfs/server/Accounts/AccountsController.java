@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import salt.se.jfs.server.User.User;
 
 import java.util.NoSuchElementException;
 
@@ -30,8 +31,8 @@ public class AccountsController {
     }
 
     @PostMapping
-    ResponseEntity<Account> createAccount(){
-        Account account = service.createAccount();
+    ResponseEntity<Account> createAccount(@RequestBody User user){
+        Account account = service.createAccount(user);
         return ResponseEntity.ok(account);
     }
 
