@@ -2,6 +2,7 @@ package salt.se.jfs.server.Accounts;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import salt.se.jfs.server.User.JpaUserRepository;
 import salt.se.jfs.server.User.User;
@@ -19,8 +20,11 @@ public class AccountsRepository {
     public Account getAccountDetails(long userId) {
         return repo.findAccountByUser_UserId(userId).orElseThrow();
     }
-
-
+    @Transactional
+    public Account saveAccounts(Account sender, Account receiver){
+        repo.save(receiver);
+        return repo.save(sender);
+    }
 
     public Account updateAccountDetails(Account account) {
         return repo.save(account);

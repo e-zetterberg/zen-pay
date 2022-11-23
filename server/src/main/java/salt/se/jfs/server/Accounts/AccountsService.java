@@ -28,8 +28,12 @@ public class AccountsService {
     }
 
     public Account transferMoney(Transaction transaction, long fromAccount, long toAccount) {
-        updateAccount(transaction, toAccount);
+        Account sender = repo.getAccount(fromAccount);
+        Account receiver = repo.getAccount(toAccount);
+        receiver.getTransactions().add(transaction);
         transaction.setAmount(-transaction.getAmount());
-        return updateAccount(transaction, fromAccount);
+        sender.getTransactions().add(transaction);
+
+        return repo.saveAccounts(sender, receiver);
     }
 }
