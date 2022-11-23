@@ -40,7 +40,8 @@ const SendForm = ({ type }) => {
         onChange={(e) => setAccountNumber(e.target.value)}
         required={true}
         value={accountNumber}
-        type="number"
+        //TODO add min length and max-length
+        type="text"
         className="input-field"
         placeholder="Destination Account Number"
       />
@@ -48,6 +49,7 @@ const SendForm = ({ type }) => {
         onChange={(e) => setAmount(e.target.value)}
         required={true}
         value={amount}
+        min={1}
         type="number"
         className="input-field"
         placeholder="Amount"

@@ -43,6 +43,7 @@ const InputAmount = ({ type }) => {
         required={true}
         value={amount}
         type="number"
+        min={1}
         className="input-field"
         placeholder="Amount"
       />
