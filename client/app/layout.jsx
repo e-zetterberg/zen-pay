@@ -2,7 +2,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { headers } from "next/headers";
 import Login from "../components/Login";
-import { redirect } from "next/navigation";
 import AuthContext from "../components/AuthContext";
 import "../styles/globals.css";
 import { Poppins } from "@next/font/google";
@@ -23,7 +22,7 @@ export default async function RootLayout({ children }) {
     console.log(response.status);
     if (!response?.ok) {
       return null;
-    } 
+    }
     const session = await response.json();
     console.log(session);
     return Object.keys(session).length > 0 ? session : null;
@@ -32,7 +31,18 @@ export default async function RootLayout({ children }) {
   const session = await getSession(headers().get("cookie") ?? "");
 
   if (!session) {
-    redirect("/login");
+    return (
+      <html lang="en" className={poppins.className}>
+        <head />
+        <body>
+          <Header />
+          <AuthContext>
+            <Login />
+          </AuthContext>
+          <Footer />
+        </body>
+      </html>
+    );
   }
 
   return (
