@@ -5,11 +5,13 @@ import Menu from "./Menu"
 
 function Header() {
   return (
-    <div className="header--container">
-        <Menu className="header--menu"/>
+    <header className='header'>
+      <nav className='header--navbar'>
         <Image className="header--logo" src="/logo-transparent.png" alt="Logo" width={211} height={73}></Image>
         <span className="align--span"></span>
-    </div>
+        <Menu className="header--menu"/>
+      </nav>
+    </header>
   )
 }
 

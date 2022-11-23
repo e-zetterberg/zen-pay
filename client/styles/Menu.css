@@ -1,24 +1,10 @@
 
- body
- {
-   margin: 0;
-   padding: 0;
-   
-   /* make it look decent enough */
-   background: #232323;
-   color: #cdcdcd;
-   font-family: "Avenir Next", "Avenir", sans-serif;
- }
  
  #menuToggle
  {
    display: block;
    position: relative;
-   top: 35px;
-   left: 20px;
-   
    z-index: 1;
-   
    -webkit-user-select: none;
    user-select: none;
  }
@@ -122,20 +108,18 @@
  #menu
  {
    position: absolute;
-   width: 70vw;
-   height: 105vh;
+   width: fit-content;
+   height: fit-content;
    margin: -100px 0 0 -50px;
    padding: 50px;
    padding-top: 125px;
-   
    background: #ededed;
    list-style-type: none;
    -webkit-font-smoothing: antialiased;
    /* to stop flickering of text in safari */
    
    transform-origin: 0% 0%;
-   transform: translate(-100%, 0);
-   
+   transform: translate(0, -100%);
    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
  }
  
@@ -153,17 +137,9 @@
    transform: none;
  }
 
- .menu--container {
-    width: 18%;
- }
-
  .menu--items {
     display: flex;
     align-items: center;
- }
-
- .menu--items:active ~ menu {
-
  }
 
  .menu--icons {

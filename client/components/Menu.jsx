@@ -9,7 +9,6 @@ import Link from 'next/link'
 
 function Menu() {
   return (
-    <div className="menu--container">
         <div id="menuToggle">
             <input type="checkbox" />
             <span></span>
@@ -24,7 +23,6 @@ function Menu() {
             <Link href="#"><li>Sign out</li></Link>
             </ul>
         </div>
-    </div>
   )
 }
 
