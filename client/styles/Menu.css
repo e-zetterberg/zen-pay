@@ -108,6 +108,7 @@
  #menu
  {
    position: absolute;
+   right: -1em;
    width: fit-content;
    height: fit-content;
    margin: -100px 0 0 -50px;
