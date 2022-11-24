@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import React from "react";
 import "../styles/InputAmount.css";
 
-const InputAmount = ({ type }) => {
+const InputAmount = ({ type, walletId }) => {
   const router = useRouter();
   const [amount, setAmount] = useState("");
 
@@ -23,7 +23,7 @@ const InputAmount = ({ type }) => {
       timeStamp: new Date().toUTCString(),
     };
     const response = await toast.promise( fetch(
-      "http://localhost:8080/api/accounts/1873771645899017/transaction",
+      `http://localhost:8080/api/accounts/${walletId}/transaction`,
       {
         method: "POST",
         headers: {
@@ -47,6 +47,7 @@ const InputAmount = ({ type }) => {
   return (
     <>
       <form onSubmit={(e) => handleSubmit(e)} className="input-form">
+      <div>{walletId}</div>
         <input
           onChange={(e) => setAmount(e.target.value)}
           required={true}

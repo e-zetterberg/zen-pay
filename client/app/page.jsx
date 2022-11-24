@@ -5,12 +5,10 @@ import "../styles/Dashboard.css"
 
 const Dashboard = async () => {
   const session = await unstable_getServerSession();
-  console.log(session);
 
   if(!session) {
     redirect("/login");
   }
-
 
   return (
     <main className="dashboard">

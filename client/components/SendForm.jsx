@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import React from "react";
 import "../styles/InputAmount.css";
 
-const SendForm = ({ type }) => {
+const SendForm = ({ type, walletId }) => {
   const router = useRouter();
   const [amount, setAmount] = useState();
   const [account, setAccount] = useState();
@@ -21,7 +21,7 @@ const SendForm = ({ type }) => {
       timeStamp: new Date().toUTCString(),
     };
     const response = await toast.promise(fetch(
-      `http://localhost:8080/api/accounts/transfer/1873771645899017/${account}`,
+      `http://localhost:8080/api/accounts/transfer/${walletId}/${account}`,
       {
         method: "PATCH",
         headers: {
