@@ -5,9 +5,9 @@ import React from "react";
 import { UserContextProvider } from "./UserContext";
 
 
-const AuthContext = ({ children, session, userData}) => {
+const AuthContext = ({ children, session, userInfo}) => {
   return <SessionProvider session={session}>
-  <UserContextProvider userData= {userData}>{children}</UserContextProvider>
+  <UserContextProvider userInfo= {userInfo}>{children}</UserContextProvider>
   </SessionProvider>;
 };
 

@@ -46,7 +46,7 @@ export default async function RootLayout({ children }) {
   };
 
   const session = await getSession(headers().get("cookie") ?? "");
-  const userData = await getUserData();
+  const userInfo = await getUserData();
 
 
   return (
@@ -55,7 +55,7 @@ export default async function RootLayout({ children }) {
       <body>
        
         <Header />
-          <AuthContext session={session} userData = {userData}>
+          <AuthContext session={session} userInfo = {userInfo}>
              {children}
           </AuthContext>
         <Footer />

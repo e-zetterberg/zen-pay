@@ -7,9 +7,15 @@ import Details from "../../details/page";
 
 const Login = () => {
   const { data: session } = useSession();
-  const {userData} = useUserContext();
+  const {userData, clearUserData} = useUserContext();
   console.log(userData);
   console.log(session);
+
+  const handleClick = (e)=>{
+    e.preventDefault();
+    clearUserData();
+    signOut
+  }
   return (
     <main className="main login">
       <div></div>
@@ -23,7 +29,7 @@ const Login = () => {
        
         <button onClick={signIn}>Sign In</button>
       ) : (
-        <button onClick={signOut}>Sign Out</button>
+        <button onClick={(e)=> handleClick(e)}>Sign Out</button>
       )}
     </main>
   );
