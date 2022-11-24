@@ -12,7 +12,7 @@ const Register = () => {
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState(session ? session.user.email : "");
+  const [email] = useState(session?.user.email);
 
   const onNameChange = (e) => setName(e.target.value);
   const onPhoneChange = (e) => setPhone(e.target.value);
@@ -23,7 +23,7 @@ const Register = () => {
       name: name,
       phone: phone,
       email: email,
-      createdOn: new Date(),
+      createdOn: new Date().toUTCString(),
     };
     console.log(data);
     const response = await fetch("http://localhost:8080/api/accounts", {
@@ -33,7 +33,9 @@ const Register = () => {
       },
       body: JSON.stringify(data),
     });
-    router.push("/");
+      if(response.status === 200){;
+      router.push("/");
+      }
   };
   return (
     <main className="main">

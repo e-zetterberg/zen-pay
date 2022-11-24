@@ -5,7 +5,6 @@
  {
    display: block;
    position: relative;
-   z-index: 1;
    -webkit-user-select: none;
    user-select: none;
  }
@@ -36,7 +35,7 @@
    cursor: pointer;
    
    opacity: 0; /* hide this */
-   z-index: 2; /* and place it over the hamburger */
+   z-index: 7; /* and place it over the hamburger */
    
    -webkit-touch-callout: none;
  }
@@ -55,7 +54,7 @@
    background: #ffffff;
    border-radius: 3px;
    
-   z-index: 1;
+   z-index: 6;
    
    transform-origin: 4px 0px;
    
@@ -119,7 +118,7 @@
    list-style-type: none;
    -webkit-font-smoothing: antialiased;
    /* to stop flickering of text in safari */
-   
+   z-index: 5;
    transform-origin: 0% 0%;
    transform: translate(100%, 0%);
    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);

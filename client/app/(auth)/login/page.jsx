@@ -2,17 +2,18 @@
 import React from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Register from "../../../components/Register";
-import { useUserContext } from "../../../components/UserContext";
+import { useContext } from "react";
+import { useRouter } from "next/navigation";
+import { UserContext } from "../../../components/UserContext";
 import Details from "../../details/page";
 
 const Login = () => {
+  const router = useRouter();
   const { data: session } = useSession();
-  const {userData} = useUserContext();
-  console.log(userData);
-  console.log(session);
+  const {userData} = useContext(UserContext);
+
   return (
     <main className="main login">
-      <div></div>
         
         {session?
           userData? <Details/> : <Register />
@@ -20,7 +21,6 @@ const Login = () => {
         }
  
       {!session ? (
-       
         <button onClick={signIn}>Sign In</button>
       ) : (
         <button onClick={signOut}>Sign Out</button>

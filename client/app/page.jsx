@@ -2,7 +2,6 @@ import React from "react";
 import { redirect } from "next/navigation";
 import { unstable_getServerSession } from "next-auth";
 import "../styles/Dashboard.css"
-import { MdOutlineAddCircleOutline } from "react-icons/md"
 
 const Dashboard = async () => {
   const session = await unstable_getServerSession();
