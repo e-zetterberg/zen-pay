@@ -11,6 +11,8 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@headlessui/react": "^1.7.4",
+    "@heroicons/react": "^2.0.13",
     "@mui/material": "^5.10.15",
     "@next/font": "^13.0.4",
     "eslint": "8.27.0",
