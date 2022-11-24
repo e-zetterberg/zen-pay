@@ -18,5 +18,8 @@ public class UserService {
         return repo.getUserWithEmail(email);
     }
 
+    public User getUserWithId(Long id) {
+        return repo.getUserWithId(id);
+    }
 
 }

@@ -14,4 +14,9 @@ public class UserRepository {
         return userRepo.findUserByEmail(email).orElseThrow();
     }
 
+    public User getUserWithId(Long id) {
+        return userRepo.findById(id).orElseThrow();
+    }
+
+
 }
