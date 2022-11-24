@@ -1,6 +1,5 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { headers } from "next/headers";
 import AuthContext from "../components/AuthContext";
 import "../styles/globals.css";
 import { Poppins } from "@next/font/google";

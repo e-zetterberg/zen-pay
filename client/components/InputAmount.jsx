@@ -47,7 +47,6 @@ const InputAmount = ({ type, walletId, max }) => {
   return (
     <>
       <form onSubmit={(e) => handleSubmit(e)} className="input-form">
-      <div>{walletId}</div>
         <input
           onChange={(e) => setAmount(e.target.value)}
           required={true}

@@ -14,7 +14,7 @@ const TransactionForm = ({walletId, max}) => {
       <div>
         <button className="btn--transfer" onClick={(e) => setAction("transfer")}>
           <Image
-            src="/../public/tx-button.png"
+            src="/../../public/tx-button.png"
             alt="Transaction Button"
             width={50}
             height={50}

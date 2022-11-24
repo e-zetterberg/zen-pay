@@ -1,9 +1,10 @@
 import React from 'react'
 
-function Settings() {
+const Settings = () => {
   return (
-    
-    <div className="settings--title">Settings</div>
+    <main className='main'>
+      <div className="settings--title">Settings</div>
+    </main>
   )
 }
 

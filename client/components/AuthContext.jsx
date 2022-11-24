@@ -7,7 +7,9 @@ import { UserContextProvider } from "./UserContext";
 const AuthContext = ({ children, session, userData }) => {
   return (
     <SessionProvider session={session}>
-      <UserContextProvider userData={userData}>{children}</UserContextProvider>
+      <UserContextProvider userData={userData}>
+        {children}
+      </UserContextProvider>
     </SessionProvider>
   );
 };

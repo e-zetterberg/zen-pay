@@ -31,7 +31,7 @@ const Wallet = async () => {
   return (
     <main className="main homepage--balance">
       <section className="balance--container">
-        <CreditCard balance={data.balance} holder={session.user.name}/>
+        <CreditCard balance={data.balance} holder={session.user.name} cardNumber={walletId}/>
         
         <TransactionForm max={data.balance} walletId={walletId}/>
         <div className="transaction-container">

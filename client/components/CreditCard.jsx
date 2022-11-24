@@ -1,14 +1,16 @@
 import React from "react";
 import "../styles/CreditCard.css";
 
-const CreditCard = ({ balance, holder }) => {
+const CreditCard = ({ balance, holder, cardNumber }) => {
+
+    const number = cardNumber.toString();
   return (
     <>
       <div className="card">
         <div className="front">
           <div className="strip-bottom"></div>
           <div className="strip-top"></div>
-          <svg className="logo" width="25" height="25" viewbox="0 0 17.5 16.2">
+          <svg className="logo" width="25" height="25" viewBox="0 0 17.5 16.2">
             <path
               d="M3.2 0l5.4 5.6L14.3 0l3.2 3v9L13 16.2V7.8l-4.4 4.1L4.5 8v8.2L0 12V3l3.2-3z"
               fill="white"
@@ -34,10 +36,10 @@ const CreditCard = ({ balance, holder }) => {
             <path d="M7.584 11.438c.227.031.438.144.594.312 2.953 2.863 4.781 6.875 4.781 11.313 0 4.433-1.828 8.449-4.781 11.312-.398.387-1.035.383-1.422-.016-.387-.398-.383-1.035.016-1.421 2.582-2.504 4.187-5.993 4.187-9.875 0-3.883-1.605-7.372-4.187-9.875-.321-.282-.426-.739-.266-1.133.164-.395.559-.641.984-.617h.094zM1.178 15.531c.121.02.238.063.344.125 2.633 1.414 4.437 4.215 4.437 7.407 0 3.195-1.797 5.996-4.437 7.406-.492.258-1.102.07-1.36-.422-.257-.492-.07-1.102.422-1.359 2.012-1.075 3.375-3.176 3.375-5.625 0-2.446-1.371-4.551-3.375-5.625-.441-.204-.676-.692-.551-1.165.122-.468.567-.785 1.051-.742h.094z"></path>
           </svg>
           <div className="card-number">
-            <div className="section">5453</div>
-            <div className="section">2000</div>
-            <div className="section">0000</div>
-            <div className="section">0000</div>
+            <div className="section">{number.substring(0,4)}</div>
+            <div className="section">{number.substring(4,8)}</div>
+            <div className="section">{number.substring(8,12)}</div>
+            <div className="section">{number.substring(12,16)}</div>
           </div>
           <div className="end">
             <span className="end-text">Valid thru:</span>

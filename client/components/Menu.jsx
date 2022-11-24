@@ -8,6 +8,7 @@ import { FiInfo } from 'react-icons/fi';
 import Link from 'next/link'
 import { useState } from 'react'
 import { TfiWallet } from "react-icons/tfi";
+import {signOut} from 'next-auth/react';
 
 
 function Menu() {
@@ -24,12 +25,12 @@ function Menu() {
             <span></span>
             <span></span>
             <ul id="menu">
-            <Link href="/wallet"><li className="menu--items" onClick={collapseMenu}><TfiWallet className="menu--icons"/> Wallet</li></Link>
-            <Link href="/details"><li className="menu--items" onClick={collapseMenu}><IoPersonCircle className="menu--icons"/> Account</li></Link>
-            <Link href="/settings"><li className="menu--items" onClick={collapseMenu}><GoSettings className="menu--icons"/> Settings</li></Link>
-            <Link href="/contact"><li className="menu--items" onClick={collapseMenu}><MdOutlineEmail className="menu--icons"/> Contact</li></Link>
-            <Link href="/about"><li className="menu--items" onClick={collapseMenu}><FiInfo className="menu--icons"/> About</li></Link>
-            <Link href="#"><li>Sign out</li></Link>
+            <Link href="../wallet"><li className="menu--items" onClick={collapseMenu}><TfiWallet className="menu--icons"/> Wallet</li></Link>
+            <Link href="../details"><li className="menu--items" onClick={collapseMenu}><IoPersonCircle className="menu--icons"/> Account</li></Link>
+            <Link href="../settings"><li className="menu--items" onClick={collapseMenu}><GoSettings className="menu--icons"/> Settings</li></Link>
+            <Link href="../contact"><li className="menu--items" onClick={collapseMenu}><MdOutlineEmail className="menu--icons"/> Contact</li></Link>
+            <Link href="../about"><li className="menu--items" onClick={collapseMenu}><FiInfo className="menu--icons"/> About</li></Link>
+            <Link href="/login" onClick={signOut}><li>Sign out</li></Link>
             </ul>
         </div>
   )

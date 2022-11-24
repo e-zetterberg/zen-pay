@@ -1,9 +1,4 @@
-.homepage--balance{
 
-    display: flex;
-    justify-content: center;
-
-}
 
 .balance--container{
   display: flex;
@@ -51,7 +46,7 @@
 }
 
 .btn--inactive{
-  opacity: 0.5;
+  opacity: 50%;
   background-color: whitesmoke;
   border: 1px solid #001e5e;
   color: #001e5e;
