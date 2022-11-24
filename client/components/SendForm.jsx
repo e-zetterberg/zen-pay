@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import React from "react";
 import "../styles/InputAmount.css";
 
-const SendForm = ({ type, walletId }) => {
+const SendForm = ({ type, walletId, max }) => {
   const router = useRouter();
   const [amount, setAmount] = useState();
   const [account, setAccount] = useState();
@@ -60,6 +60,7 @@ const SendForm = ({ type, walletId }) => {
         onChange={(e) => setAmount(e.target.value)}
         required={true}
         value={amount}
+        max={max}
         min={1}
         type="number"
         className="input-field"

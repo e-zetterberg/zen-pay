@@ -12,7 +12,7 @@ const Dashboard = async () => {
   }
 
   return (
-    <main className="dashboard--container">
+    <main className="main dashboard--container">
       <div className="dashboard--account-overview">Account overview</div>
       <div className="dashboard--card">
         <div className="dashboard--current-balance">
