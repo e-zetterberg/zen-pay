@@ -10,8 +10,8 @@ function Footer() {
     <div className="footer">
       <hr />
       <div className="footer--menu">
-        <Link href="../wallet"><div className="footer--icons--wallet"><TfiWallet /></div></Link>
         <Link href="../"><div className="footer--icons--home"><AiOutlineHome /></div></Link>
+        <Link href="../wallet"><div className="footer--icons--wallet"><TfiWallet /></div></Link>
         <Link href="../details"><div className="footer--icons--profile"><IoPersonCircle /></div></Link>
       </div>
     </div>

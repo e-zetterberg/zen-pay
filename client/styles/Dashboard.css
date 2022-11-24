@@ -1,3 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 .dashboard {
   height: 79vh;
+}
+
+.dashboard--container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Poppins;
+    margin-top: 1em;
+}
+
+.dashboard--card {
+    width: 20em;
+    height: 7em;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1em;
+
+}
+
+.dashboard--balance {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard--add-funds {
+    font-size: 3em;
+    border-width: 1px;
+    background-color: #ef3024;
+}
+
+.dashboard--amount {
+    font-size: 30px;
+}
+
+.dashboard--currency {
+    font-size: 10px;
 }
