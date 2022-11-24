@@ -7,8 +7,8 @@ function Header() {
   return (
     <header className='header'>
       <nav className='header--navbar'>
-        <Image className="header--logo" src="/logo-transparent.png" alt="Logo" width={211} height={73}></Image>
         <span className="align--span"></span>
+        <Image className="header--logo" src="/logo-transparent.png" alt="Logo" width={211} height={73}></Image>
         <Menu className="header--menu"/>
       </nav>
     </header>
