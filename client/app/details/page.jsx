@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
-import { useSession } from "next-auth/react";
 import "../../styles/details.css"
+import { IoPersonCircle } from "react-icons/io5";
+import { useUserContext } from "../../components/UserContext";
 
 const Details = () => {
 
@@ -9,11 +10,18 @@ const Details = () => {
   console.log(userData);
 
   return (
-    <main className="details">
-      <h2>{session ? session.user.name : ""}</h2>
-      <p>{session ? session.user.email : ""}</p>
-      <p>Address:</p>
-      <p>Member since: 2022-11-21</p>
+    <main className="details--container">
+      <div className="details--card">
+        <div className="details--first-section">
+          <IoPersonCircle className="details--avatar" />
+          <div className="details--name">{userData.name}</div>
+        </div>
+        <div className="details--second-section">
+          <p className="details--second-section--items">{userData.email}</p>
+          <p className="details--second-section--items">Phone: {userData.phone}</p>
+          <p className="details--second-section--items">Member since: {userData.createdOn}</p>
+        </div>
+      </div>
     </main>
   );
 };
