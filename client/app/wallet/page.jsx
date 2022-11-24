@@ -2,7 +2,7 @@ import React from "react";
 import TransactionForm from "./TransactionForm";
 import { unstable_getServerSession } from "next-auth";
 
-const Wallet = async ({ children, params }) => {
+const Wallet = async () => {
   const session = await unstable_getServerSession();
   const email = session.user.email;
   const fetchUserId = async () => {
