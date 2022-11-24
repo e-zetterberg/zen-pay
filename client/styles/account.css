@@ -33,7 +33,7 @@
   border: 1px solid transparent;
   border-radius: .75rem;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: whitesmoke;
   cursor: pointer;
   flex: 0 0 auto;
   font-size: 1.125rem;
@@ -50,8 +50,19 @@
   width: auto;
 }
 
+.btn--inactive{
+  opacity: 0.5;
+  background-color: whitesmoke;
+  border: 1px solid #001e5e;
+  color: #001e5e;
+}
+
+
+
 .btn:hover {
+  opacity: 1;
   background-color: #365aa9;
+  color: whitesmoke;
 }
 
 .btn:focus {

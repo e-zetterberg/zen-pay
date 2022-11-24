@@ -3,10 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { unstable_getServerSession } from "next-auth";
 
-export default async function AccountLayout({ children }) {
+export default async function AccountLayout({ children, params }) {
   const session = await unstable_getServerSession();
   const email = session.user.email;
-
+  const a = params
   const fetchUserId = async () => {
     const response = await fetch(`http://localhost:8080/api/users/${email}`);
     const data = await response.json();
@@ -33,24 +33,7 @@ export default async function AccountLayout({ children }) {
     <main className="main homepage--balance">
       <section className="balance--container">
         <div className="balance--display">{data.balance} kr</div>
-        <div className="balance--button-container">
-          <Link href={`${walletPath}/transfer`}>
-            <div>
-              <Image
-                src="/../public/tx-button.png"
-                alt="Transaction Button"
-                width={50}
-                height={50}
-              ></Image>
-            </div>
-          </Link>
-          <Link href={`${walletPath}/deposit`}>
-            <button className="btn btn--deposit">Deposit</button>
-          </Link>
-          <Link href={`${walletPath}/withdraw`}>
-            <button className="btn btn--withdraw">Withdraw</button>
-          </Link>
-        </div>
+
         {children}
         <div className="transaction-container">
           <h3>Transactions</h3>
