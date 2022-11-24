@@ -1,10 +1,12 @@
 .footer {
+    z-index: 9;
     display: block;
     width: 100%;
     text-align: center;
     opacity: 100%;
     position: absolute;
     bottom: 0.4em;
+    
 }
 
 .footer--menu {
