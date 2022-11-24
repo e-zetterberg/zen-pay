@@ -30,27 +30,13 @@ export default async function RootLayout({ children }) {
 
   const session = await getSession(headers().get("cookie") ?? "");
 
-  if (!session) {
-    return (
-      <html lang="en" className={poppins.className}>
-        <head />
-        <body>
-          <Header />
-          <AuthContext>
-            <Login />
-          </AuthContext>
-          <Footer />
-        </body>
-      </html>
-    );
-  }
 
   return (
     <html lang="en" className={poppins.className}>
       <head />
       <body>
         <Header />
-        <AuthContext>{children}</AuthContext>
+          <AuthContext session={session}>{children}</AuthContext>
         <Footer />
       </body>
     </html>
