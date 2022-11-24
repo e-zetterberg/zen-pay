@@ -1,11 +1,10 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { headers } from "next/headers";
-import Login from "../components/Login";
 import AuthContext from "../components/AuthContext";
 import "../styles/globals.css";
 import { Poppins } from "@next/font/google";
-import { UserContextProvider } from "../components/UserContext";
+import { unstable_getServerSession } from "next-auth";
 
 // If loading a variable font, you don't need to specify the font weight
 const poppins = Poppins({
@@ -13,25 +12,9 @@ const poppins = Poppins({
 });
 
 export default async function RootLayout({ children }) {
-  const getSession = async (cookie) => {
-    const response = await fetch(
-      `${process.env.NEXTAUTH_URL}/api/auth/session`,
-      {
-        headers: { cookie },
-      }
-    );
-    console.log(response.status);
-    if (!response?.ok) {
-      return null;
-    }
-    const session = await response.json();
-    console.log(session);
-    return Object.keys(session).length > 0 ? session : null;
-  };
-
+  const session = await unstable_getServerSession();
   const getUserData = async () => {
-    const session = await getSession(headers().get("cookie") ?? "");
-    if(session!=null){
+    if(session){
       const response = await fetch(
         `http://localhost:8080/api/users/${session.user.email}`,
         {
@@ -45,7 +28,7 @@ export default async function RootLayout({ children }) {
     }
   };
 
-  const session = await getSession(headers().get("cookie") ?? "");
+
   const userData = await getUserData();
 
 

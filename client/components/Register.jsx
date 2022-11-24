@@ -9,7 +9,7 @@ function Register() {
   const router = useRouter();
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
-    const [email, setEmail] = useState(session ? session.user.email : "")
+    const [email] = useState(session?.user.email)
     
     const handleSubmit = async (e) => {
 
@@ -27,8 +27,10 @@ function Register() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
-      })
-      router.push('/');
+      });
+      if(response.status === 200){
+        router.push('/');
+      }
     };
     return (
         

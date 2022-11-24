@@ -1,7 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { createContext, useContext } from "react";
-const UserContext = createContext("");
+export const UserContext = createContext("");
 
 export const UserContextProvider =  ({children , userData}) => {
  
@@ -9,6 +9,3 @@ export const UserContextProvider =  ({children , userData}) => {
   <UserContext.Provider value={{ userData }}>{ children}</UserContext.Provider>)
 };
 
-export function useUserContext() {
-  return useContext(UserContext);
-}

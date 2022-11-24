@@ -58,7 +58,6 @@ const InputAmount = ({ type, walletId, max }) => {
           className="input-field"
           placeholder="Amount"
         />
-
         <button className="btn btn--confirm" type="submit">
           Confirm
         </button>
