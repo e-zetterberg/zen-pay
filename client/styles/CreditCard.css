@@ -101,6 +101,11 @@
   font-size: 15px;
   font-family: 'cc font', monospace;
 }
+
+.card-balance{
+  font-size: 18px;
+}
+
 .end {
   margin-left: 25px;
   text-transform: uppercase;
