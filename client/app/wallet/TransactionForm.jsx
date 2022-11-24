@@ -21,19 +21,19 @@ const TransactionForm = ({walletId, max}) => {
           ></Image>
         </button>
       </div>
-      <button
-        onClick={(e) => setAction("deposit")}
-        className={action ==='deposit' ? 'btn': 'btn btn--inactive'}
-      >
-        Deposit
-      </button>
-      <button
-        onClick={(e) => setAction("withdraw")}
-        disabled={max === 0 ? true : false}
-        className={action ==='withdraw' ? 'btn': 'btn btn--inactive'}
-      >
-        Withdraw
-      </button>
+        <button
+          onClick={(e) => setAction("deposit")}
+          className={action ==='deposit' ? 'btn': 'btn btn--inactive'}
+        >
+          Deposit
+        </button>
+        <button
+          onClick={(e) => setAction("withdraw")}
+          disabled={max === 0 ? true : false}
+          className={action ==='withdraw' ? 'btn': 'btn btn--inactive'}
+        >
+          Withdraw
+        </button>
     </div>
 
     {action==="transfer" ? <SendForm max={max} walletId={walletId}/> : <InputAmount max={max} walletId={walletId} type={action}/>}

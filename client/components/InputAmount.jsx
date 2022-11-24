@@ -6,6 +6,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import React from "react";
 import "../styles/InputAmount.css";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 const InputAmount = ({ type, walletId, max }) => {
   const router = useRouter();
@@ -48,16 +50,21 @@ const InputAmount = ({ type, walletId, max }) => {
     <>
       <form onSubmit={(e) => handleSubmit(e)} className="input-form">
       <div>{walletId}</div>
-        <input
-          onChange={(e) => setAmount(e.target.value)}
+      <Box
+      component="form"
+      sx={{
+        '& > :not(style)': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off"
+      onChange={(e) => setAmount(e.target.value)}
           required={true}
           value={amount}
           type="number"
           max={type==='withdraw' ? max : 10000}
           min={1}
           className="input-field"
-          placeholder="Amount"
-        />
+    ><TextField id="outlined-basic" label="Amount" variant="outlined" /></Box>
 
         <button className="btn btn--confirm" type="submit">
           Confirm

@@ -29,23 +29,24 @@ const Wallet = async () => {
   const walletId = data.accountId;
 
   return (
-    <main className="main homepage--balance">
+    <main className="homepage--balance">
       <section className="balance--container">
         <CreditCard balance={data.balance} holder={session.user.name}/>
-        
-        <TransactionForm max={data.balance} walletId={walletId}/>
-        <div className="transaction-container">
-          <h3>Transactions</h3>
-          <hr />
-          <ul>
-            {data.transactions.map((tx) => (
-              <li key={tx.transactionId}>
-                <span>{tx.description} </span>
-                <span>{tx.amount}kr </span>
-                <span>{tx.timeStamp} </span>
-              </li>
-            ))}
-          </ul>
+        <div className="wallet--transactions">
+          <TransactionForm max={data.balance} walletId={walletId}/>
+          <div className="transaction-container">
+            <h3>Transactions</h3>
+            <hr />
+            <ul>
+              {data.transactions.map((tx) => (
+                <li key={tx.transactionId}>
+                  <span>{tx.description} </span>
+                  <span>{tx.amount}kr </span>
+                  <span>{tx.timeStamp} </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
     </main>
