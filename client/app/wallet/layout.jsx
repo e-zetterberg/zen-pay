@@ -6,7 +6,6 @@ import { unstable_getServerSession } from "next-auth";
 export default async function AccountLayout({ children, params }) {
   const session = await unstable_getServerSession();
   const email = session.user.email;
-  const a = params
   const fetchUserId = async () => {
     const response = await fetch(`http://localhost:8080/api/users/${email}`);
     const data = await response.json();
@@ -27,7 +26,6 @@ export default async function AccountLayout({ children, params }) {
   };
   const userId = await fetchUserId();
   const data = await fetchBalance(userId);
-  const walletPath = `/wallet/${data.accountId}`;
 
   return (
     <main className="main homepage--balance">
