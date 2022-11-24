@@ -31,5 +31,16 @@ public class UserController {
         }
     }
 
+    @GetMapping(path = "/user/{id}")
+    ResponseEntity<User> getUserWithId(@PathVariable Long id){
+        try {
+            User user = service.getUserWithId(id);
+            return ResponseEntity.ok(user);
+
+        } catch (NoSuchElementException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+    }
+
 
 }
