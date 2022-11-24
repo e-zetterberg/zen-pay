@@ -1,13 +1,10 @@
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import TransactionForm from "./TransactionForm";
 import { unstable_getServerSession } from "next-auth";
-import "../../styles/account.css";
 
-const Wallet = async () => {
+const Wallet = async ({ children, params }) => {
   const session = await unstable_getServerSession();
   const email = session.user.email;
-
   const fetchUserId = async () => {
     const response = await fetch(`http://localhost:8080/api/users/${email}`);
     const data = await response.json();
@@ -28,25 +25,14 @@ const Wallet = async () => {
   };
   const userId = await fetchUserId();
   const data = await fetchBalance(userId);
-  const walletPath = `/wallet/${data.accountId}`;
+  const walletId = data.accountId;
 
   return (
     <main className="main homepage--balance">
       <section className="balance--container">
         <div className="balance--display">{data.balance} kr</div>
-        <div className="balance--button-container">
-            <div>
-              <Image
-                src="/../public/tx-button.png"
-                alt="Transaction Button"
-                width={50}
-                height={50}
-              ></Image>
-            </div>
-            <button className="btn btn--deposit">Deposit</button>
-            <button className="btn btn--withdraw">Withdraw</button>
-        </div>
-        {children}
+
+        <TransactionForm walletId={walletId}/>
         <div className="transaction-container">
           <h3>Transactions</h3>
           <hr />
@@ -63,6 +49,5 @@ const Wallet = async () => {
       </section>
     </main>
   );
-};
-
+}
 export default Wallet;

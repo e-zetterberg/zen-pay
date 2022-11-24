@@ -59,10 +59,19 @@
 
 
 
+
 .btn:hover {
   opacity: 1;
   background-color: #365aa9;
   color: whitesmoke;
+}
+
+.btn--transfer{
+  padding: 0;
+  border: 1px solid transparent;
+  background-color: transparent;
+  display: block;
+  cursor: pointer;
 }
 
 .btn:focus {

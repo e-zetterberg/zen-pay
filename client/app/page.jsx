@@ -11,7 +11,7 @@ const Dashboard = async () => {
   }
 
   return (
-    <main className="dashboard">
+    <main className="main dashboard">
       <h1>Dashboard</h1>
     </main>
   );
