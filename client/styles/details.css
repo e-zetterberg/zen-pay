@@ -1,3 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
 .details {
     height: 79vh;
+}
+
+.details--avatar {
+    font-size: 5em;
+    color: rgb(135, 132, 132);
+}
+
+.details--container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3em;
+    font-family: Poppins;
+}
+
+.details--first-section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.details--second-section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    row-gap:0.3em;
+    margin: 0.5em;
+    font-weight: 200;
+}
+
+.details--second-section--items {
+    margin: 0.1em;
+    font-size: 14px;
+}
+
+.details--name {
+    font-size: 25px;
+}
+
+.details--card {
+    width: 20em;
+    height: 17em;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1em;
 }
