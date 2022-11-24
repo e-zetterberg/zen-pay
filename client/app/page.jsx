@@ -4,12 +4,10 @@ import { unstable_getServerSession } from "next-auth";
 
 const Dashboard = async () => {
   const session = await unstable_getServerSession();
-  console.log(session);
 
   if(!session) {
     redirect("/login");
   }
-
 
   return (
     <main className="main dashboard">
