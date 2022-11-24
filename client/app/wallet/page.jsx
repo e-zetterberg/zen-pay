@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { unstable_getServerSession } from "next-auth";
-import Image from "next/image";
 import "../../styles/account.css";
 
 const Wallet = async () => {
@@ -36,7 +35,6 @@ const Wallet = async () => {
       <section className="balance--container">
         <div className="balance--display">{data.balance} kr</div>
         <div className="balance--button-container">
-          <Link href={`${walletPath}/transfer`}>
             <div>
               <Image
                 src="/../public/tx-button.png"
@@ -45,13 +43,8 @@ const Wallet = async () => {
                 height={50}
               ></Image>
             </div>
-          </Link>
-          <Link href={`${walletPath}/deposit`}>
             <button className="btn btn--deposit">Deposit</button>
-          </Link>
-          <Link href={`${walletPath}/withdraw`}>
             <button className="btn btn--withdraw">Withdraw</button>
-          </Link>
         </div>
         {children}
         <div className="transaction-container">
