@@ -13,7 +13,7 @@ const Dashboard = async () => {
 
   return (
     <main className="main dashboard">
-      <div></div>
+      <h1>Dashboard</h1>
     </main>
   );
 };
