@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { unstable_getServerSession } from "next-auth";
@@ -9,7 +10,7 @@ export default async function AccountLayout({ children }) {
   const fetchUserId = async () => {
     const response = await fetch(`http://localhost:8080/api/users/${email}`);
     const data = await response.json();
-    console.log("userId:" + data);
+    console.log("userId:" + data.userId);
     return data.userId;
   };
 
@@ -26,13 +27,14 @@ export default async function AccountLayout({ children }) {
   };
   const userId = await fetchUserId();
   const data = await fetchBalance(userId);
+  const walletPath = `/wallet/${data.accountId}`;
 
   return (
     <main className="main homepage--balance">
       <section className="balance--container">
         <div className="balance--display">{data.balance} kr</div>
         <div className="balance--button-container">
-          <Link href="/wallet/transfer">
+          <Link href={`${walletPath}/transfer`}>
             <div>
               <Image
                 src="/../public/tx-button.png"
@@ -42,10 +44,10 @@ export default async function AccountLayout({ children }) {
               ></Image>
             </div>
           </Link>
-          <Link href="/wallet/deposit">
+          <Link href={`${walletPath}/deposit`}>
             <button className="btn btn--deposit">Deposit</button>
           </Link>
-          <Link href="/wallet/withdraw">
+          <Link href={`${walletPath}/withdraw`}>
             <button className="btn btn--withdraw">Withdraw</button>
           </Link>
         </div>
