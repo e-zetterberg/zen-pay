@@ -8,3 +8,12 @@
     
 
 }
+.form--input{
+    padding: 2em
+}
+.zen-button{
+    
+   text-align: center;
+   padding: 2em;
+    margin: 20px auto;
+}
