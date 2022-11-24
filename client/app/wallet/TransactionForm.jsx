@@ -6,7 +6,7 @@ import SendForm from "../../components/SendForm";
 import { useState } from "react";
 import "../../styles/account.css";
 
-const TransactionForm = ({walletId}) => {
+const TransactionForm = ({walletId, max}) => {
   const [action, setAction] = useState("deposit");
 
   return <>
@@ -29,13 +29,14 @@ const TransactionForm = ({walletId}) => {
       </button>
       <button
         onClick={(e) => setAction("withdraw")}
+        disabled={max === 0 ? true : false}
         className={action ==='withdraw' ? 'btn': 'btn btn--inactive'}
       >
         Withdraw
       </button>
     </div>
 
-    {action==="transfer" ? <SendForm walletId={walletId}/> : <InputAmount walletId={walletId} type={action}/>}
+    {action==="transfer" ? <SendForm max={max} walletId={walletId}/> : <InputAmount max={max} walletId={walletId} type={action}/>}
   </>;
 };
 

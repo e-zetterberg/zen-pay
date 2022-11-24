@@ -32,7 +32,7 @@ const Wallet = async () => {
       <section className="balance--container">
         <div className="balance--display">{data.balance} kr</div>
 
-        <TransactionForm walletId={walletId}/>
+        <TransactionForm max={data.balance} walletId={walletId}/>
         <div className="transaction-container">
           <h3>Transactions</h3>
           <hr />

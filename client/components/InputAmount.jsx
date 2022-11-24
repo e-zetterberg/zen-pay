@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import React from "react";
 import "../styles/InputAmount.css";
 
-const InputAmount = ({ type, walletId }) => {
+const InputAmount = ({ type, walletId, max }) => {
   const router = useRouter();
   const [amount, setAmount] = useState("");
 
@@ -53,7 +53,8 @@ const InputAmount = ({ type, walletId }) => {
           required={true}
           value={amount}
           type="number"
-        min={1}
+          max={type==='withdraw' ? max : 10000}
+          min={1}
           className="input-field"
           placeholder="Amount"
         />
