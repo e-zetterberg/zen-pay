@@ -1,6 +1,7 @@
 import React from "react";
 import TransactionForm from "./TransactionForm";
 import { unstable_getServerSession } from "next-auth";
+import CreditCard from "../../components/CreditCard";
 
 const Wallet = async () => {
   const session = await unstable_getServerSession();
@@ -30,8 +31,8 @@ const Wallet = async () => {
   return (
     <main className="main homepage--balance">
       <section className="balance--container">
-        <div className="balance--display">{data.balance} kr</div>
-
+        <CreditCard balance={data.balance} holder={session.user.name}/>
+        
         <TransactionForm max={data.balance} walletId={walletId}/>
         <div className="transaction-container">
           <h3>Transactions</h3>
