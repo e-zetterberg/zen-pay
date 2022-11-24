@@ -10,31 +10,46 @@
     align-items: center;
     flex-direction: column;
     font-family: Poppins;
-    margin-top: 1em;
+    margin-top: 1.7em;
 }
 
 .dashboard--card {
-    width: 20em;
+    width: 23em;
     height: 7em;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     margin-top: 1em;
 
 }
 
 .dashboard--balance {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    column-gap: 0.5em;
+
 }
 
 .dashboard--add-funds {
+    border-radius: 50%;
     font-size: 3em;
     border-width: 1px;
+    height: 50px;
+    width: 50px;
     background-color: #ef3024;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    line-height: 0;
+    font-size: 27px;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border: none;
 }
 
 .dashboard--amount {
@@ -42,5 +57,21 @@
 }
 
 .dashboard--currency {
-    font-size: 10px;
+    font-size: 20px;
+
+
 }
+
+.dashboard--current-balance-text {
+    font-size: 11px;
+    color: rgb(64, 64, 64);
+
+}
+
+.dashboard--current-balance {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+}
+

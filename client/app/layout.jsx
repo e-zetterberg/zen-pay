@@ -33,7 +33,10 @@ export default async function RootLayout({ children }) {
     const session = await getSession(headers().get("cookie") ?? "");
     if(session!=null){
       const response = await fetch(
-        `http://localhost:8080/api/users/${session.user.email}`
+        `http://localhost:8080/api/users/${session.user.email}`,
+        {
+          cache: "no-store",
+        }
       )
       const data = await response.json();
       return data;
@@ -53,12 +56,8 @@ export default async function RootLayout({ children }) {
        
         <Header />
           <AuthContext session={session} userData = {userData}>
-            
              {children}
-                 
-             
-            </AuthContext>
-            
+          </AuthContext>
         <Footer />
        
       </body>

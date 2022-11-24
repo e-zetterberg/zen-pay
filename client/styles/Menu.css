@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
  
  #menuToggle
@@ -127,7 +128,8 @@
  #menu li
  {
    padding: 8px 0;
-   font-size: 22px;
+   font-size: 20px;
+   font-family: Poppins;
  }
  
  /*
