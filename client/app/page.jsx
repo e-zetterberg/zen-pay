@@ -15,11 +15,14 @@ const Dashboard = async () => {
     <main className="dashboard--container">
       <div className="dashboard--account-overview">Account overview</div>
       <div className="dashboard--card">
-        <div className="dashboard--balance">
-          <div className="dashboard--amount">204</div>
-          <div className="dashboard--currency">EUR - Euro</div>
+        <div className="dashboard--current-balance">
+          <div className="dashboard--current-balance-text">Current balance</div>
+          <div className="dashboard--balance">
+            <div className="dashboard--amount">204</div>
+            <div className="dashboard--currency">€</div>
+          </div>
         </div>
-        <MdOutlineAddCircleOutline className="dashboard--add-funds"/>
+        <button className="dashboard--add-funds">+</button>
       </div>
     </main>
   );

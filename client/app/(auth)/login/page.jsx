@@ -9,6 +9,7 @@ const Login = () => {
   const { data: session } = useSession();
   const {userData} = useUserContext();
   console.log(userData);
+  console.log(session);
   return (
     <main className="main login">
       <div></div>
