@@ -39,9 +39,6 @@ function SendForm({ type, walletId, max }) {
     );
     setAmount('');
     router.refresh();
-    if (response.status !== 201) {
-
-    }
   };
 
   return (

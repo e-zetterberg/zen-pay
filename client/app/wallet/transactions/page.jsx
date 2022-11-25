@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import '../../../styles/transactionspage.css';
 import { unstable_getServerSession } from 'next-auth';
 import React from 'react';

@@ -23,36 +23,36 @@ function Menu() {
       <span />
       <span />
       <ul id="menu">
-        <Link href="/wallet">
-          <li className="menu--items" onClick={collapseMenu}>
+        <Link href="/wallet" onClick={collapseMenu}>
+          <li className="menu--items">
             <TfiWallet className="menu--icons" />
             {' '}
             Wallet
           </li>
         </Link>
-        <Link href="/details">
-          <li className="menu--items" onClick={collapseMenu}>
+        <Link href="/details" onClick={collapseMenu}>
+          <li className="menu--items">
             <IoPersonCircle className="menu--icons" />
             {' '}
             Account
           </li>
         </Link>
-        <Link href="/settings">
-          <li className="menu--items" onClick={collapseMenu}>
+        <Link href="/settings" onClick={collapseMenu}>
+          <li className="menu--items">
             <GoSettings className="menu--icons" />
             {' '}
             Settings
           </li>
         </Link>
-        <Link href="/contact">
-          <li className="menu--items" onClick={collapseMenu}>
+        <Link href="/contact" onClick={collapseMenu}>
+          <li className="menu--items">
             <MdOutlineEmail className="menu--icons" />
             {' '}
             Contact
           </li>
         </Link>
-        <Link href="/about">
-          <li className="menu--items" onClick={collapseMenu}>
+        <Link href="/about" onClick={collapseMenu}>
+          <li className="menu--items">
             <FiInfo className="menu--icons" />
             {' '}
             About

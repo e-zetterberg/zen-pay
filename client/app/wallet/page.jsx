@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import { unstable_getServerSession } from 'next-auth';
 import Link from 'next/link';

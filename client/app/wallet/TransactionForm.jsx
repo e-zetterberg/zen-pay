@@ -7,7 +7,6 @@ import SendForm from '../../components/SendForm';
 import '../../styles/account.css';
 
 function TransactionForm({ walletId, max }) {
-  
   const [action, setAction] = useState('deposit');
 
   return (

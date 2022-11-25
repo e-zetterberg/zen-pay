@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { Poppins } from '@next/font/google';
 import { unstable_getServerSession } from 'next-auth';
 import React from 'react';
