@@ -47,7 +47,7 @@ const CreditCard = ({ balance, holder, cardNumber }) => {
           </div>
           <div className="card-holder">{holder}</div>
           <div className="master">
-            <div className="card-balance">{balance} kr</div>
+            <div className="card-balance">{balance} €</div>
           </div>
         </div>
       </div>
