@@ -12,8 +12,6 @@ const Login = ( props ) => {
   const router = useRouter();
   const { data: session } = useSession();
   const {userData, clearUserData} = useUserContext();
-  console.log(userData);
-  console.log(session);
 
   const handleClick = (e)=>{
     e.preventDefault();
