@@ -4,7 +4,6 @@ import Link from 'next/link';
 import TransactionForm from './TransactionForm';
 import CreditCard from '../../components/CreditCard';
 import '../../styles/transactions.css';
-import { useUserContext } from '../../components/UserContext';
 
 const Wallet = async () => {
   const session = await unstable_getServerSession();
@@ -14,8 +13,6 @@ const Wallet = async () => {
     const data = await response.json();
     return data.userId;
   };
-  const userData = useUserContext();
-  console.log(userData.userId);
 
   const fetchBalance = async (userId) => {
     const response = await fetch(
