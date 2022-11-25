@@ -19,4 +19,7 @@ public class UserRepository {
     }
 
 
+    public User updateUserInfo(User user) {
+        return userRepo.save(user);
+    }
 }
