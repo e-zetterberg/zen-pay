@@ -1,0 +1,38 @@
+
+.transactions--header-container{
+    width: 100%;
+  }
+
+  .transactions--header{
+    margin: 20px auto;
+    text-align: center;
+    display: block;
+  }
+  
+  .transaction-container{
+    border: 1px solid lightgray;
+    padding: 5px;
+    width: 90%;
+    border-radius: 5px;
+    overflow-y: scroll;
+    height: fit-content;
+    max-height: 80vh;
+  }
+  
+  .transaction-list{
+    list-style: none;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  
+  .tx-description{
+    align-self: flex-end;
+    text-align: end;
+    margin-left: 44px;
+  }
+  
+  .amount-description{
+    display: flex;
+    justify-content: space-between;
+  }
+  

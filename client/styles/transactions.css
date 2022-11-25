@@ -1,0 +1,40 @@
+
+.transactions--header-container{
+    width: 100%;
+  }
+  .transactions--header{
+    display: block;
+    margin: 0;
+  }
+  
+  .transaction-container{
+    border: 1px solid lightgray;
+    padding: 5px;
+    border-radius: 5px;
+    overflow-y: scroll;
+    height: fit-content;
+    max-height: 21vh;
+  }
+  
+  .transaction-list{
+    list-style: none;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  
+  .tx-description{
+    align-self: flex-end;
+    text-align: end;
+    margin-left: 44px;
+  }
+  
+  .amount-description{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  a{
+    text-decoration: none;
+    color: black;
+  }
+  
