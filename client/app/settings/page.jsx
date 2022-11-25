@@ -1,14 +1,13 @@
-import React from 'react'
+import React from "react";
 
 const Settings = () => {
   return (
-    <div className="settings--container">
+    <main className="main">
+      <div className="settings--container">
         <div className="settings--title">Settings</div>
-        
-<main className='main'>
       </div>
     </main>
-  )
-}
+  );
+};
 
-export default Settings
+export default Settings;

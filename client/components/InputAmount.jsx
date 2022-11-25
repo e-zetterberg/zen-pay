@@ -49,7 +49,8 @@ const InputAmount = ({ type, walletId, max }) => {
   return (
     <>
       <form onSubmit={(e) => handleSubmit(e)} className="input-form">
-        <input
+        <TextField
+                variant="outlined"
           onChange={(e) => setAmount(e.target.value)}
           required={true}
           value={amount}

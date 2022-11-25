@@ -11,16 +11,6 @@ const TransactionForm = ({walletId, max}) => {
 
   return <>
     <div className="balance--button-container">
-      <div>
-        <button className="btn--transfer" onClick={(e) => setAction("transfer")}>
-          <Image
-            src="/../public/tx-button.png"
-            alt="Transaction Button"
-            width={50}
-            height={50}
-          ></Image>
-        </button>
-      </div>
         <button
           onClick={(e) => setAction("deposit")}
           className={action ==='deposit' ? 'btn': 'btn btn--inactive'}
@@ -34,6 +24,16 @@ const TransactionForm = ({walletId, max}) => {
         >
           Withdraw
         </button>
+      <div>
+        <button className="btn--transfer" onClick={(e) => setAction("transfer")}>
+          <Image
+            src="/../public/tx-button.png"
+            alt="Transaction Button"
+            width={50}
+            height={50}
+          ></Image>
+        </button>
+      </div>
     </div>
 
     {action==="transfer" ? <SendForm max={max} walletId={walletId}/> : <InputAmount max={max} walletId={walletId} type={action}/>}

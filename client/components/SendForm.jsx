@@ -49,7 +49,8 @@ const SendForm = ({ type, walletId, max }) => {
   return (
     <>
       <form onSubmit={(e) => handleSubmit(e)} className="input-form">
-        <input
+        <TextField
+                variant="outlined"
           onChange={(e) => setAccount(e.target.value)}
           required={true}
           value={account}
@@ -59,7 +60,8 @@ const SendForm = ({ type, walletId, max }) => {
           className="input-field"
           placeholder="Destination Account Number"
         />
-        <input
+        <TextField
+        variant="outlined"
           onChange={(e) => setAmount(e.target.value)}
           required={true}
           value={amount}

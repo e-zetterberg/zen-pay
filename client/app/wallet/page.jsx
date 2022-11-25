@@ -29,7 +29,7 @@ const Wallet = async () => {
   const walletId = data.accountId;
 
   return (
-    <main className="homepage--balance">
+    <main className="main homepage--balance">
       <section className="balance--container">
         <CreditCard balance={data.balance} holder={session.user.name} cardNumber={walletId}/>
         
