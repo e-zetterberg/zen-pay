@@ -1,20 +1,21 @@
-"use client";
-import React, { useState } from "react";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import "../styles/Register.css";
-import { Button, TextField } from "@mui/material";
-import { Stack } from "@mui/system";
+'use client';
 
-const Register = () => {
+import React, { useState } from 'react';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import '../styles/Register.css';
+import { Button, TextField } from '@mui/material';
+import { Stack } from '@mui/system';
+
+function Register() {
   const { data: session } = useSession();
   const router = useRouter();
 
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email] = useState(session?.user.email);
-  const [zenName, setZenName] = useState("");
-  const [address, setAddress] = useState("");
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState(session?.user.email);
+  const [zenName, setZenName] = useState('');
+  const [address, setAddress] = useState('');
 
   const onNameChange = (e) => setName(e.target.value);
   const onPhoneChange = (e) => setPhone(e.target.value);
@@ -24,37 +25,37 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
-      name: name,
-      phone: phone,
-      email: email,
-      zenName: zenName,
-      address: address,
+      name,
+      phone,
+      email,
+      zenName,
+      address,
       createdOn: new Date().toUTCString(),
     };
     console.log(data);
-    const response = await fetch("http://localhost:8080/api/accounts", {
-      method: "POST",
+    const response = await fetch('http://localhost:8080/api/accounts', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
-      if(response.status === 200){;
-      router.push("/");
-      }
+    if (response.status === 200) {
+      router.push('/');
+    }
   };
   return (
     <main className="main">
       <div className="form--input">
         <Stack spacing={4}>
-        <TextField
+          <TextField
             label="Zen Name"
             size="small"
             variant="standard"
             value={zenName}
             onChange={onZenNameChange}
             required
-          ></TextField>
+          />
           <TextField
             label="Name"
             size="small"
@@ -62,7 +63,7 @@ const Register = () => {
             value={name}
             onChange={onNameChange}
             required
-          ></TextField>
+          />
           <TextField
             label="Phone"
             size="small"
@@ -71,7 +72,7 @@ const Register = () => {
             onChange={onPhoneChange}
             variant="standard"
             required
-          ></TextField>
+          />
           <TextField
             label="Email"
             size="small"
@@ -80,14 +81,14 @@ const Register = () => {
             onChange={onEmailChange}
             InputProps={{ readOnly: true }}
             variant="standard"
-          ></TextField>
+          />
           <TextField
             label="Address"
             size="small"
             value={address}
             onChange={onAddressChange}
             variant="standard"
-          ></TextField>
+          />
         </Stack>
         <div className="zen-button">
           <Button variant="contained" onClick={(e) => handleSubmit(e)}>
@@ -97,6 +98,6 @@ const Register = () => {
       </div>
     </main>
   );
-};
+}
 
 export default Register;

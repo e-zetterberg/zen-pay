@@ -1,14 +1,15 @@
-"use client";
+'use client';
 
-import { SessionProvider } from "next-auth/react";
-import React from "react";
-import { UserContextProvider } from "./UserContext";
+import { SessionProvider } from 'next-auth/react';
+import React from 'react';
+import { UserContextProvider } from './UserContext';
 
-
-const AuthContext = ({ children, session, userInfo}) => {
-  return <SessionProvider session={session}>
-  <UserContextProvider userInfo= {userInfo}>{children}</UserContextProvider>
-  </SessionProvider>;
-};
+function AuthContext({ children, session, userInfo }) {
+  return (
+    <SessionProvider session={session}>
+      <UserContextProvider userInfo={userInfo}>{children}</UserContextProvider>
+    </SessionProvider>
+  );
+}
 
 export default AuthContext;

@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const Settings = () => {
+function Settings() {
   return (
     <main className="main">
       <div className="settings--container">
@@ -8,6 +8,6 @@ const Settings = () => {
       </div>
     </main>
   );
-};
+}
 
 export default Settings;

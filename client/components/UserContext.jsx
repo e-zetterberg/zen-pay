@@ -1,18 +1,21 @@
-"use client";
-import React, { useContext, useState } from "react";
-import { createContext} from "react";
-export const UserContext = createContext("");
+'use client';
 
-export const UserContextProvider =  ({children , userInfo}) => {
+import React, { useContext, useState, createContext } from 'react';
 
-  const [userData ,setUserData] = useState(userInfo);
+export const UserContext = createContext('');
 
-  const clearUserData = () =>{
+export function UserContextProvider({ children, userInfo }) {
+  const [userData, setUserData] = useState(userInfo);
+
+  const clearUserData = () => {
     setUserData(null);
-  }
-  return(
-  <UserContext.Provider value={{ userData, clearUserData }}>{ children}</UserContext.Provider>)
-};
+  };
+  return (
+    <UserContext.Provider value={{ userData, clearUserData }}>
+      {children}
+    </UserContext.Provider>
+  );
+}
 
 export function useUserContext() {
   return useContext(UserContext);

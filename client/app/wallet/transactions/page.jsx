@@ -1,9 +1,10 @@
-import "../../../styles/transactionspage.css"
-import { unstable_getServerSession } from "next-auth";
+import '../../../styles/transactionspage.css';
+import { unstable_getServerSession } from 'next-auth';
+import React from 'react';
 
 const Transactions = async () => {
-    const session = await unstable_getServerSession();
-  const email = session.user.email;
+  const session = await unstable_getServerSession();
+  const { email } = session.user;
   const fetchUserId = async () => {
     const response = await fetch(`http://localhost:8080/api/users/${email}`);
     const data = await response.json();
@@ -14,8 +15,8 @@ const Transactions = async () => {
     const response = await fetch(
       `http://localhost:8080/api/accounts/${userId}`,
       {
-        cache: "no-store",
-      }
+        cache: 'no-store',
+      },
     );
     const data = await response.json();
 
@@ -33,9 +34,19 @@ const Transactions = async () => {
         <ul className="transaction-list">
           {data.transactions.map((tx) => (
             <li key={tx.transactionId}>
-              <span>{tx.amount}€ </span>
-              <span className="tx-description">{tx.description} </span>
-              <div>{tx.timeStamp} </div>
+              <span>
+                {tx.amount}
+                €
+                {' '}
+              </span>
+              <span className="tx-description">
+                {tx.description}
+                {' '}
+              </span>
+              <div>
+                {tx.timeStamp}
+                {' '}
+              </div>
               <hr />
             </li>
           ))}

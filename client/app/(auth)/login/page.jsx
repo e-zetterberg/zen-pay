@@ -1,48 +1,48 @@
-"use client";
-import React from "react";
-import { signIn, signOut, useSession } from "next-auth/react";
-import Register from "../../../components/Register";
-import { useRouter } from "next/navigation";
-import { useUserContext } from "../../../components/UserContext";
-import Details from "../../details/page";
-import "../../../styles/login.css";
-import Footer from "../../../components/Footer"
+'use client';
 
-const Login = ( props ) => {
+import React from 'react';
+import { signIn, signOut, useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import Register from '../../../components/Register';
+import { useUserContext } from '../../../components/UserContext';
+import Details from '../../details/page';
+import '../../../styles/login.css';
+import Footer from '../../../components/Footer';
+
+function Login() {
   const router = useRouter();
   const { data: session } = useSession();
-  const {userData, clearUserData} = useUserContext();
+  const { userData, clearUserData } = useUserContext();
 
-  const handleClick = (e)=>{
+  const handleClick = (e) => {
     e.preventDefault();
     clearUserData();
-    signOut
-  }
+    signOut();
+  };
 
-  const showFooter = router.pathname === "/login" ? false : true;
+  const showFooter = router.pathname !== '/login';
 
   return (
     <main className="main login">
-        
-        {session?
-          userData.status !== 404? <Details/> : <Register />
-          : "Hello user, please sign in"
-        }
- 
+
+      {session
+        ? userData.status !== 404 ? <Details /> : <Register />
+        : 'Hello user, please sign in'}
+
       {!session ? (
-        <div className="google-btn" onClick={signIn}>
+        <div className="google-btn" onClick={() => signIn('google')}>
           <div className="google-icon-wrapper">
-            <img className="google-icon" src="https://developers.google.com/static/identity/images/btn_google_signin_dark_normal_web.png"/>
+            <img className="google-icon" src="https://developers.google.com/static/identity/images/btn_google_signin_dark_normal_web.png" />
           </div>
-            <p className="btn-text"><b></b></p>
+          <p className="btn-text"><b /></p>
         </div>
-        
+
       ) : (
-        <button onClick={(e)=> handleClick(e)}>Sign Out</button>
+        <button type="button" onClick={(e) => handleClick(e)}>Sign Out</button>
       )}
       {showFooter && <Footer />}
     </main>
   );
-};
+}
 
 export default Login;

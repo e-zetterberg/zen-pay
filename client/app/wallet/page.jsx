@@ -1,13 +1,13 @@
-import React from "react";
-import TransactionForm from "./TransactionForm";
-import { unstable_getServerSession } from "next-auth";
-import CreditCard from "../../components/CreditCard";
-import Link from "next/link";
-import "../../styles/transactions.css";
+import React from 'react';
+import { unstable_getServerSession } from 'next-auth';
+import Link from 'next/link';
+import TransactionForm from './TransactionForm';
+import CreditCard from '../../components/CreditCard';
+import '../../styles/transactions.css';
 
 const Wallet = async () => {
   const session = await unstable_getServerSession();
-  const email = session.user.email;
+  const { email } = session.user;
   const fetchUserId = async () => {
     const response = await fetch(`http://localhost:8080/api/users/${email}`);
     const data = await response.json();
@@ -18,8 +18,8 @@ const Wallet = async () => {
     const response = await fetch(
       `http://localhost:8080/api/accounts/${userId}`,
       {
-        cache: "no-store",
-      }
+        cache: 'no-store',
+      },
     );
     const data = await response.json();
 
@@ -40,7 +40,7 @@ const Wallet = async () => {
 
         <TransactionForm max={data.balance} walletId={walletId} />
         <div className="transactions--header-container">
-          <Link href={"/wallet/transactions"}>
+          <Link href="/wallet/transactions">
             <h3 className="transactions--header">Transactions</h3>
           </Link>
           <hr />
@@ -49,9 +49,19 @@ const Wallet = async () => {
           <ul className="transaction-list">
             {data.transactions.map((tx) => (
               <li key={tx.transactionId}>
-                <span>{tx.amount}€ </span>
-                <span className="tx-description">{tx.description} </span>
-                <div>{tx.timeStamp} </div>
+                <span>
+                  {tx.amount}
+                  €
+                  {' '}
+                </span>
+                <span className="tx-description">
+                  {tx.description}
+                  {' '}
+                </span>
+                <div>
+                  {tx.timeStamp}
+                  {' '}
+                </div>
                 <hr />
               </li>
             ))}

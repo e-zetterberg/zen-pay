@@ -1,47 +1,46 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import React from "react";
-import "../styles/InputAmount.css";
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import '../styles/InputAmount.css';
 import TextField from '@mui/material/TextField';
 
-const SendForm = ({ type, walletId, max }) => {
+function SendForm({ type, walletId, max }) {
   const router = useRouter();
-  const [amount, setAmount] = useState("");
-  const [account, setAccount] = useState("");
+  const [amount, setAmount] = useState('');
+  const [account, setAccount] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(amount);
     const transaction = {
       description: type,
-      amount: amount,
+      amount,
       timeStamp: new Date().toUTCString(),
     };
     const response = await toast.promise(
       fetch(
         `http://localhost:8080/api/accounts/transfer/${walletId}/${account}`,
         {
-          method: "PATCH",
+          method: 'PATCH',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify(transaction),
-        }
+        },
       ),
       {
-        pending: "Processing",
+        pending: 'Processing',
         success: `Successful sent ${amount} kr  to ${account} 👌`,
-        error: "Promise rejected 🤯",
-      }
+        error: 'Promise rejected 🤯',
+      },
     );
-    setAmount("");
+    setAmount('');
     router.refresh();
     if (response.status !== 201) {
-      return;
+
     }
   };
 
@@ -49,9 +48,9 @@ const SendForm = ({ type, walletId, max }) => {
     <>
       <form onSubmit={(e) => handleSubmit(e)} className="input-form">
         <TextField
-                variant="outlined"
+          variant="outlined"
           onChange={(e) => setAccount(e.target.value)}
-          required={true}
+          required
           value={account}
           minLength={16}
           maxLength={16}
@@ -60,9 +59,9 @@ const SendForm = ({ type, walletId, max }) => {
           placeholder="Destination Account Number"
         />
         <TextField
-        variant="outlined"
+          variant="outlined"
           onChange={(e) => setAmount(e.target.value)}
-          required={true}
+          required
           value={amount}
           max={max}
           min={1}
@@ -78,6 +77,6 @@ const SendForm = ({ type, walletId, max }) => {
       <ToastContainer />
     </>
   );
-};
+}
 
 export default SendForm;
