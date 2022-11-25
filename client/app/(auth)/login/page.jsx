@@ -16,7 +16,7 @@ const Login = () => {
     <main className="main login">
         
         {session?
-          userData? <Details/> : <Register />
+          userData.status !== 404? <Details/> : <Register />
           : "Hello user, please sign in"
         }
  

@@ -15,13 +15,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private long userId;
-
-
     private String name;
-
+    private String zenName;
     private String email;
     private String phone;
 
+    @Column(columnDefinition="TEXT", length = 300)
+    private String address;
     private String createdOn;
 
     @OneToOne(mappedBy = "user" ,cascade = CascadeType.ALL)
@@ -75,5 +75,21 @@ public class User {
 
     public void setCreatedOn(String createdOn) {
         this.createdOn = createdOn;
+    }
+
+    public String getZenName() {
+        return zenName;
+    }
+
+    public void setZenName(String zenName) {
+        this.zenName = zenName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

@@ -42,5 +42,16 @@ public class UserController {
         }
     }
 
+    @PatchMapping
+    ResponseEntity<User> updateUserInfo(@RequestBody User user){
+        try {
+            User updatedUser = service.updateUserInfo(user);
+            return ResponseEntity.ok(updatedUser);
+
+        } catch (NoSuchElementException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+    }
+
 
 }

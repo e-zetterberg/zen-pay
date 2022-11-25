@@ -13,16 +13,22 @@ const Register = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email] = useState(session?.user.email);
+  const [zenName, setZenName] = useState("");
+  const [address, setAddress] = useState("");
 
   const onNameChange = (e) => setName(e.target.value);
   const onPhoneChange = (e) => setPhone(e.target.value);
   const onEmailChange = (e) => setEmail(e.target.value);
+  const onZenNameChange = (e) => setZenName(e.target.value);
+  const onAddressChange = (e) => setAddress(e.target.value);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
       name: name,
       phone: phone,
       email: email,
+      zenName: zenName,
+      address: address,
       createdOn: new Date().toUTCString(),
     };
     console.log(data);
@@ -41,6 +47,14 @@ const Register = () => {
     <main className="main">
       <div className="form--input">
         <Stack spacing={4}>
+        <TextField
+            label="Zen Name"
+            size="small"
+            variant="standard"
+            value={zenName}
+            onChange={onZenNameChange}
+            required
+          ></TextField>
           <TextField
             label="Name"
             size="small"
@@ -65,6 +79,13 @@ const Register = () => {
             value={email}
             onChange={onEmailChange}
             InputProps={{ readOnly: true }}
+            variant="standard"
+          ></TextField>
+          <TextField
+            label="Address"
+            size="small"
+            value={address}
+            onChange={onAddressChange}
             variant="standard"
           ></TextField>
         </Stack>
