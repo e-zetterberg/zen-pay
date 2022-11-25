@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+.contact--title {
+    font-weight: 400;
+    font-size: 19px;
+}
+
+.contact--contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 2em;
+    height: 40em;
+}
+
+.contact--container {
+
+}
