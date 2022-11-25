@@ -12,6 +12,7 @@
     padding: 5px;
     border-radius: 5px;
     overflow-y: scroll;
+    width: 100%;
     height: fit-content;
     max-height: 21vh;
   }

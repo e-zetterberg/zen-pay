@@ -6,6 +6,9 @@ import Link from "next/link";
 
 const Dashboard = async () => {
   const session = await unstable_getServerSession();
+  if(!session) {
+    redirect("/login");
+  }
   const email = session.user.email;
   const fetchUserId = async () => {
     const response = await fetch(`http://localhost:8080/api/users/${email}`);
@@ -27,9 +30,6 @@ const Dashboard = async () => {
   const userId = await fetchUserId();
   const data = await fetchBalance(userId);
 
-  if(!session) {
-    redirect("/login");
-  }
 
   return (
     <main className="main dashboard--container">
