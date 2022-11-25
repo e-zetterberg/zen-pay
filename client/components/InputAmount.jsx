@@ -20,25 +20,24 @@ function InputAmount({ type, walletId, max }) {
       amount: type === 'deposit' ? amount : -amount,
       timeStamp: toDateString(new Date()),
     };
-    const response = await toast.promise(
-      fetch(
-        `http://localhost:8080/api/accounts/${walletId}/transaction`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(transaction),
-        },
-      ),
+    const message = toast.loading('Processing transaction');
+    const response = await fetch(
+      `http://localhost:8080/api/accounts/${walletId}/transaction`,
       {
-        pending: 'Processing',
-        success: `Successful ${type} ${amount} kr 👌`,
-        error: 'Promise rejected 🤯',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(transaction),
       },
     );
     setAmount('');
-    router.refresh();
+    if (response.ok) {
+      toast.update(message, { render: `${type === 'deposit' ? 'Deposited ' : 'Withdrew '} ${amount}€`, type: 'success', isLoading: false });
+      router.refresh();
+      return;
+    }
+    toast.update(message, { render: 'Something went wrong', type: 'error', isLoading: false });
   };
 
   return (

@@ -20,7 +20,7 @@ function SendForm({ type, walletId, max }) {
       amount,
       timeStamp: new Date().toUTCString(),
     };
-    const message = toast.loading('Processing');
+    const message = toast.loading('Processing transaction');
     const response = await (
       fetch(
         `http://localhost:8080/api/accounts/transfer/${walletId}/${account}`,
@@ -34,11 +34,12 @@ function SendForm({ type, walletId, max }) {
       ));
     setAmount('');
     if (response.ok) {
-      toast.update(message, { render: 'Tranfer successful', type: 'success', isLoading: false });
+      toast.update(message, { render: `Tranferred ${amount} to ${account}`, type: 'success', isLoading: false });
       router.refresh();
       return;
     }
     toast.update(message, { render: 'Something went wrong', type: 'error', isLoading: false });
+    setAccount('');
   };
 
   return (
