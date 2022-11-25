@@ -13,13 +13,12 @@ function Register() {
 
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState(session?.user.email);
+  const [email] = useState(session?.user.email);
   const [zenName, setZenName] = useState('');
   const [address, setAddress] = useState('');
 
   const onNameChange = (e) => setName(e.target.value);
   const onPhoneChange = (e) => setPhone(e.target.value);
-  const onEmailChange = (e) => setEmail(e.target.value);
   const onZenNameChange = (e) => setZenName(e.target.value);
   const onAddressChange = (e) => setAddress(e.target.value);
   const handleSubmit = async (e) => {
@@ -78,7 +77,6 @@ function Register() {
             size="small"
             type="email"
             value={email}
-            onChange={onEmailChange}
             InputProps={{ readOnly: true }}
             variant="standard"
           />

@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import '../../../styles/transactionspage.css';
 import { unstable_getServerSession } from 'next-auth';
-import React from 'react';
+import React, { Suspense } from 'react';
 
 const Transactions = async () => {
   const session = await unstable_getServerSession();
@@ -33,24 +33,24 @@ const Transactions = async () => {
       </div>
       <div className="transaction-container">
         <ul className="transaction-list">
-          {data.transactions.map((tx) => (
-            <li key={tx.transactionId}>
-              <span>
-                {tx.amount}
-                €
-                {' '}
-              </span>
-              <span className="tx-description">
-                {tx.description}
-                {' '}
-              </span>
-              <div>
-                {tx.timeStamp}
-                {' '}
-              </div>
-              <hr />
-            </li>
-          ))}
+          <Suspense fallback={<p>Loading transactions</p>}>
+
+            {data.transactions.map((tx) => (
+              <li key={tx.transactionId}>
+                <span>
+                  {tx.amount}
+                  €
+                </span>
+                <span className="tx-description">
+                  {tx.description}
+                </span>
+                <div>
+                  {tx.timeStamp}
+                </div>
+                <hr />
+              </li>
+            ))}
+          </Suspense>
         </ul>
       </div>
     </main>

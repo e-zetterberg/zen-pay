@@ -7,7 +7,6 @@ function AuthContext({ children }) {
   return (
     <SessionProvider>
       {children}
-
     </SessionProvider>
   );
 }

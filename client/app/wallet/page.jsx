@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import React from 'react';
+import React, { Suspense } from 'react';
 import { unstable_getServerSession } from 'next-auth';
 import Link from 'next/link';
 import TransactionForm from './TransactionForm';
@@ -33,11 +33,14 @@ const Wallet = async () => {
   return (
     <main className="main homepage--balance">
       <section className="balance--container">
-        <CreditCard
-          balance={data.balance}
-          holder={session.user.name}
-          cardNumber={walletId}
-        />
+        <Suspense fallback={<CreditCard balance="loading" holder="James Bond" cardNumber="000000000000" />}>
+
+          <CreditCard
+            balance={data.balance}
+            holder={session.user.name}
+            cardNumber={walletId}
+          />
+        </Suspense>
 
         <TransactionForm max={data.balance} walletId={walletId} />
         <div className="transactions--header-container">
