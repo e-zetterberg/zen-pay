@@ -1,16 +1,15 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import "../../styles/details.css";
 import { IoPersonCircle } from "react-icons/io5";
-import { useContext } from "react";
-import { UserContext } from "../../components/UserContext";
+import { useUserContext } from "../../components/UserContext";
 import { AiOutlineEdit } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 
 
 
 const Details = () => {
-  const { userData } = useContext(UserContext);
+  const { userData } = useUserContext();
   console.log(userData);
   const router = useRouter();
 
@@ -18,6 +17,7 @@ const Details = () => {
     e.preventDefault();
     router.push("/editUserDetails");
   }
+
 
   return (
     <main className="main">
