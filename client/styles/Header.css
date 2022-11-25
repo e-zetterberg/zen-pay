@@ -17,3 +17,7 @@
 .header--logo {
     align-self: center;
 }
+
+.align--span {
+    width: 16%;
+}
