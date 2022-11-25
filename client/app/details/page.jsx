@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import "../../styles/details.css";
 import { IoPersonCircle } from "react-icons/io5";
 import { useUserContext } from "../../components/UserContext";
