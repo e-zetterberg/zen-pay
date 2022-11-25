@@ -1,37 +1,66 @@
 "use client";
 import { Button, TextField } from "@mui/material";
 import { Stack } from "@mui/system";
-import React from "react";
+import React, { useState } from "react";
+import { useSession } from "next-auth/react"
+import { useRouter } from "next/navigation";
 import "../../../styles/Register.css"
 
 const Register = () => {
-  const handleClick = async (e) => {
+  const { data: session } = useSession();
+  const router = useRouter();
+  
+  const [name, setName] = useState('')
+    const [phone, setPhone] = useState('')
+    const [email, setEmail] = useState(session ? session.user.email : "")
+    
+    
+  const onNameChange = (e) => setName(e.target.value);
+  const onPhoneChange = (e) => setPhone(e.target.value);
+  const onEmailChange = (e) => setEmail(e.target.value);
+  const handleSubmit = async (e) => {
+
     e.preventDefault();
+    const data = {
+      name: name,
+      phone: phone,
+      email: email, 
+      createdOn: new Date()
+    }
+    console.log(data)
     const response = await fetch("http://localhost:8080/api/accounts", {
       method: "POST",
-    });
-    console.log(response.status);
-    if (response.status !== 201) {
-      return;
-    }
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    router.push('/');
   };
 
   return (
     <main className="main">
       <div className="form--input">
+     
+             
         <Stack spacing={4}>
        
             <TextField
               label="Name"
               size="small"
               variant="standard"
-              required>
+              value={name}
+              onChange={onNameChange}
+              required
+              >
 
             </TextField>
             <TextField
               label="Phone"
               size="small"
               type="tel"
+              value={phone}
+              onChange={onPhoneChange}
               variant="standard"
               required>
             </TextField>
@@ -39,17 +68,19 @@ const Register = () => {
               label="Email"
               size="small"
               type="email"
+              value={email}
+              onChange={onEmailChange}
               InputProps={{readOnly: true}}
               variant="standard">
             </TextField>
          
         </Stack>
-        <Stack spacing={4}>
-          <Button variant="contained">
+        <div className="zen-button">
+          <Button variant="contained" onClick={(e)=> handleSubmit(e)}>
               Create Zen Account
           </Button>
-        </Stack>
-        {/* <button onClick={handleClick}>Create wallet</button> */}
+        </div>
+      
       </div>
     </main>
   );
