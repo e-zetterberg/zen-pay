@@ -23,11 +23,17 @@ const Login = () => {
         
         {session?
           userData? <Details/> : <Register />
-          : "Hello user, please sign in"
+          : ""
         }
  
       {!session ? (
-        <button onClick={signIn}>Sign In</button>
+        <div class="main google-btn" onClick={signIn}>
+          <div class="google-icon-wrapper">
+            <img class="google-icon" src="https://developers.google.com/static/identity/images/btn_google_signin_dark_normal_web.png"/>
+          </div>
+            <p class="btn-text"><b></b></p>
+        </div>
+        
       ) : (
         <button onClick={(e)=> handleClick(e)}>Sign Out</button>
       )}
