@@ -2,9 +2,8 @@
 import React from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Register from "../../../components/Register";
-import { useContext } from "react";
 import { useRouter } from "next/navigation";
-import { UserContext } from "../../../components/UserContext";
+import { useUserContext } from "../../../components/UserContext";
 import Details from "../../details/page";
 
 const Login = () => {
