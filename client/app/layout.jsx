@@ -13,7 +13,7 @@ const poppins = Poppins({
 export default async function RootLayout({ children }) {
   const session = await unstable_getServerSession();
   const getUserData = async () => {
-    if(session){
+    if(session!=null){
       const response = await fetch(
         `http://localhost:8080/api/users/${session.user.email}`,
         {
@@ -28,7 +28,7 @@ export default async function RootLayout({ children }) {
   };
 
 
-  const userData = await getUserData();
+  const userInfo = await getUserData();
 
 
   return (
@@ -37,7 +37,7 @@ export default async function RootLayout({ children }) {
       <body>
        
         <Header />
-          <AuthContext session={session} userData = {userData}>
+          <AuthContext session={session} userInfo = {userInfo}>
              {children}
           </AuthContext>
         <Footer />

@@ -2,16 +2,22 @@
 import React from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Register from "../../../components/Register";
-import { useContext } from "react";
 import { useRouter } from "next/navigation";
-import { UserContext } from "../../../components/UserContext";
+import { useUserContext } from "../../../components/UserContext";
 import Details from "../../details/page";
 
 const Login = () => {
   const router = useRouter();
   const { data: session } = useSession();
-  const {userData} = useContext(UserContext);
+  const {userData, clearUserData} = useUserContext();
+  console.log(userData);
+  console.log(session);
 
+  const handleClick = (e)=>{
+    e.preventDefault();
+    clearUserData();
+    signOut
+  }
   return (
     <main className="main login">
         
@@ -23,7 +29,7 @@ const Login = () => {
       {!session ? (
         <button onClick={signIn}>Sign In</button>
       ) : (
-        <button onClick={signOut}>Sign Out</button>
+        <button onClick={(e)=> handleClick(e)}>Sign Out</button>
       )}
     </main>
   );
