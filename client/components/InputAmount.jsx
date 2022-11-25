@@ -6,6 +6,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import React from "react";
 import "../styles/InputAmount.css";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 const InputAmount = ({ type, walletId, max }) => {
   const router = useRouter();

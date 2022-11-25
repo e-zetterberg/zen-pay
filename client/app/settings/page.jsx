@@ -2,8 +2,11 @@ import React from 'react'
 
 const Settings = () => {
   return (
-    <main className='main'>
-      <div className="settings--title">Settings</div>
+    <div className="settings--container">
+        <div className="settings--title">Settings</div>
+        
+<main className='main'>
+      </div>
     </main>
   )
 }

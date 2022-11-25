@@ -14,14 +14,15 @@
 }
 
 .dashboard--card {
-    width: 23em;
+    width: 22em;
     height: 7em;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 1em;
+    margin-top: 0.7em;
+    top: 5em;
 }
 
 .dashboard--balance {
@@ -75,5 +76,6 @@
 
 .dashboard--account-overview {
     font-weight: 400;
+    font-size: 19px;
 }
 
