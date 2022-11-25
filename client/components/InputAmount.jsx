@@ -6,8 +6,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import React from "react";
 import "../styles/InputAmount.css";
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { toDateString } from "../lib/dateString";
 
 const InputAmount = ({ type, walletId, max }) => {
   const router = useRouter();
@@ -16,13 +16,10 @@ const InputAmount = ({ type, walletId, max }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    //UNDER CONSTRUCTION
-
-    console.log(amount);
     const transaction = {
       description: type,
       amount: type === "deposit" ? amount : -amount,
-      timeStamp: new Date().toUTCString(),
+      timeStamp: toDateString(new Date()),
     };
     const response = await toast.promise( fetch(
       `http://localhost:8080/api/accounts/${walletId}/transaction`,

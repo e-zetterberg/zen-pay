@@ -2,6 +2,8 @@ import React from "react";
 import TransactionForm from "./TransactionForm";
 import { unstable_getServerSession } from "next-auth";
 import CreditCard from "../../components/CreditCard";
+import Link from "next/link";
+import "../../styles/transactions.css";
 
 const Wallet = async () => {
   const session = await unstable_getServerSession();
@@ -31,18 +33,27 @@ const Wallet = async () => {
   return (
     <main className="main homepage--balance">
       <section className="balance--container">
-        <CreditCard balance={data.balance} holder={session.user.name} cardNumber={walletId}/>
-        
-        <TransactionForm max={data.balance} walletId={walletId}/>
-        <div className="transaction-container">
-          <h3>Transactions</h3>
+        <CreditCard
+          balance={data.balance}
+          holder={session.user.name}
+          cardNumber={walletId}
+        />
+
+        <TransactionForm max={data.balance} walletId={walletId} />
+        <div className="transactions--header-container">
+          <Link href={"/wallet/transactions"}>
+            <h3 className="transactions--header">Transactions</h3>
+          </Link>
           <hr />
-          <ul>
+        </div>
+        <div className="transaction-container">
+          <ul className="transaction-list">
             {data.transactions.map((tx) => (
               <li key={tx.transactionId}>
-                <span>{tx.description} </span>
-                <span>{tx.amount}kr </span>
-                <span>{tx.timeStamp} </span>
+                <span>{tx.amount}€ </span>
+                <span className="tx-description">{tx.description} </span>
+                <div>{tx.timeStamp} </div>
+                <hr />
               </li>
             ))}
           </ul>
@@ -50,5 +61,5 @@ const Wallet = async () => {
       </section>
     </main>
   );
-}
+};
 export default Wallet;
