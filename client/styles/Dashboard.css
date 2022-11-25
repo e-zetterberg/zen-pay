@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 
 .dashboard {
   height: 79vh;
@@ -40,7 +40,7 @@
     border-width: 1px;
     height: 50px;
     width: 50px;
-    background-color: #ef3024;
+    background-color: #9F262E;
     display: flex;
     justify-content: center;
     align-items: center;

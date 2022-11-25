@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 
  
  #menuToggle
@@ -110,7 +110,7 @@
    position: absolute;
    right: -1em;
    width: 225px;
-   height: 97.4vh;
+   height: 115vh;
    margin: -100px 0 0 -50px;
    padding: 50px;
    padding-top: 125px;
