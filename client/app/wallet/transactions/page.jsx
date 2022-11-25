@@ -7,7 +7,6 @@ const Transactions = async () => {
   const fetchUserId = async () => {
     const response = await fetch(`http://localhost:8080/api/users/${email}`);
     const data = await response.json();
-    console.log("userId:" + data.userId);
     return data.userId;
   };
 
@@ -19,7 +18,7 @@ const Transactions = async () => {
       }
     );
     const data = await response.json();
-    console.log(data);
+
     return data;
   };
   const userId = await fetchUserId();
