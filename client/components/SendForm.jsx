@@ -34,11 +34,15 @@ const SendForm = ({ type, walletId, max }) => {
       ));
     setAmount('');
     if (response.ok) {
-      toast.update(message, { render: `Tranferred ${amount} to ${account}`, type: 'success', isLoading: false });
+      toast.update(message, {
+        render: `Tranferred ${amount} to ${account}`, type: 'success', isLoading: false, autoClose: 3000,
+      });
       router.refresh();
       return;
     }
-    toast.update(message, { render: 'Something went wrong', type: 'error', isLoading: false });
+    toast.update(message, {
+      render: 'Something went wrong', type: 'error', isLoading: false, autoClose: 3000,
+    });
     setAccount('');
   };
 
