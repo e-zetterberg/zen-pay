@@ -37,9 +37,7 @@ function Login() {
           <p className="btn-text"><b /></p>
         </div>
 
-      ) : (
-        <button type="button" onClick={(e) => handleClick(e)}>Sign Out</button>
-      )}
+      ) : ''}
       {showFooter && <Footer />}
     </main>
   );
