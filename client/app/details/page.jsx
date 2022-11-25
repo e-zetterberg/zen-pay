@@ -10,9 +10,7 @@ import { useRouter } from "next/navigation";
 
 const Details = () => {
   const { userData } = useUserContext();
-  console.log(userData);
   const router = useRouter();
-
   const editDetails = (e) =>{
     e.preventDefault();
     router.push("/editUserDetails");
