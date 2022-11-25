@@ -7,7 +7,7 @@ import '../styles/Register.css';
 import { Button, TextField } from '@mui/material';
 import { Stack } from '@mui/system';
 
-function Register() {
+const Register = () => {
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -98,6 +98,6 @@ function Register() {
       </div>
     </main>
   );
-}
+};
 
 export default Register;

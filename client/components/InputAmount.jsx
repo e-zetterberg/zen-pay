@@ -8,7 +8,7 @@ import '../styles/InputAmount.css';
 import TextField from '@mui/material/TextField';
 import { toDateString } from '../lib/dateString';
 
-function InputAmount({ type, walletId, max }) {
+const InputAmount = ({ type, walletId, max }) => {
   const router = useRouter();
   const [amount, setAmount] = useState('');
 
@@ -61,6 +61,6 @@ function InputAmount({ type, walletId, max }) {
       <ToastContainer />
     </>
   );
-}
+};
 
 export default InputAmount;

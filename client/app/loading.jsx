@@ -1,14 +1,12 @@
 import React from 'react';
 
-function Loading() {
-  return (
+const Loading = () => (
 
-    <main className="main dashboard--container">
-      <progress className="pure-material-progress-linear" />
+  <main className="main dashboard--container">
+    <progress className="pure-material-progress-linear" />
 
-    </main>
+  </main>
 
-  );
-}
+);
 
 export default Loading;

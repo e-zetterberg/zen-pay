@@ -6,7 +6,7 @@ import { IoPersonCircle } from 'react-icons/io5';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { redirect } from 'next/navigation';
 
-function Details() {
+const Details = () => {
   const editDetails = (e) => {
     e.preventDefault();
     redirect('/editUserDetails');
@@ -52,6 +52,6 @@ function Details() {
       </div>
     </main>
   );
-}
+};
 
 export default Details;

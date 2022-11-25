@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../styles/InputAmount.css';
 import TextField from '@mui/material/TextField';
 
-function SendForm({ type, walletId, max }) {
+const SendForm = ({ type, walletId, max }) => {
   const router = useRouter();
   const [amount, setAmount] = useState('');
   const [account, setAccount] = useState('');
@@ -75,6 +75,6 @@ function SendForm({ type, walletId, max }) {
       <ToastContainer />
     </>
   );
-}
+};
 
 export default SendForm;

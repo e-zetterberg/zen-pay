@@ -10,7 +10,7 @@ import Link from 'next/link';
 import { TfiWallet } from 'react-icons/tfi';
 import { signOut } from 'next-auth/react';
 
-function Menu() {
+const Menu = () => {
   const [toggle, setToggle] = useState(false);
   const collapseMenu = () => {
     setToggle(!toggle);
@@ -62,6 +62,6 @@ function Menu() {
       </ul>
     </div>
   );
-}
+};
 
 export default Menu;

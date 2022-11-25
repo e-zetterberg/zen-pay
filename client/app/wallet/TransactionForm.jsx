@@ -6,7 +6,7 @@ import InputAmount from '../../components/InputAmount';
 import SendForm from '../../components/SendForm';
 import '../../styles/account.css';
 
-function TransactionForm({ walletId, max }) {
+const TransactionForm = ({ walletId, max }) => {
   const [action, setAction] = useState('deposit');
 
   return (
@@ -43,6 +43,6 @@ function TransactionForm({ walletId, max }) {
       {action === 'transfer' ? <SendForm max={max} walletId={walletId} type={action} /> : <InputAmount max={max} walletId={walletId} type={action} />}
     </>
   );
-}
+};
 
 export default TransactionForm;
