@@ -10,7 +10,7 @@ import { Stack } from '@mui/system';
 function Register() {
   const { data: session } = useSession();
   const router = useRouter();
-
+  console.log(session.user.email);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email] = useState(session?.user.email);

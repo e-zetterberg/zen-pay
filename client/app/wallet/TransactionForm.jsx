@@ -29,17 +29,18 @@ function TransactionForm({ walletId, max }) {
           Withdraw
         </button>
         <div>
-          <button type="button" className="btn--transfer" onClick={() => setAction('transfer')}>
+          <button type="button" className="btn--transfer" onClick={() => setAction('transfer')} disabled={max === 0}>
             <Image
               src="/../public/tx-button.png"
               alt="Transaction Button"
               width={50}
               height={50}
+              hidden={max === 0}
             />
           </button>
         </div>
       </div>
-      {action === 'transfer' ? <SendForm max={max} walletId={walletId} /> : <InputAmount max={max} walletId={walletId} type={action} />}
+      {action === 'transfer' ? <SendForm max={max} walletId={walletId} type={action} /> : <InputAmount max={max} walletId={walletId} type={action} />}
     </>
   );
 }
