@@ -3,9 +3,9 @@
 import { SessionProvider } from 'next-auth/react';
 import React from 'react';
 
-function AuthContext({ children, session }) {
+function AuthContext({ children }) {
   return (
-    <SessionProvider session={session}>
+    <SessionProvider>
       {children}
 
     </SessionProvider>

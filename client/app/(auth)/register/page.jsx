@@ -1,30 +1,30 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import '../../styles/Register.css';
+import '../../../styles/Register.css';
 import { Button, TextField } from '@mui/material';
 import { Stack } from '@mui/system';
 
 function Register() {
+  const { data: session } = useSession();
   const router = useRouter();
 
-  const [name, setName] = useState();
-  const [phone, setPhone] = useState();
-  const [email, setEmail] = useState();
-  const [zenName, setZenName] = useState();
-  const [address, setAddress] = useState();
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState(session?.user.email);
+  const [zenName, setZenName] = useState('');
+  const [address, setAddress] = useState('');
 
   const onNameChange = (e) => setName(e.target.value);
   const onPhoneChange = (e) => setPhone(e.target.value);
   const onEmailChange = (e) => setEmail(e.target.value);
   const onZenNameChange = (e) => setZenName(e.target.value);
   const onAddressChange = (e) => setAddress(e.target.value);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
-      userId: '129109210201',
       name,
       phone,
       email,
@@ -33,16 +33,15 @@ function Register() {
       createdOn: new Date().toUTCString(),
     };
     console.log(data);
-    const response = await fetch('http://localhost:8080/api/users', {
-      method: 'PATCH',
+    const response = await fetch('http://localhost:8080/api/accounts', {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
     if (response.status === 200) {
-      router.refresh();
-      router.push('/details');
+      router.push('/');
     }
   };
   return (
@@ -93,7 +92,7 @@ function Register() {
         </Stack>
         <div className="zen-button">
           <Button variant="contained" onClick={(e) => handleSubmit(e)}>
-            Save
+            Create Zen Account
           </Button>
         </div>
       </div>

@@ -4,13 +4,12 @@ import React from 'react';
 import '../../styles/details.css';
 import { IoPersonCircle } from 'react-icons/io5';
 import { AiOutlineEdit } from 'react-icons/ai';
-import { useRouter } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
 function Details() {
-  const router = useRouter();
   const editDetails = (e) => {
     e.preventDefault();
-    router.push('/editUserDetails');
+    redirect('/editUserDetails');
   };
 
   return (

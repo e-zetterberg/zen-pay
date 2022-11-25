@@ -23,6 +23,7 @@ function TransactionForm({ walletId, max }) {
           type="button"
           onClick={() => setAction('withdraw')}
           disabled={max === 0}
+          hidden={max === 0}
           className={action === 'withdraw' ? 'btn' : 'btn btn--inactive'}
         >
           Withdraw
@@ -38,7 +39,6 @@ function TransactionForm({ walletId, max }) {
           </button>
         </div>
       </div>
-
       {action === 'transfer' ? <SendForm max={max} walletId={walletId} /> : <InputAmount max={max} walletId={walletId} type={action} />}
     </>
   );

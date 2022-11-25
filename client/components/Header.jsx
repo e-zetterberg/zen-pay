@@ -10,7 +10,7 @@ function Header() {
       <nav className="header--navbar">
         <span className="align--span" />
         <Link href="/">
-          <Image className="header--logo" src="/logo-transparent.png" alt="Logo" width={211} height={73} />
+          <Image priority className="header--logo" src="/logo-transparent.png" alt="Logo" width={211} height={73} />
         </Link>
         <Menu className="header--menu" />
       </nav>

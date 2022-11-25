@@ -58,7 +58,7 @@ function Menu() {
             About
           </li>
         </Link>
-        <Link href="/login" onClick={signOut}><li>Sign out</li></Link>
+        <Link href="/login" onClick={() => signOut()}><li>Sign out</li></Link>
       </ul>
     </div>
   );

@@ -38,7 +38,9 @@ function InputAmount({ type, walletId, max }) {
       },
     );
     setAmount('');
-    router.refresh();
+    if (response.status === 200) {
+      router.refresh();
+    }
   };
 
   return (

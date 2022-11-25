@@ -2,20 +2,19 @@
 
 import React from 'react';
 import { signIn, useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { redirect } from 'next/navigation';
 import '../../../styles/login.css';
 
 function Login() {
-  const router = useRouter();
   const { data: session } = useSession();
   if (session) {
-    router.push('http://localhost:3000/');
+    redirect('/details');
   }
 
   return (
 
     <main className="main login">
-      <button type="button" onClick={() => signIn('google')}>
+      <button type="button" onClick={signIn}>
         Sign In
       </button>
     </main>
