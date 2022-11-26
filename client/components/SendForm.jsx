@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/InputAmount.css';
-import TextField from '@mui/material/TextField';
 import toDateString from '../lib/dateString';
 
 const SendForm = ({ type, walletId, max }) => {
@@ -49,8 +48,7 @@ const SendForm = ({ type, walletId, max }) => {
   return (
     <>
       <form onSubmit={(e) => handleSubmit(e)} className="input-form">
-        <TextField
-          variant="outlined"
+        <input
           onChange={(e) => setAccount(e.target.value)}
           required
           value={account}
@@ -60,15 +58,14 @@ const SendForm = ({ type, walletId, max }) => {
           className="input-field"
           placeholder="Destination Account Number"
         />
-        <TextField
-          variant="outlined"
+        <input
           onChange={(e) => setAmount(e.target.value)}
           required
           value={amount}
           max={max}
           min={1}
           type="number"
-          className="input-field"
+          className="input-field no-spin"
           placeholder="Amount"
         />
 
@@ -76,7 +73,7 @@ const SendForm = ({ type, walletId, max }) => {
           Confirm
         </button>
       </form>
-      <ToastContainer />
+      <ToastContainer closeOnClick position="bottom-center" />
     </>
   );
 };
