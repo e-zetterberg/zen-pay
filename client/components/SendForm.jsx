@@ -35,7 +35,7 @@ const SendForm = ({ type, walletId, max }) => {
     setAmount('');
     if (response.ok) {
       toast.update(message, {
-        render: `Tranferred ${amount} to ${account}`, type: 'success', isLoading: false, autoClose: 3000,
+        render: `Tranferred ${amount}€ to ${account}`, type: 'success', isLoading: false, autoClose: 3000,
       });
       router.refresh();
       return;
