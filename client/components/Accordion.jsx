@@ -49,7 +49,7 @@ const SimpleAccordion = () => (
       </AccordionSummary>
       <AccordionDetails>
         <p className="faq--answer">
-          To transfer funds to another ZenPay account, select "Send" on the Wallet page".
+          To transfer funds to another ZenPay account, select Send on the Wallet page.
           You will be asked to add the ZenPay account details for either an Individual,
           or a Business if you are paying a company.
         </p>
