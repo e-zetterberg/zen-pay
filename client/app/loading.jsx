@@ -1,12 +1,8 @@
 import React from 'react';
+import LoadingBar from '../components/LoadingBar';
 
 const Loading = () => (
-
-  <main className="main">
-    <progress className="pure-material-progress-linear" />
-
-  </main>
-
+  <LoadingBar />
 );
 
 export default Loading;
