@@ -1,2 +1,35 @@
+.about--description {
+    font-family: Poppins;
+    font-size: 13px;
+    font-weight: 300;
+    padding: 15px;
+}
+
+.about--container {
+    top: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 22em;
+    height: 28em;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    overflow: hidden;
+}
+
+.about--image {
+    object-fit:fill;
+}
+
+.main--container {
+    display: flex;
+    justify-content: center;
+    row-gap: 2em;
+}
+
+.about--about {
+    color: rgb(41, 41, 41);
+}
 
 

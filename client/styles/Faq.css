@@ -1,0 +1,37 @@
+
+
+.faq--page-title {
+    font-weight: 400;
+    font-size: 19px;
+}
+
+.faq--question {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.faq--answer {
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.faq--contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 1.7em;
+    height: 40em;
+    row-gap: 1em;
+    width: 88%;
+    font-family: Poppins;
+}
+
+.accordion--panel {
+    height: 3.4em;
+}
+
+.accordion--panel2 {
+    height: 4.7em;
+}
+
