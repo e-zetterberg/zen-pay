@@ -17,6 +17,7 @@
         "react"
     ],
     "rules": {
+        "camelcase":[2, {"ignoreImports": true}],
         "react/prop-types": [0],
         "react/function-component-definition": [2, {
             "namedComponents": "arrow-function",

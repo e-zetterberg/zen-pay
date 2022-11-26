@@ -1,12 +1,11 @@
-/* eslint-disable camelcase */
 import React, { Suspense } from 'react';
 import { redirect } from 'next/navigation';
-import { unstable_getServerSession } from 'next-auth';
-import '../styles/Dashboard.css';
 import Link from 'next/link';
+import { getSession } from '../lib/session';
+import '../styles/Dashboard.css';
 
 const Dashboard = async () => {
-  const session = await unstable_getServerSession();
+  const session = await getSession();
   if (!session) {
     redirect('/login');
   }

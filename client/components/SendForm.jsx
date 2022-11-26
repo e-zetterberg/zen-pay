@@ -15,7 +15,6 @@ const SendForm = ({ type, walletId, max }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(amount);
     const transaction = {
       description: type,
       amount,

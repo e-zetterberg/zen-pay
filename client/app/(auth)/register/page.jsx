@@ -6,11 +6,11 @@ import { useRouter } from 'next/navigation';
 import '../../../styles/Register.css';
 import { Button, TextField } from '@mui/material';
 import { Stack } from '@mui/system';
+import { toDateString } from '../../../lib/dateString';
 
 const Register = () => {
   const { data: session } = useSession();
   const router = useRouter();
-  console.log(session.user.email);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email] = useState(session?.user.email);
@@ -29,9 +29,8 @@ const Register = () => {
       email,
       zenName,
       address,
-      createdOn: new Date().toUTCString(),
+      createdOn: toDateString(new Date()),
     };
-    console.log(data);
     const response = await fetch('http://localhost:8080/api/accounts', {
       method: 'POST',
       headers: {

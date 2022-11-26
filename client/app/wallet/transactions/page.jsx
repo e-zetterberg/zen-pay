@@ -1,10 +1,9 @@
-/* eslint-disable camelcase */
 import '../../../styles/transactionspage.css';
-import { unstable_getServerSession } from 'next-auth';
 import React, { Suspense } from 'react';
+import { getSession } from '../../../lib/session';
 
 const Transactions = async () => {
-  const session = await unstable_getServerSession();
+  const session = await getSession();
   const { email } = session.user;
   const fetchUserId = async () => {
     const response = await fetch(`http://localhost:8080/api/users/${email}`);
