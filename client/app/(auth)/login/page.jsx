@@ -15,7 +15,7 @@ const Login = async () => {
   }
 
   if (session) {
-    redirect('/details');
+    redirect('/');
   }
 
   return (

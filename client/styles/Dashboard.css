@@ -6,7 +6,7 @@
 
 .dashboard--container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     font-family: Poppins;
@@ -77,5 +77,6 @@
 .dashboard--account-overview {
     font-weight: 400;
     font-size: 19px;
+    color: rgb(41, 41, 41);
 }
 

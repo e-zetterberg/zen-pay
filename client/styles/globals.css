@@ -25,6 +25,7 @@ html, body {
   padding: 0;
   width: 100%;
   background-color: #ffffff;
+  font-family: Poppins;
 }
 
 .pure-material-progress-linear {
