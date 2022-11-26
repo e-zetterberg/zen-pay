@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/CreditCard.css';
 
-function CreditCard({ balance, holder, cardNumber }) {
+const CreditCard = ({ balance, holder, cardNumber }) => {
   const number = cardNumber.toString();
   return (
     <div className="card">
@@ -54,6 +54,6 @@ function CreditCard({ balance, holder, cardNumber }) {
       </div>
     </div>
   );
-}
+};
 
 export default CreditCard;

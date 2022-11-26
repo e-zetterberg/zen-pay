@@ -1,10 +1,10 @@
-package salt.se.jfs.server.Accounts;
+package salt.se.jfs.server.account;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import salt.se.jfs.server.User.User;
+import salt.se.jfs.server.user.User;
 
 import java.util.NoSuchElementException;
 

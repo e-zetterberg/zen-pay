@@ -1,19 +1,15 @@
-'use client';
-
 import React from 'react';
+import Link from 'next/link';
 import '../../styles/details.css';
 import { IoPersonCircle } from 'react-icons/io5';
 import { AiOutlineEdit } from 'react-icons/ai';
-import { useRouter } from 'next/navigation';
-import { useUserContext } from '../../components/UserContext';
+import { getCurrentUser } from '../../lib/session';
 
-function Details() {
-  const { userData } = useUserContext();
-  const router = useRouter();
-  const editDetails = (e) => {
-    e.preventDefault();
-    router.push('/editUserDetails');
-  };
+const Details = async () => {
+  const user = await getCurrentUser();
+  const email = user?.email;
+  const res = await fetch(`http://localhost:8080/api/users/${email}`);
+  const userData = await res.json();
 
   return (
     <main className="main">
@@ -21,10 +17,12 @@ function Details() {
 
         <div className="details--card">
           <div className="details--edit-section">
-            <button type="button" className="edit-btn" onClick={(e) => editDetails(e)}>
-              {' '}
-              <AiOutlineEdit />
-            </button>
+            <Link href="/editUserDetails">
+
+              <button type="button" className="edit-btn">
+                <AiOutlineEdit />
+              </button>
+            </Link>
           </div>
           <div className="details--first-section">
             <IoPersonCircle className="details--avatar" />
@@ -35,29 +33,32 @@ function Details() {
             <p className="details--second-section--items">
               Name:
               {' '}
-              {userData.name}
+              {user?.name}
             </p>
-            <p className="details--second-section--items">{userData.email}</p>
+            <p className="details--second-section--items">
+              Email:
+              {' '}
+              {email}
+            </p>
             <p className="details--second-section--items">
               Phone:
-              {' '}
-              {userData.phone}
+              {userData?.phone}
             </p>
             <p className="details--second-section--items">
               Address:
               {' '}
-              {userData.address}
+              {userData?.address}
             </p>
             <p className="details--second-section--items">
               Member since:
               {' '}
-              {userData.createdOn}
+              {userData?.createdOn}
             </p>
           </div>
         </div>
       </div>
     </main>
   );
-}
+};
 
 export default Details;

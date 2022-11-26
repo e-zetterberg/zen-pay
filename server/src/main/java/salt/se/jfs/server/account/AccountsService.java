@@ -1,7 +1,7 @@
-package salt.se.jfs.server.Accounts;
+package salt.se.jfs.server.account;
 
 import org.springframework.stereotype.Service;
-import salt.se.jfs.server.User.User;
+import salt.se.jfs.server.user.User;
 
 @Service
 public class AccountsService {
@@ -28,12 +28,8 @@ public class AccountsService {
     }
 
     public Account transferMoney(Transaction transaction, long fromAccount, long toAccount) {
-        Account sender = repo.getAccount(fromAccount);
-        Account receiver = repo.getAccount(toAccount);
-        receiver.getTransactions().add(transaction);
+        updateAccount(transaction, toAccount);
         transaction.setAmount(-transaction.getAmount());
-        sender.getTransactions().add(transaction);
-
-        return repo.saveAccounts(sender, receiver);
+        return updateAccount(transaction, fromAccount);
     }
 }

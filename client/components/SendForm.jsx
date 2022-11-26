@@ -6,21 +6,22 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/InputAmount.css';
 import TextField from '@mui/material/TextField';
+import toDateString from '../lib/dateString';
 
-function SendForm({ type, walletId, max }) {
+const SendForm = ({ type, walletId, max }) => {
   const router = useRouter();
   const [amount, setAmount] = useState('');
   const [account, setAccount] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(amount);
     const transaction = {
       description: type,
       amount,
-      timeStamp: new Date().toUTCString(),
+      timeStamp: toDateString(new Date()),
     };
-    const response = await toast.promise(
+    const message = toast.loading('Processing transaction');
+    const response = await (
       fetch(
         `http://localhost:8080/api/accounts/transfer/${walletId}/${account}`,
         {
@@ -30,17 +31,19 @@ function SendForm({ type, walletId, max }) {
           },
           body: JSON.stringify(transaction),
         },
-      ),
-      {
-        pending: 'Processing',
-        success: `Successful sent ${amount} kr  to ${account} 👌`,
-        error: 'Promise rejected 🤯',
-      },
-    );
+      ));
     setAmount('');
-    if (response.status === 200) {
+    if (response.ok) {
+      toast.update(message, {
+        render: `Tranferred ${amount} to ${account}`, type: 'success', isLoading: false, autoClose: 3000,
+      });
       router.refresh();
+      return;
     }
+    toast.update(message, {
+      render: 'Something went wrong', type: 'error', isLoading: false, autoClose: 3000,
+    });
+    setAccount('');
   };
 
   return (
@@ -76,6 +79,6 @@ function SendForm({ type, walletId, max }) {
       <ToastContainer />
     </>
   );
-}
+};
 
 export default SendForm;

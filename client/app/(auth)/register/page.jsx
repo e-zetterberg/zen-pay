@@ -3,23 +3,22 @@
 import React, { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import '../styles/Register.css';
+import '../../../styles/Register.css';
 import { Button, TextField } from '@mui/material';
 import { Stack } from '@mui/system';
+import toDateString from '../../../lib/dateString';
 
-function Register() {
+const Register = () => {
   const { data: session } = useSession();
   const router = useRouter();
-
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState(session?.user.email);
+  const [email] = useState(session?.user.email);
   const [zenName, setZenName] = useState('');
   const [address, setAddress] = useState('');
 
   const onNameChange = (e) => setName(e.target.value);
   const onPhoneChange = (e) => setPhone(e.target.value);
-  const onEmailChange = (e) => setEmail(e.target.value);
   const onZenNameChange = (e) => setZenName(e.target.value);
   const onAddressChange = (e) => setAddress(e.target.value);
   const handleSubmit = async (e) => {
@@ -30,9 +29,8 @@ function Register() {
       email,
       zenName,
       address,
-      createdOn: new Date().toUTCString(),
+      createdOn: toDateString(new Date()),
     };
-    console.log(data);
     const response = await fetch('http://localhost:8080/api/accounts', {
       method: 'POST',
       headers: {
@@ -78,7 +76,6 @@ function Register() {
             size="small"
             type="email"
             value={email}
-            onChange={onEmailChange}
             InputProps={{ readOnly: true }}
             variant="standard"
           />
@@ -98,6 +95,6 @@ function Register() {
       </div>
     </main>
   );
-}
+};
 
 export default Register;

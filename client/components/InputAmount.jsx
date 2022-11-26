@@ -6,9 +6,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/InputAmount.css';
 import TextField from '@mui/material/TextField';
-import { toDateString } from '../lib/dateString';
+import toDateString from '../lib/dateString';
 
-function InputAmount({ type, walletId, max }) {
+const InputAmount = ({ type, walletId, max }) => {
   const router = useRouter();
   const [amount, setAmount] = useState('');
 
@@ -20,27 +20,28 @@ function InputAmount({ type, walletId, max }) {
       amount: type === 'deposit' ? amount : -amount,
       timeStamp: toDateString(new Date()),
     };
-    const response = await toast.promise(
-      fetch(
-        `http://localhost:8080/api/accounts/${walletId}/transaction`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(transaction),
-        },
-      ),
+    const message = toast.loading('Processing transaction');
+    const response = await fetch(
+      `http://localhost:8080/api/accounts/${walletId}/transaction`,
       {
-        pending: 'Processing',
-        success: `Successful ${type} ${amount} kr 👌`,
-        error: 'Promise rejected 🤯',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(transaction),
       },
     );
     setAmount('');
-    if (response.status === 200) {
+    if (response.ok) {
+      toast.update(message, {
+        render: `Succesfully ${type === 'deposit' ? 'deposited ' : 'withdrew '} ${amount}€`, type: 'success', isLoading: false, autoClose: 3000,
+      });
       router.refresh();
+      return;
     }
+    toast.update(message, {
+      render: 'Something went wrong', type: 'error', isLoading: false, autoClose: 3000,
+    });
   };
 
   return (
@@ -64,6 +65,6 @@ function InputAmount({ type, walletId, max }) {
       <ToastContainer />
     </>
   );
-}
+};
 
 export default InputAmount;

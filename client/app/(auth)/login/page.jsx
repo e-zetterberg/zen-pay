@@ -1,48 +1,21 @@
-'use client';
-
 import React from 'react';
-import { signIn, signOut, useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
-import Register from '../../../components/Register';
-import { useUserContext } from '../../../components/UserContext';
-import Details from '../../details/page';
+import { redirect } from 'next/navigation';
+import { getSession } from '../../../lib/session';
+import LoginButton from './LoginButton';
 import '../../../styles/login.css';
-import Footer from '../../../components/Footer';
 
-function Login() {
-  const router = useRouter();
-  const { data: session } = useSession();
-  const { userData, clearUserData } = useUserContext();
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    clearUserData();
-    signOut();
-  };
-
-  const showFooter = router.pathname !== '/login';
+const Login = async () => {
+  const session = await getSession();
+  if (session) {
+    redirect('/details');
+  }
 
   return (
+
     <main className="main login">
-
-      {session
-        ? userData.status !== 404 ? <Details /> : <Register />
-        : 'Hello user, please sign in'}
-
-      {!session ? (
-        <div className="google-btn" onClick={() => signIn('google')}>
-          <div className="google-icon-wrapper">
-            <img className="google-icon" src="https://developers.google.com/static/identity/images/btn_google_signin_dark_normal_web.png" />
-          </div>
-          <p className="btn-text"><b /></p>
-        </div>
-
-      ) : (
-        <button type="button" onClick={(e) => handleClick(e)}>Sign Out</button>
-      )}
-      {showFooter && <Footer />}
+      <LoginButton />
     </main>
   );
-}
+};
 
 export default Login;

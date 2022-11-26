@@ -1,11 +1,9 @@
-package salt.se.jfs.server.Accounts;
+package salt.se.jfs.server.account;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
-import salt.se.jfs.server.User.JpaUserRepository;
-import salt.se.jfs.server.User.User;
+import salt.se.jfs.server.user.JpaUserRepository;
+import salt.se.jfs.server.user.User;
 
 @Repository
 public class AccountsRepository {

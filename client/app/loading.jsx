@@ -1,15 +1,8 @@
-'use client';
-
 import React from 'react';
-import Box from '@mui/material/Box';
-import LinearProgress from '@mui/material/LinearProgress';
+import LoadingBar from '../components/LoadingBar';
 
-function Loading() {
-  return (
-    <Box sx={{ width: '100%' }}>
-      <LinearProgress />
-    </Box>
-  );
-}
+const Loading = () => (
+  <LoadingBar />
+);
 
 export default Loading;
