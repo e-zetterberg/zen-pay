@@ -34,7 +34,7 @@ const InputAmount = ({ type, walletId, max }) => {
     setAmount('');
     if (response.ok) {
       toast.update(message, {
-        render: `${type === 'deposit' ? 'Deposited ' : 'Withdrew '} ${amount}€`, type: 'success', isLoading: false, autoClose: 3000,
+        render: `Succesfully ${type === 'deposit' ? 'deposited ' : 'withdrew '} ${amount}€`, type: 'success', isLoading: false, autoClose: 3000,
       });
       router.refresh();
       return;
