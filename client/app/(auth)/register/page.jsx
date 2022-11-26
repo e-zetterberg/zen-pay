@@ -10,12 +10,12 @@ import toDateString from '../../../lib/dateString';
 
 const Register = () => {
   const { data: session } = useSession();
-  const router = useRouter();
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email] = useState(session?.user.email);
   const [zenName, setZenName] = useState('');
   const [address, setAddress] = useState('');
+  const router = useRouter();
 
   const onNameChange = (e) => setName(e.target.value);
   const onPhoneChange = (e) => setPhone(e.target.value);
