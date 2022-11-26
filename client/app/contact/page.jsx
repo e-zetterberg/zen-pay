@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import SimpleAccordion from '../../components/Accordion';
 import '../../styles/contact.css';
