@@ -6,13 +6,13 @@
 }
 
 .faq--question {
-    font-weight: 500;
-    font-size: 15px;
+    font-weight: 400;
+    font-size: 14px;
 }
 
 .faq--answer {
     font-weight: 400;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .faq--contents {
@@ -20,18 +20,23 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 1.7em;
+    margin-top: 3em;
     height: 40em;
     row-gap: 1em;
-    width: 88%;
+    width: 80%;
     font-family: Poppins;
 }
 
 .accordion--panel {
     height: 3.4em;
+    border-radius: 10px;
 }
 
 .accordion--panel2 {
     height: 4.7em;
+}
+
+.redirect-link-to-form {
+    text-decoration: underline;
 }
 

@@ -16,20 +16,28 @@
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     overflow: hidden;
+    background-color: #fefeff;
 }
 
 .about--image {
     object-fit:fill;
+    margin-top: -10px;
 }
 
 .main--container {
     display: flex;
     justify-content: center;
     row-gap: 2em;
+    background-color: #f4f5f9;
 }
 
 .about--about {
     color: rgb(41, 41, 41);
+    font-weight: 400;
+    font-size: 19px;
+    top:3em;
 }
+
+
 
 

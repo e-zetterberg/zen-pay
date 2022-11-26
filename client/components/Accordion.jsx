@@ -5,6 +5,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Link from 'next/link';
 
 const SimpleAccordion = () => (
   <div>
@@ -19,7 +20,9 @@ const SimpleAccordion = () => (
       </AccordionSummary>
       <AccordionDetails>
         <p className="faq--answer">
-          You can send us your query through this contact form.
+          You can send us your query through
+          {' '}
+          <Link className="redirect-link-to-form" href="./contactform">this contact form.</Link>
         </p>
       </AccordionDetails>
     </Accordion>
@@ -49,7 +52,7 @@ const SimpleAccordion = () => (
       </AccordionSummary>
       <AccordionDetails>
         <p className="faq--answer">
-          To transfer funds to another ZenPay account, select "Send" on the Wallet page".
+          To transfer funds to another ZenPay account, select Send on the Wallet page.
           You will be asked to add the ZenPay account details for either an Individual,
           or a Business if you are paying a company.
         </p>

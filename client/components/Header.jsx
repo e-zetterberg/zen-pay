@@ -9,7 +9,7 @@ const Header = () => (
     <nav className="header--navbar">
       <span className="align--span" />
       <Link href="/">
-        <Image priority className="header--logo" src="/logo-transparent.png" alt="Logo" width={211} height={73} />
+        <Image priority className="header--logo" src="/new-zen.png" alt="Logo" width={230} height={60} />
       </Link>
       <Menu className="header--menu" />
     </nav>

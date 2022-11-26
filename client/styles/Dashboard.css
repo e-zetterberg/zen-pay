@@ -2,6 +2,7 @@
 
 .dashboard {
   height: 79vh;
+  background-color: #fefeff
 }
 
 .dashboard--container {
@@ -10,7 +11,9 @@
     align-items: center;
     flex-direction: column;
     font-family: Poppins;
-    margin-top: 1.7em;
+    margin-top: 2.5em;
+    background-color: #f4f5f9;
+    row-gap: 0.4em;
 }
 
 .dashboard--card {
@@ -23,6 +26,7 @@
     align-items: center;
     margin-top: 0.7em;
     top: 5em;
+    background-color: #fefeff;
 }
 
 .dashboard--balance {
@@ -40,14 +44,14 @@
     border-width: 1px;
     height: 50px;
     width: 50px;
-    background-color: #9F262E;
+    background-color: #ba1e29;
     display: flex;
     justify-content: center;
     align-items: center;
     align-self: center;
     line-height: 0;
     font-size: 27px;
-    color: white;
+    color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     border: none;
 }

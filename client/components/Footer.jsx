@@ -7,21 +7,20 @@ import Link from 'next/link';
 
 const Footer = () => (
   <div className="footer">
-    <hr />
     <div className="footer--menu">
       <Link href="../">
-        <div className="footer--icons--home">
-          <AiOutlineHome />
+        <div className="footer--icons-placeholder">
+          <AiOutlineHome className="footer--icons--home" />
         </div>
       </Link>
       <Link href="../wallet">
-        <div className="footer--icons--wallet">
-          <TfiWallet />
+        <div className="footer--icons-placeholder">
+          <TfiWallet className="footer--icons--wallet" />
         </div>
       </Link>
       <Link href="../details">
-        <div className="footer--icons--profile">
-          <IoPersonCircle />
+        <div className="footer--icons-placeholder">
+          <IoPersonCircle className="footer--icons--profile" />
         </div>
       </Link>
     </div>
