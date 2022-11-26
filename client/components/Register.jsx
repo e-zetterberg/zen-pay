@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import '../styles/Register.css';
 import { Button, TextField } from '@mui/material';
 import { Stack } from '@mui/system';
+import { toDateString } from '../lib/dateString';
 
 const Register = () => {
   const { data: session } = useSession();
@@ -22,6 +23,7 @@ const Register = () => {
   const onEmailChange = (e) => setEmail(e.target.value);
   const onZenNameChange = (e) => setZenName(e.target.value);
   const onAddressChange = (e) => setAddress(e.target.value);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
@@ -30,7 +32,7 @@ const Register = () => {
       email,
       zenName,
       address,
-      createdOn: new Date().toUTCString(),
+      createdOn: toDateString(new Date()),
     };
     console.log(data);
     const response = await fetch('http://localhost:8080/api/accounts', {

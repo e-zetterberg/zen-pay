@@ -19,6 +19,6 @@ const Login = () => {
       </button>
     </main>
   );
-}
+};
 
 export default Login;

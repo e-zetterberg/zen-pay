@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/InputAmount.css';
 import TextField from '@mui/material/TextField';
+import { toDateString } from '../lib/dateString';
 
 const SendForm = ({ type, walletId, max }) => {
   const router = useRouter();
@@ -18,7 +19,7 @@ const SendForm = ({ type, walletId, max }) => {
     const transaction = {
       description: type,
       amount,
-      timeStamp: new Date().toUTCString(),
+      timeStamp: toDateString(new Date()),
     };
     const message = toast.loading('Processing transaction');
     const response = await (

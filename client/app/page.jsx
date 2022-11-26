@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import React from 'react';
+import React, { Suspense } from 'react';
 import { redirect } from 'next/navigation';
 import { unstable_getServerSession } from 'next-auth';
 import '../styles/Dashboard.css';
@@ -39,7 +39,11 @@ const Dashboard = async () => {
           <div className="dashboard--current-balance">
             <div className="dashboard--current-balance-text">Current balance</div>
             <div className="dashboard--balance">
-              <div className="dashboard--amount">{data.balance}</div>
+              <div className="dashboard--amount">
+                <Suspense fallback="Loading...">
+                  {data.balance}
+                </Suspense>
+              </div>
               <div className="dashboard--currency">€</div>
             </div>
           </div>
