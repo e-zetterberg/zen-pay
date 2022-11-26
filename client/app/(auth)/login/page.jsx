@@ -7,7 +7,7 @@ import '../../../styles/login.css';
 const Login = async () => {
   const session = await getSession();
   if (session) {
-    redirect('/details');
+    redirect('/');
   }
 
   return (
