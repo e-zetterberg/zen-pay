@@ -1,8 +1,6 @@
-package salt.se.jfs.server.User;
+package salt.se.jfs.server.user;
 
 import org.springframework.stereotype.Service;
-import salt.se.jfs.server.Accounts.Account;
-import salt.se.jfs.server.Accounts.AccountsRepository;
 
 @Service
 public class UserService {

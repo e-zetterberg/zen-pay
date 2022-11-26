@@ -1,7 +1,6 @@
-package salt.se.jfs.server.User;
+package salt.se.jfs.server.user;
 
 import org.springframework.data.repository.CrudRepository;
-import salt.se.jfs.server.Accounts.Account;
 
 import java.util.Optional;
 

@@ -1,8 +1,8 @@
-package salt.se.jfs.server.User;
+package salt.se.jfs.server.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import salt.se.jfs.server.Accounts.Account;
+import salt.se.jfs.server.account.Account;
 
 import javax.persistence.*;
 

@@ -1,6 +1,6 @@
-package salt.se.jfs.server.Accounts;
+package salt.se.jfs.server.account;
 
-import salt.se.jfs.server.User.User;
+import salt.se.jfs.server.user.User;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
@@ -74,8 +74,7 @@ public class Account {
         long biggest =  9999_9999_9999_9999L;
 
         // return a long between smallest and biggest (+1 to include biggest as well with the upper bound)
-        long random = ThreadLocalRandom.current().nextLong(smallest, biggest+1);
-       return random;
+        return ThreadLocalRandom.current().nextLong(smallest, biggest+1);
     }
 
 }

@@ -1,4 +1,4 @@
-package salt.se.jfs.server.User;
+package salt.se.jfs.server.user;
 
 import org.springframework.stereotype.Repository;
 @Repository
