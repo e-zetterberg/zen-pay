@@ -92,4 +92,17 @@ public class User {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public User(){
+
+    }
+    public User(UserDto dto) {
+        this.userId = dto.userId();
+        this.name = dto.name();
+        this.zenName = dto.zenName();
+        this.email = dto.email();
+        this.phone = dto.phone();
+        this.address = dto.address();
+        this.createdOn = dto.createdOn();
+    }
 }
