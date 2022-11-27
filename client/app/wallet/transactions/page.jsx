@@ -14,9 +14,6 @@ const Transactions = async () => {
   const fetchBalance = async (userId) => {
     const response = await fetch(
       `http://localhost:8080/api/accounts/${userId}`,
-      {
-        cache: 'no-store',
-      },
     );
     const data = await response.json();
 

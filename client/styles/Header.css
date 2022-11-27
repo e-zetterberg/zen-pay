@@ -1,8 +1,8 @@
  .header{
     display: block;
     width: 100%;
-    background-color: #001e5e;
-    box-shadow: 0px 4px 1px 0px #001e5e;
+    background: rgb(0,23,73);
+    background: radial-gradient(circle, rgba(0,23,73,1) 0%, rgba(0,30,94,1) 72%);
 }
 
 .header--navbar {
@@ -11,13 +11,14 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 10vh;
+    height: 13vh;
 }
 
 .header--logo {
     align-self: center;
+    margin-top: 15px;
 }
 
 .align--span {
-    width: 16%;
+    width: 12%;
 }

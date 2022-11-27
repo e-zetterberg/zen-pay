@@ -18,6 +18,7 @@
     align-items: center;
     margin-top: 1em;
     font-family: Poppins;
+    background-color: #f4f5f9;
 }
 
 .details--first-section {
@@ -52,7 +53,7 @@
 
 .details--card {
     width: 21em;
-    height: 25em;
+    height: 23em;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     display: flex;
@@ -60,5 +61,15 @@
     justify-content: space-around;
     align-items: center;
     margin-top: 1em;
+    row-gap: 2em;
+    background-color: #fefeff;
     
+}
+
+.edit-btn {
+    font-size: 24px;
+    border: none;
+    margin-left: 12.3em;
+    background-color: #fefeff;
+    margin-right: 0;
 }

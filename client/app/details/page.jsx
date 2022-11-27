@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import '../../styles/details.css';
 import { IoPersonCircle } from 'react-icons/io5';
-import { AiOutlineEdit } from 'react-icons/ai';
+import { FaEdit } from 'react-icons/fa';
 import { getCurrentUser } from '../../lib/session';
 
 const Details = async () => {
@@ -20,7 +20,7 @@ const Details = async () => {
             <Link href="/details/edit">
 
               <button type="button" className="edit-btn">
-                <AiOutlineEdit />
+                <FaEdit />
               </button>
             </Link>
           </div>
@@ -31,21 +31,18 @@ const Details = async () => {
           </div>
           <div className="details--second-section">
             <p className="details--second-section--items">
-              Name:
               {' '}
               {user?.name}
             </p>
             <p className="details--second-section--items">
-              Email:
               {' '}
               {email}
             </p>
             <p className="details--second-section--items">
-              Phone:
+              {' '}
               {userData?.phone}
             </p>
             <p className="details--second-section--items">
-              Address:
               {' '}
               {userData?.address}
             </p>

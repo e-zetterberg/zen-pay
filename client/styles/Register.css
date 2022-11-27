@@ -10,8 +10,24 @@
 }
 
 .form--input{
-    padding: 2em
+    top: 3em;
 }
+
+.edit-user-page {
+    display: flex;
+    justify-content: center;
+}
+
+.edit-user--all-fields {
+    width: 13em;
+}
+
+.save-button {
+    background-color: #012169;
+    width: 7em;
+    height: 2.8em;
+}
+
 .zen-button{
     
    text-align: center;

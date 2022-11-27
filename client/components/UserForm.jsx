@@ -45,9 +45,9 @@ const UserForm = ({ user }) => {
   };
 
   return (
-    <main className="main">
+    <main className="main edit-user-page">
       <div className="form--input">
-        <Stack spacing={4}>
+        <Stack spacing={4} className="edit-user--all-fields">
           <TextField
             label="Zen Name"
             size="small"
@@ -91,7 +91,7 @@ const UserForm = ({ user }) => {
           />
         </Stack>
         <div className="zen-button">
-          <Button variant="contained" onClick={(e) => handleSubmit(e)}>
+          <Button className="save-button" variant="contained" onClick={(e) => handleSubmit(e)}>
             Save
           </Button>
         </div>
