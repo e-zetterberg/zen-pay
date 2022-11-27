@@ -30,19 +30,19 @@ const Dashboard = async () => {
   const userId = await fetchUserId();
   const data = await fetchBalance(userId);
 
-  const myHeaders = new Headers();
-  myHeaders.append('apikey', process.env.API_KEY);
+  // const myHeaders = new Headers();
+  // myHeaders.append('apikey', process.env.API_KEY);
 
-  const requestOptions = {
-    method: 'GET',
-    redirect: 'follow',
-    headers: myHeaders,
-  };
+  // const requestOptions = {
+  //   method: 'GET',
+  //   redirect: 'follow',
+  //   headers: myHeaders,
+  // };
 
-  fetch('https://api.apilayer.com/currency_data/change?start_date=2022-11-20&end_date=2022-11-01', requestOptions)
-    .then((response) => response.text())
-    .then((result) => console.log(result))
-    .catch((error) => console.log('error', error));
+  // fetch('https://api.apilayer.com/currency_data/change?start_date=2022-11-20&end_date=2022-11-01', requestOptions)
+  //   .then((response) => response.text())
+  //   .then((result) => console.log(result))
+  //   .catch((error) => console.log('error', error));
 
   return (
     <main className="main dashboard--container">
