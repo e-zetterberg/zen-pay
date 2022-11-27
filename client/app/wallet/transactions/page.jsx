@@ -1,17 +1,26 @@
 import '../../../styles/transactionspage.css';
 import React, { Suspense } from 'react';
+import Link from 'next/link';
 import { getSession } from '../../../lib/session';
+import { fetchUserByEmail } from '../../../lib/fetching';
 
 const Transactions = async () => {
   const session = await getSession();
   const { email } = session.user;
-  const fetchAccount = async () => {
-    const response = await fetch(`http://localhost:8080/api/users/${email}`);
-    const data = await response.json();
-    return data.account;
-  };
+  const user = await fetchUserByEmail(email);
 
-  const data = await fetchAccount();
+  if (!user.userId) {
+    return (
+      <main className="main">
+        <h3>You need to register a Zen-Account in order to access your wallet</h3>
+        <Link href="/register">
+          <button type="button" className="btn">Register</button>
+        </Link>
+      </main>
+    );
+  }
+
+  const { transactions } = user.account;
 
   return (
     <main className="main">
@@ -23,7 +32,7 @@ const Transactions = async () => {
         <ul className="transaction-list">
           <Suspense fallback={<p>Loading transactions</p>}>
 
-            {data.transactions.map((tx) => (
+            {transactions.map((tx) => (
               <li key={tx.transactionId}>
                 <span>
                   {tx.amount}

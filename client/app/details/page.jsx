@@ -1,15 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import '../../styles/details.css';
-import { IoPersonCircle } from 'react-icons/io5';
+import Image from 'next/image';
 import { FaEdit } from 'react-icons/fa';
-import { getCurrentUser } from '../../lib/session';
+import { getSession } from '../../lib/session';
+import { fetchUserByEmail } from '../../lib/fetching';
 
 const Details = async () => {
-  const user = await getCurrentUser();
-  const email = user?.email;
-  const res = await fetch(`http://localhost:8080/api/users/${email}`);
-  const userData = await res.json();
+  const session = await getSession();
+  const email = session?.user.email;
+  const user = await fetchUserByEmail(email);
 
   return (
     <main className="main">
@@ -25,14 +25,14 @@ const Details = async () => {
             </Link>
           </div>
           <div className="details--first-section">
-            <IoPersonCircle className="details--avatar" />
+            <Image src={session.user.image} height={75} width={75} />
 
-            <div className="details--name">{userData.zenName}</div>
+            <div className="details--name">{user?.zenName}</div>
           </div>
           <div className="details--second-section">
             <p className="details--second-section--items">
               {' '}
-              {userData.name}
+              {user?.name}
             </p>
             <p className="details--second-section--items">
               {' '}
@@ -40,14 +40,14 @@ const Details = async () => {
             </p>
             <p className="details--second-section--items">
               {' '}
-              {userData?.phone}
+              {user?.phone}
             </p>
             <p className="details--second-section--items">
               {' '}
-              {userData?.address}
+              {user?.address}
             </p>
             <p className="details--second-section--items">
-              {userData?.createdOn}
+              {user?.createdOn}
             </p>
           </div>
         </div>

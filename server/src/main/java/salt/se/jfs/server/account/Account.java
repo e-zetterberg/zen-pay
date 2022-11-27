@@ -47,7 +47,6 @@ public class Account {
     public Account(){
 
     }
-
     public Account(double balance) {
         this.accountId = random();
         this.balance = balance;

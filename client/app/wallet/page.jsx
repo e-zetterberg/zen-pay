@@ -1,24 +1,17 @@
 import React, { Suspense } from 'react';
 import Link from 'next/link';
-import { getCurrentUser } from '../../lib/session';
+import { getSession } from '../../lib/session';
 import TransactionForm from './TransactionForm';
 import CreditCard from '../../components/CreditCard';
 import '../../styles/transactions.css';
+import { fetchUserByEmail } from '../../lib/fetching';
 
 const Wallet = async () => {
-  const user = await getCurrentUser();
-  const email = user?.email;
+  const session = await getSession();
+  const email = session?.user.email;
 
-  const fetchAccount = async () => {
-    const response = await fetch(`http://localhost:8080/api/users/${email}`, {
-      cache: 'no-store',
-    });
-    const data = await response.json();
-    return data.account;
-  };
-
-  const data = await fetchAccount();
-  if (!data) {
+  const user = await fetchUserByEmail(email);
+  if (!user.userId) {
     return (
       <main className="main">
         <h3>You need to register a Zen-Account in order to access your wallet</h3>
@@ -29,7 +22,8 @@ const Wallet = async () => {
     );
   }
 
-  const walletId = data.accountId;
+  const { account } = user;
+  const walletId = account.accountId;
 
   return (
     <main className="main homepage--balance">
@@ -37,13 +31,13 @@ const Wallet = async () => {
         <Suspense fallback={<CreditCard balance="loading" holder="James Bond" cardNumber="000000000000" />}>
 
           <CreditCard
-            balance={data.balance}
+            balance={account.balance}
             holder={user.name}
             cardNumber={walletId}
           />
         </Suspense>
 
-        <TransactionForm max={data.balance} walletId={walletId} />
+        <TransactionForm max={account.balance} walletId={walletId} />
         <div className="transactions--header-container">
           <Link href="/wallet/transactions">
             <h3 className="transactions--header">Transactions</h3>
@@ -52,7 +46,7 @@ const Wallet = async () => {
         </div>
         <div className="transaction-container">
           <ul className="transaction-list">
-            {data.transactions.map((tx) => (
+            {account.transactions.map((tx) => (
               <li key={tx.transactionId}>
                 <span>
                   {tx.amount}
