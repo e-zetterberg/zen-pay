@@ -21,7 +21,8 @@ public class AccountController {
     }
 
     @GetMapping(path = "/{accountId}")
-    ResponseEntity<Account> getAccountDetails(@PathVariable long accountId){
+    ResponseEntity<Account> getAccount(@PathVariable long accountId){
+        System.out.println(accountId);
         try {
             Account account = service.getAccount(accountId);
             return ResponseEntity.ok(account);
