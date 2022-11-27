@@ -10,25 +10,23 @@ const Dashboard = async () => {
     redirect('/login');
   }
   const { email } = session.user;
-  const fetchUserId = async () => {
+  const fetchAccountId = async () => {
     const response = await fetch(`http://localhost:8080/api/users/${email}`);
     const data = await response.json();
-    return data.userId;
+    return data.account.accountId;
   };
 
-  const fetchBalance = async (userId) => {
+  const fetchBalance = async (accountId) => {
     const response = await fetch(
-      `http://localhost:8080/api/accounts/${userId}`,
-      {
-        cache: 'no-store',
-      },
+      `http://localhost:8080/api/accounts/${accountId}`,
     );
     const data = await response.json();
     return data;
   };
 
-  const userId = await fetchUserId();
-  const data = await fetchBalance(userId);
+  const accountId = await fetchAccountId();
+  const data = await fetchBalance(accountId);
+  console.log(data.balance);
 
   // const myHeaders = new Headers();
   // myHeaders.append('apikey', process.env.API_KEY);

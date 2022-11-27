@@ -5,25 +5,14 @@ import { getSession } from '../../../lib/session';
 const Transactions = async () => {
   const session = await getSession();
   const { email } = session.user;
-  const fetchUserId = async () => {
+  const fetchAccount = async () => {
     const response = await fetch(`http://localhost:8080/api/users/${email}`);
     const data = await response.json();
-    return data.userId;
+    return data.account;
   };
 
-  const fetchBalance = async (userId) => {
-    const response = await fetch(
-      `http://localhost:8080/api/accounts/${userId}`,
-      {
-        cache: 'no-store',
-      },
-    );
-    const data = await response.json();
+  const data = await fetchAccount();
 
-    return data;
-  };
-  const userId = await fetchUserId();
-  const data = await fetchBalance(userId);
   return (
     <main className="main">
       <div className="transactions--header-container">

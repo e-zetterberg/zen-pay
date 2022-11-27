@@ -10,12 +10,12 @@ import toDateString from '../../../lib/dateString';
 
 const Register = () => {
   const { data: session } = useSession();
-  const router = useRouter();
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email] = useState(session?.user.email);
   const [zenName, setZenName] = useState('');
   const [address, setAddress] = useState('');
+  const router = useRouter();
 
   const onNameChange = (e) => setName(e.target.value);
   const onPhoneChange = (e) => setPhone(e.target.value);
@@ -31,7 +31,7 @@ const Register = () => {
       address,
       createdOn: toDateString(new Date()),
     };
-    const response = await fetch('http://localhost:8080/api/accounts', {
+    const response = await fetch('http://localhost:8080/api/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -1,11 +1,12 @@
 package salt.se.jfs.server.account;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.transaction.annotation.Transactional;
+import salt.se.jfs.server.account.dtos.TransactionDto;
 
 import javax.persistence.*;
 
 @Entity
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Transaction {
 
     @Id
@@ -24,6 +25,15 @@ public class Transaction {
         this.timeStamp = timeStamp;
     }
 
+    public Transaction(){
+    }
+
+    public Transaction(TransactionDto dto){
+        this.transactionId = dto.transactionId();
+        this.description = dto.description();
+        this.amount = dto.amount();
+        this.timeStamp = dto.timeStamp();
+    }
 
     @Override
     public String toString() {

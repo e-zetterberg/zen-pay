@@ -2,35 +2,32 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import '../../styles/Register.css';
+import '../styles/Register.css';
 import { Button, TextField } from '@mui/material';
 import { Stack } from '@mui/system';
 
-const Register = () => {
+const UserForm = ({ user }) => {
   const router = useRouter();
-
-  const [name, setName] = useState();
-  const [phone, setPhone] = useState();
-  const [email, setEmail] = useState();
-  const [zenName, setZenName] = useState();
-  const [address, setAddress] = useState();
+  const [name, setName] = useState(user.name);
+  const [phone, setPhone] = useState(user.phone);
+  const [email] = useState(user.email);
+  const [zenName, setZenName] = useState(user.zenName);
+  const [address, setAddress] = useState(user.address);
 
   const onNameChange = (e) => setName(e.target.value);
   const onPhoneChange = (e) => setPhone(e.target.value);
-  const onEmailChange = (e) => setEmail(e.target.value);
   const onZenNameChange = (e) => setZenName(e.target.value);
   const onAddressChange = (e) => setAddress(e.target.value);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
-      userId: '129109210201',
+      userId: user.userId,
       name,
       phone,
       email,
       zenName,
       address,
-      createdOn: new Date().toUTCString(),
     };
     const response = await fetch('http://localhost:8080/api/users', {
       method: 'PATCH',
@@ -39,11 +36,12 @@ const Register = () => {
       },
       body: JSON.stringify(data),
     });
-    if (response.status === 200) {
+    if (response.ok) {
       router.refresh();
       router.push('/details');
     }
   };
+
   return (
     <main className="main edit-user-page">
       <div className="form--input">
@@ -78,7 +76,7 @@ const Register = () => {
             size="small"
             type="email"
             value={email}
-            onChange={onEmailChange}
+            disabled
             InputProps={{ readOnly: true }}
             variant="standard"
           />
@@ -100,4 +98,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default UserForm;
