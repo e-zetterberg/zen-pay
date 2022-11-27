@@ -13,7 +13,7 @@ const Dashboard = async () => {
   const fetchAccountId = async () => {
     const response = await fetch(`http://localhost:8080/api/users/${email}`);
     const data = await response.json();
-    return data.account.accountId;
+    return data.account;
   };
 
   const fetchBalance = async (accountId) => {
@@ -24,9 +24,8 @@ const Dashboard = async () => {
     return data;
   };
 
-  const accountId = await fetchAccountId();
-  const data = await fetchBalance(accountId);
-  console.log(data.balance);
+  const account = await fetchAccountId();
+  const data = await fetchBalance(account?.accountId);
 
   // const myHeaders = new Headers();
   // myHeaders.append('apikey', process.env.API_KEY);
@@ -52,7 +51,7 @@ const Dashboard = async () => {
             <div className="dashboard--balance">
               <div className="dashboard--amount">
                 <Suspense fallback="Loading...">
-                  {data.balance}
+                  {data?.balance}
                 </Suspense>
               </div>
               <div className="dashboard--currency">€</div>
