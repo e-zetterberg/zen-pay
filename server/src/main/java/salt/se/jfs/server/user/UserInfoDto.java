@@ -1,6 +1,6 @@
 package salt.se.jfs.server.user;
 
-public record SendUserInfoDto(
+public record UserInfoDto(
         long userId,
         String name,
         String zenName,
@@ -10,7 +10,7 @@ public record SendUserInfoDto(
         String createdOn,
         long accountId
 ) {
-    public SendUserInfoDto(User user) {
+    public UserInfoDto(User user) {
         this(user.getUserId(),
                 user.getName(),
                 user.getZenName(),

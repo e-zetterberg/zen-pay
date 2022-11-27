@@ -1,8 +1,8 @@
-import '../../../styles/transactionspage.css';
+import '../../../styles/transactions.css';
 import React, { Suspense } from 'react';
 import Link from 'next/link';
 import { getSession } from '../../../lib/session';
-import { fetchUserByEmail } from '../../../lib/fetching';
+import { fetchUserByEmail, fetchAccount } from '../../../lib/fetching';
 
 const Transactions = async () => {
   const session = await getSession();
@@ -19,30 +19,32 @@ const Transactions = async () => {
       </main>
     );
   }
-
-  const { transactions } = user.account;
+  const account = await fetchAccount(user.accountId);
+  const { transactions } = account;
 
   return (
     <main className="main">
-      <div className="transactions--header-container">
+      <div className="transactions--page-header">
         <h3 className="transactions--header">Transactions</h3>
         <hr />
       </div>
-      <div className="transaction-container">
+      <div className="transaction-page-container">
         <ul className="transaction-list">
           <Suspense fallback={<p>Loading transactions</p>}>
 
             {transactions.map((tx) => (
               <li key={tx.transactionId}>
-                <span>
-                  {tx.amount}
-                  €
-                </span>
-                <span className="tx-description">
-                  {tx.description}
-                </span>
-                <div>
-                  {tx.timeStamp}
+                <div className="transaction">
+                  <span className="transaction--amount">
+                    {tx.amount}
+                    €
+                  </span>
+                  <span className="tx-description">
+                    {tx.description}
+                  </span>
+                  <span>
+                    {tx.timeStamp}
+                  </span>
                 </div>
                 <hr />
               </li>

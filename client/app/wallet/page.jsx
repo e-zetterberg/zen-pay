@@ -4,7 +4,7 @@ import { getSession } from '../../lib/session';
 import TransactionForm from './TransactionForm';
 import CreditCard from '../../components/CreditCard';
 import '../../styles/transactions.css';
-import { fetchUserByEmail } from '../../lib/fetching';
+import { fetchUserByEmail, fetchAccount } from '../../lib/fetching';
 
 const Wallet = async () => {
   const session = await getSession();
@@ -22,8 +22,8 @@ const Wallet = async () => {
     );
   }
 
-  const { account } = user;
-  const walletId = account.accountId;
+  const walletId = user.accountId;
+  const account = await fetchAccount(user.accountId);
 
   return (
     <main className="main homepage--balance">
@@ -48,18 +48,21 @@ const Wallet = async () => {
           <ul className="transaction-list">
             {account.transactions.map((tx) => (
               <li key={tx.transactionId}>
-                <span>
-                  {tx.amount}
-                  €
-                  {' '}
-                </span>
-                <span className="tx-description">
-                  {tx.description}
-                  {' '}
-                </span>
-                <div>
-                  {tx.timeStamp}
-                  {' '}
+                <div className="transaction">
+
+                  <span>
+                    {tx.amount}
+                    €
+                    {' '}
+                  </span>
+                  <span className="tx-description">
+                    {tx.description}
+                    {' '}
+                  </span>
+                  <div>
+                    {tx.timeStamp}
+                    {' '}
+                  </div>
                 </div>
                 <hr />
               </li>

@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import '../../styles/details.css';
 import Image from 'next/image';
+import { IoPersonCircle } from 'react-icons/io5';
 import { FaEdit } from 'react-icons/fa';
 import { getSession } from '../../lib/session';
 import { fetchUserByEmail } from '../../lib/fetching';
@@ -25,7 +26,9 @@ const Details = async () => {
             </Link>
           </div>
           <div className="details--first-section">
-            <Image src={session.user.image} height={75} width={75} />
+            {session
+              ? <Image src={session.user.image} height={75} width={75} />
+              : <IoPersonCircle className="details--avatar" />}
 
             <div className="details--name">{user?.zenName}</div>
           </div>
