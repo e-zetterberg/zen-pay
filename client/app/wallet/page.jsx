@@ -10,7 +10,9 @@ const Wallet = async () => {
   const email = user?.email;
 
   const fetchAccount = async () => {
-    const response = await fetch(`http://localhost:8080/api/users/${email}`);
+    const response = await fetch(`http://localhost:8080/api/users/${email}`, {
+      cache: 'no-store',
+    });
     const data = await response.json();
     return data.account;
   };
