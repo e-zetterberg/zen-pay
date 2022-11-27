@@ -8,9 +8,10 @@ import { RiQuestionnaireFill } from 'react-icons/ri';
 import { FiInfo } from 'react-icons/fi';
 import Link from 'next/link';
 import { TfiWallet } from 'react-icons/tfi';
-import { signOut } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 
 const Menu = () => {
+  const session = useSession();
   const [toggle, setToggle] = useState(false);
   const collapseMenu = () => {
     setToggle(!toggle);
@@ -23,20 +24,24 @@ const Menu = () => {
       <span />
       <span />
       <ul id="menu">
-        <Link href="/wallet" onClick={collapseMenu}>
-          <li className="menu--items">
-            <TfiWallet className="menu--icons" />
-            {' '}
-            Wallet
-          </li>
-        </Link>
-        <Link href="/details" onClick={collapseMenu}>
-          <li className="menu--items">
-            <IoPersonCircle className="menu--icons" />
-            {' '}
-            Account
-          </li>
-        </Link>
+        {session.data ? (
+          <Link href="/wallet" onClick={collapseMenu}>
+            <li className="menu--items">
+              <TfiWallet className="menu--icons" />
+              {' '}
+              Wallet
+            </li>
+          </Link>
+        ) : ''}
+        {session.data ? (
+          <Link href="/details" onClick={collapseMenu}>
+            <li className="menu--items">
+              <IoPersonCircle className="menu--icons" />
+              {' '}
+              Account
+            </li>
+          </Link>
+        ) : ''}
         <Link href="/settings" onClick={collapseMenu}>
           <li className="menu--items">
             <GoSettings className="menu--icons" />

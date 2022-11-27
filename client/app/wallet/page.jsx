@@ -16,6 +16,16 @@ const Wallet = async () => {
   };
 
   const data = await fetchAccount();
+  if (!data) {
+    return (
+      <main className="main">
+        <h3>You need to register a Zen-Account in order to access your wallet</h3>
+        <Link href="/register">
+          <button type="button" className="btn">Register</button>
+        </Link>
+      </main>
+    );
+  }
 
   const walletId = data.accountId;
 

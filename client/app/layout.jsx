@@ -19,11 +19,11 @@ export default async function RootLayout({ children }) {
       <head />
       <body>
 
-        <Header />
         <AuthContext session={session}>
+          <Header />
           {children}
         </AuthContext>
-        <Footer />
+        {session ? <Footer /> : ''}
 
       </body>
     </html>

@@ -21,6 +21,7 @@ const Register = () => {
   const onPhoneChange = (e) => setPhone(e.target.value);
   const onZenNameChange = (e) => setZenName(e.target.value);
   const onAddressChange = (e) => setAddress(e.target.value);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
@@ -38,13 +39,13 @@ const Register = () => {
       },
       body: JSON.stringify(data),
     });
-    if (response.status === 200) {
+    if (response.status === 201) {
       router.push('/');
     }
   };
   return (
     <main className="main">
-      <div className="form--input">
+      <form onSubmit={(e) => handleSubmit(e)} className="form--input">
         <Stack spacing={4}>
           <TextField
             label="Zen Name"
@@ -76,6 +77,7 @@ const Register = () => {
             size="small"
             type="email"
             value={email}
+            disabled
             InputProps={{ readOnly: true }}
             variant="standard"
           />
@@ -87,12 +89,10 @@ const Register = () => {
             variant="standard"
           />
         </Stack>
-        <div className="zen-button">
-          <Button variant="contained" onClick={(e) => handleSubmit(e)}>
-            Create Zen Account
-          </Button>
-        </div>
-      </div>
+        <Button className="zen-button" variant="contained" type="submit">
+          Create Zen Account
+        </Button>
+      </form>
     </main>
   );
 };
