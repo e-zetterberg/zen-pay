@@ -39,10 +39,12 @@ const Register = () => {
       },
       body: JSON.stringify(data),
     });
+    console.log(response.status);
     if (response.status === 201) {
       router.push('/');
     }
   };
+
   return (
     <main className="main">
       <form onSubmit={(e) => handleSubmit(e)} className="form--input">
