@@ -22,11 +22,13 @@ public class AccountService {
     public Account transferMoney(TransactionDto dto, long fromAccount, long toAccount) {
         Account sender = repo.getAccount(fromAccount);
         Account receiver = repo.getAccount(toAccount);
-        Transaction transaction = new Transaction(dto);
 
-        receiver.addTransaction(transaction);
-        transaction.setAmount(-transaction.getAmount());
-        sender.addTransaction(transaction);
+        Transaction received = new Transaction("Received from:" + sender.accountId, dto.amount(), dto.timeStamp());
+        Transaction sent = new Transaction("Sent to:" + receiver.accountId, -dto.amount(), dto.timeStamp());
+
+        receiver.addTransaction(received);
+        sender.addTransaction(sent);
+
         return repo.saveAccounts(sender, receiver);
     }
 

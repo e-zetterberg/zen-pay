@@ -35,6 +35,12 @@ public class Transaction {
         this.timeStamp = dto.timeStamp();
     }
 
+    public Transaction(String description, double amount, String timeStamp){
+        this.description = description;
+        this.amount = amount;
+        this.timeStamp = timeStamp;
+    }
+
     @Override
     public String toString() {
         return "Transaction{" +
