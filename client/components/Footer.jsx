@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Footer.css';
+import '../styles/footer.css';
 import { TfiWallet } from 'react-icons/tfi';
 import { AiOutlineHome } from 'react-icons/ai';
 import { IoPersonCircle } from 'react-icons/io5';

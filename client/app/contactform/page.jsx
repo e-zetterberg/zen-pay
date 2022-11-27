@@ -34,5 +34,6 @@ const ContactForm = () => (
       </div>
     </div>
   </div>
+);
 
 export default ContactForm;
