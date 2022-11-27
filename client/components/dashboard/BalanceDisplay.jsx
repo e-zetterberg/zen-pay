@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BalanceDisplay = ({ name, balance }) => (
+const BalanceDisplay = ({ name, balance, imgSrc }) => (
   <div className="dashboard--card">
     <div className="dashboard--current-balance">
       <div className="dashboard--current-balance-text">{name}</div>
@@ -11,7 +11,9 @@ const BalanceDisplay = ({ name, balance }) => (
         <div className="dashboard--currency">€</div>
       </div>
     </div>
-    <button type="button" className="dashboard--add-funds">+</button>
+    {imgSrc ? (
+      <img className="dashboard--crypto-image" alt="bitcoin price" src={imgSrc} />)
+      : (<button type="button" className="dashboard--add-funds">+</button>)}
   </div>
 );
 

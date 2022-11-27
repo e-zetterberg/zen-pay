@@ -1,8 +1,9 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { getSession } from '../lib/session';
 import '../styles/Dashboard.css';
+import BalanceDisplay from '../components/dashboard/BalanceDisplay';
 
 const Dashboard = async () => {
   const session = await getSession();
@@ -27,6 +28,14 @@ const Dashboard = async () => {
   const account = await fetchAccountId();
   const data = await fetchBalance(account?.accountId);
 
+  const res = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=bitcoin%2Cethereum%2Ccardano&order=market_cap_desc&per_page=3&page=1&sparkline=false', {
+    headers: {
+      accept: 'application/json',
+    },
+  });
+  const cryptoData = await res.json();
+  console.log(cryptoData);
+
   // const myHeaders = new Headers();
   // myHeaders.append('apikey', process.env.API_KEY);
 
@@ -45,21 +54,11 @@ const Dashboard = async () => {
     <main className="main dashboard--container">
       <div className="dashboard--account-overview">Account overview</div>
       <Link href="/wallet">
-        <div className="dashboard--card">
-          <div className="dashboard--current-balance">
-            <div className="dashboard--current-balance-text">Current balance</div>
-            <div className="dashboard--balance">
-              <div className="dashboard--amount">
-                <Suspense fallback="Loading...">
-                  {data?.balance}
-                </Suspense>
-              </div>
-              <div className="dashboard--currency">€</div>
-            </div>
-          </div>
-          <button type="button" className="dashboard--add-funds">+</button>
-        </div>
+        <BalanceDisplay name="Wallet balance" balance={data?.balance} />
       </Link>
+      {cryptoData.map((coin) => (
+        <BalanceDisplay name={`${coin.name} price`} balance={coin.current_price} imgSrc={coin.image} />
+      ))}
     </main>
   );
 };

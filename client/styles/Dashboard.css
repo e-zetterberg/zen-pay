@@ -22,7 +22,8 @@
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 2em;
     align-items: center;
     margin-top: 0.7em;
     top: 5em;
@@ -82,5 +83,10 @@
     font-weight: 400;
     font-size: 19px;
     color: rgb(41, 41, 41);
+}
+
+.dashboard--crypto-image{
+    height: 50px;
+    width: 50px;
 }
 

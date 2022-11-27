@@ -8,13 +8,12 @@ import { Stack } from '@mui/system';
 
 const UserForm = ({ user }) => {
   const router = useRouter();
-  const [name, setName] = useState(user.name);
+  const [name] = useState(user.name);
   const [phone, setPhone] = useState(user.phone);
   const [email] = useState(user.email);
   const [zenName, setZenName] = useState(user.zenName);
   const [address, setAddress] = useState(user.address);
 
-  const onNameChange = (e) => setName(e.target.value);
   const onPhoneChange = (e) => setPhone(e.target.value);
   const onZenNameChange = (e) => setZenName(e.target.value);
   const onAddressChange = (e) => setAddress(e.target.value);
@@ -59,7 +58,8 @@ const UserForm = ({ user }) => {
             size="small"
             variant="standard"
             value={name}
-            onChange={onNameChange}
+            disabled
+            InputProps={{ readOnly: true }}
             required
           />
           <TextField

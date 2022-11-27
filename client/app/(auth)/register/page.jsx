@@ -10,14 +10,13 @@ import toDateString from '../../../lib/dateString';
 
 const Register = () => {
   const { data: session } = useSession();
-  const [name, setName] = useState('');
+  const [name] = useState(session?.user.name);
   const [phone, setPhone] = useState('');
   const [email] = useState(session?.user.email);
   const [zenName, setZenName] = useState('');
   const [address, setAddress] = useState('');
   const router = useRouter();
 
-  const onNameChange = (e) => setName(e.target.value);
   const onPhoneChange = (e) => setPhone(e.target.value);
   const onZenNameChange = (e) => setZenName(e.target.value);
   const onAddressChange = (e) => setAddress(e.target.value);
@@ -62,7 +61,8 @@ const Register = () => {
             size="small"
             variant="standard"
             value={name}
-            onChange={onNameChange}
+            disabled
+            InputProps={{ readOnly: true }}
             required
           />
           <TextField

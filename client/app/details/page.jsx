@@ -32,7 +32,7 @@ const Details = async () => {
           <div className="details--second-section">
             <p className="details--second-section--items">
               {' '}
-              {user?.name}
+              {userData.name}
             </p>
             <p className="details--second-section--items">
               {' '}
@@ -47,8 +47,6 @@ const Details = async () => {
               {userData?.address}
             </p>
             <p className="details--second-section--items">
-              Member since:
-              {' '}
               {userData?.createdOn}
             </p>
           </div>
