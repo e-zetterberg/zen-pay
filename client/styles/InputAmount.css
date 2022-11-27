@@ -8,8 +8,23 @@
 }
 
 .input-field{
-    height: 4em;
+    border: solid 1px rgb(190, 190, 190);
+    text-indent: 14px;
+    font-size: 16px;
+    height: 4rem;
     width: 20rem;
-    text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
+}
+
+.input-field:hover{
+    border: solid 1px black;
+}
+
+.no-spin::-webkit-inner-spin-button, .no-spin::-webkit-outer-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+}
+
+.no-spin {
+    -moz-appearance:textfield !important;
 }

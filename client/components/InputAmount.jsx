@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/InputAmount.css';
-import TextField from '@mui/material/TextField';
 import toDateString from '../lib/dateString';
 
 const InputAmount = ({ type, walletId, max }) => {
@@ -47,15 +46,14 @@ const InputAmount = ({ type, walletId, max }) => {
   return (
     <>
       <form onSubmit={(e) => handleSubmit(e)} className="input-form">
-        <TextField
-          variant="outlined"
+        <input
           onChange={(e) => setAmount(e.target.value)}
           required
           value={amount}
           type="number"
           max={type === 'withdraw' ? max : 10000}
           min={1}
-          className="input-field"
+          className="input-field no-spin"
           placeholder="Amount"
         />
         <button className="btn btn--confirm" type="submit">

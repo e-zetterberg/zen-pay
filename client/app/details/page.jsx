@@ -17,7 +17,7 @@ const Details = async () => {
 
         <div className="details--card">
           <div className="details--edit-section">
-            <Link href="/editUserDetails">
+            <Link href="/details/edit">
 
               <button type="button" className="edit-btn">
                 <FaEdit />

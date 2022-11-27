@@ -20,8 +20,8 @@ public class UserService {
         return repo.getUserWithId(id);
     }
 
-    public User updateUserInfo(User user) {
+    public User updateUserInfo(UserDto dto) {
 
-        return repo.updateUserInfo(user);
+        return repo.updateUserInfo(new User(dto));
     }
 }

@@ -41,9 +41,9 @@ public class UserController {
     }
 
     @PatchMapping
-    ResponseEntity<User> updateUserInfo(@RequestBody User user){
+    ResponseEntity<User> updateUserInfo(@RequestBody UserDto userDto){
         try {
-            User updatedUser = service.updateUserInfo(user);
+            User updatedUser = service.updateUserInfo(userDto);
             return ResponseEntity.ok(updatedUser);
 
         } catch (NoSuchElementException e) {
