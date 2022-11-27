@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import salt.se.jfs.server.account.dtos.TransactionDto;
-import salt.se.jfs.server.user.User;
 import salt.se.jfs.server.user.UserDto;
 
 import java.util.NoSuchElementException;
@@ -13,33 +12,28 @@ import java.util.NoSuchElementException;
 @RestController
 @RequestMapping("/api/accounts")
 @CrossOrigin
-public class AccountsController {
+public class AccountController {
 
-    AccountsService service;
+    AccountService service;
 
-    public AccountsController(AccountsService service) {
+    public AccountController(AccountService service) {
         this.service = service;
     }
 
-    @GetMapping(path = "/{userId}")
-    ResponseEntity<Account> getAccountDetails(@PathVariable long userId){
+    @GetMapping(path = "/{accountId}")
+    ResponseEntity<Account> getAccount(@PathVariable long accountId){
+        System.out.println(accountId);
         try {
-            Account account = service.getAccountForUser(userId);
+            Account account = service.getAccount(accountId);
             return ResponseEntity.ok(account);
-
         } catch (NoSuchElementException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
     }
 
-    @GetMapping("/{userId}/balance")
-    ResponseEntity<Double> getBalance(@PathVariable long userId){
-        try {
-            Double balance = service.getAccountForUser(userId).getBalance();
-            return ResponseEntity.ok(balance);
-        } catch (NoSuchElementException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        }
+    @GetMapping("/{accountId}/balance")
+    ResponseEntity<Double> getBalance(@PathVariable long accountId){
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
     @PatchMapping("/transfer/{fromAccount}/{toAccount}")
@@ -55,17 +49,10 @@ public class AccountsController {
         }
     }
 
-    @PostMapping
-    ResponseEntity<Account> createAccount(@RequestBody UserDto userDto){
-        Account account = service.createAccount(userDto);
-        return ResponseEntity.ok(account);
-    }
-
     @PostMapping(path = "/{accountId}/transaction")
     ResponseEntity<Account> updateAccount(@RequestBody TransactionDto transactionDto, @PathVariable long accountId){
         try {
-        Transaction transaction = new Transaction(transactionDto);
-            Account account = service.updateAccount(transaction, accountId);
+            Account account = service.addTransactionToAccount(transactionDto, accountId);
             return ResponseEntity.accepted().body(account);
         } catch (NoSuchElementException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);

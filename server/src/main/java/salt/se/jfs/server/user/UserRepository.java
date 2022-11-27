@@ -14,12 +14,13 @@ public class UserRepository {
         return userRepo.findUserByEmail(email).orElseThrow();
     }
 
+
     public User getUserWithId(Long id) {
         return userRepo.findById(id).orElseThrow();
     }
 
 
-    public User updateUserInfo(User user) {
+    public User saveUser(User user) {
         return userRepo.save(user);
     }
 }

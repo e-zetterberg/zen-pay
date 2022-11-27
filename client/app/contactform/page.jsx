@@ -1,9 +1,7 @@
 import React from 'react';
 
-function ContactForm() {
-  return (
-    <div>page</div>
-  )
-}
+const ContactForm = () => (
+  <div>page</div>
+);
 
 export default ContactForm;

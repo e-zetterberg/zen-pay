@@ -2,6 +2,7 @@ package salt.se.jfs.server.user;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import salt.se.jfs.server.account.Account;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record UserDto(
@@ -11,5 +12,6 @@ public record UserDto(
         String email,
         String phone,
         String address,
-        String createdOn) {
+        String createdOn,
+        Account account) {
 }
