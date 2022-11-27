@@ -1,11 +1,14 @@
 
 .transactions--header-container{
     width: 100%;
-  }
-  .transactions--header{
+}
+.transactions--page-header{
+  width: 80%;
+}
+.transactions--header{
     display: block;
     margin: 0;
-  }
+}
   
   .transaction-container{
     border: 1px solid lightgray;
@@ -13,19 +16,22 @@
     border-radius: 5px;
     overflow-y: scroll;
     width: 100%;
-    height: 21vh;
+    height: 17vh;
+  }
+
+  .transaction-page-container{
+    width: 80%;
+    height: 79vh;
+    border: 1px solid lightgray;
+    padding: 5px;
+    border-radius: 5px;
+    overflow-y: scroll;
   }
   
   .transaction-list{
     list-style: none;
     padding-left: 8px;
     padding-right: 8px;
-  }
-  
-  .tx-description{
-    align-self: flex-end;
-    text-align: end;
-    margin-left: 44px;
   }
   
   .amount-description{
@@ -37,4 +43,11 @@
     text-decoration: none;
     color: black;
   }
+
+.transaction{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
   

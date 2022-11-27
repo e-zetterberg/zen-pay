@@ -4,16 +4,16 @@
     justify-content: center;
     width: 100%;
     position: absolute;
-    bottom: 1em;
+    bottom: 0.3em;
 }
 
 .footer--menu {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-radius: 22px;
+    border-radius: 10px;
     width: 77%;
-    height: 4.7em;
+    height: 4.5em;
     display: flex;
     background-color: #8590ac;
 }

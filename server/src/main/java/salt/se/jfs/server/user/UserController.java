@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.NoSuchElementException;
 
 @RestController
@@ -21,10 +20,10 @@ public class UserController {
     }
 
     @GetMapping(path = "/{email}")
-    ResponseEntity<User> getUserWithEmail(@PathVariable String email){
+    ResponseEntity<UserInfoDto> getUserWithEmail(@PathVariable String email){
         try {
-            User user = userService.getUserWithEmail(email);
-            return ResponseEntity.ok(user);
+            UserInfoDto dto = new UserInfoDto(userService.getUserWithEmail(email));
+            return ResponseEntity.ok(dto);
 
         } catch (NoSuchElementException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
