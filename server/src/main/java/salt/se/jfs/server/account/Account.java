@@ -13,15 +13,11 @@ public class Account {
     @Id
     @Column(name = "account_id")
     long accountId;
-    @Column(name = "balance")
+
     double balance;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_user_id")
-    User user;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_acc_id", referencedColumnName = "account_id")
-
     private List<Transaction> transactions;
 
     public long getAccountId() {
@@ -48,24 +44,14 @@ public class Account {
         this.transactions = transactions;
     }
 
-    public Account() {
+    public Account(){
+
     }
 
-    public Account(User user) {
+    public Account(double balance) {
         this.accountId = random();
-        this.balance = 0;
-        this.user = user;
+        this.balance = balance;
         this.transactions = new ArrayList<>();
-    }
-
-
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public static long  random() {
@@ -75,6 +61,11 @@ public class Account {
 
         // return a long between smallest and biggest (+1 to include biggest as well with the upper bound)
         return ThreadLocalRandom.current().nextLong(smallest, biggest+1);
+    }
+
+    public void addTransaction(Transaction transaction){
+        transactions.add(transaction);
+        setBalance(getBalance() + transaction.getAmount());
     }
 
 }

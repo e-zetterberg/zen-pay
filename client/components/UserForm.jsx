@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import '../styles/Register.css';
 import { Button, TextField } from '@mui/material';
 import { Stack } from '@mui/system';
-import toDateString from '../lib/dateString';
 
 const UserForm = ({ user }) => {
   const router = useRouter();
@@ -29,7 +28,6 @@ const UserForm = ({ user }) => {
       email,
       zenName,
       address,
-      createdOn: toDateString(new Date()),
     };
     const response = await fetch('http://localhost:8080/api/users', {
       method: 'PATCH',

@@ -8,7 +8,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
 
     @Id
@@ -24,8 +23,8 @@ public class User {
     private String address;
     private String createdOn;
 
-    @OneToOne(mappedBy = "user" ,cascade = CascadeType.ALL)
-    @JsonIgnore
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_acc_id", referencedColumnName = "account_id")
     private Account account;
 
     public long getUserId() {
@@ -96,6 +95,17 @@ public class User {
     public User(){
 
     }
+    public User(UserDto dto, Account account) {
+        this.userId = dto.userId();
+        this.name = dto.name();
+        this.zenName = dto.zenName();
+        this.email = dto.email();
+        this.phone = dto.phone();
+        this.address = dto.address();
+        this.createdOn = dto.createdOn();
+        this.account = account;
+    }
+
     public User(UserDto dto) {
         this.userId = dto.userId();
         this.name = dto.name();
