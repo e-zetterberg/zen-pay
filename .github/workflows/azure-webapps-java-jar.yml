@@ -29,11 +29,12 @@ on:
     branches: [ "production" ]
   workflow_dispatch:
 
-permissions:
-  contents: read
 
 jobs:
   build:
+    permissions:
+      contents: read  
+      packages: write
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -78,7 +79,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: Package
-          path: staging
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
