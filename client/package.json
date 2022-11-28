@@ -18,6 +18,7 @@
     "@mui/system": "^5.10.15",
     "@next/font": "^13.0.5",
     "eslint-config-next": "13.0.5",
+    "framer-motion": "^7.6.12",
     "next": "13.0.5",
     "next-auth": "^4.17.0",
     "react": "^18.2.0",

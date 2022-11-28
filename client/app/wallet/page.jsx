@@ -5,6 +5,7 @@ import TransactionForm from './TransactionForm';
 import CreditCard from '../../components/CreditCard';
 import '../../styles/transactions.css';
 import { fetchUserByEmail, fetchAccount } from '../../lib/fetching';
+import MotionProvider from '../../components/MotionProvider';
 
 const Wallet = async () => {
   const session = await getSession();
@@ -26,51 +27,54 @@ const Wallet = async () => {
   const account = await fetchAccount(user.accountId);
 
   return (
-    <main className="main homepage--balance">
-      <section className="balance--container">
-        <Suspense fallback={<CreditCard balance="loading" holder="James Bond" cardNumber="000000000000" />}>
+    <MotionProvider>
 
-          <CreditCard
-            balance={account.balance}
-            holder={user.name}
-            cardNumber={walletId}
-          />
-        </Suspense>
+      <main className="main homepage--balance">
+        <section className="balance--container">
+          <Suspense fallback={<CreditCard balance="loading" holder="James Bond" cardNumber="000000000000" />}>
 
-        <TransactionForm max={account.balance} walletId={walletId} />
-        <div className="transactions--header-container">
-          <Link href="/wallet/transactions">
-            <h3 className="transactions--header">Transactions</h3>
-          </Link>
-          <hr />
-        </div>
-        <div className="transaction-container">
-          <ul className="transaction-list">
-            {account.transactions.map((tx) => (
-              <li key={tx.transactionId}>
-                <div className="transaction">
+            <CreditCard
+              balance={account.balance}
+              holder={user.name}
+              cardNumber={walletId}
+            />
+          </Suspense>
 
-                  <span>
-                    {tx.amount}
-                    €
-                    {' '}
-                  </span>
-                  <span className="tx-description">
-                    {tx.description}
-                    {' '}
-                  </span>
-                  <div>
-                    {tx.timeStamp}
-                    {' '}
+          <TransactionForm max={account.balance} walletId={walletId} />
+          <div className="transactions--header-container">
+            <Link href="/wallet/transactions">
+              <h3 className="transactions--header">Transactions</h3>
+            </Link>
+            <hr />
+          </div>
+          <div className="transaction-container">
+            <ul className="transaction-list">
+              {account.transactions.map((tx) => (
+                <li key={tx.transactionId}>
+                  <div className="transaction">
+
+                    <span>
+                      {tx.amount}
+                      €
+                      {' '}
+                    </span>
+                    <span className="tx-description">
+                      {tx.description}
+                      {' '}
+                    </span>
+                    <div>
+                      {tx.timeStamp}
+                      {' '}
+                    </div>
                   </div>
-                </div>
-                <hr />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    </main>
+                  <hr />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      </main>
+    </MotionProvider>
   );
 };
 export default Wallet;

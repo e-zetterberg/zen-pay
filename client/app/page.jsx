@@ -5,6 +5,7 @@ import { getSession } from '../lib/session';
 import '../styles/Dashboard.css';
 import BalanceDisplay from '../components/dashboard/BalanceDisplay';
 import { fetchUserByEmail, fetchAccount } from '../lib/fetching';
+import MotionProvider from '../components/MotionProvider';
 
 const Dashboard = async () => {
   const session = await getSession();
@@ -49,15 +50,18 @@ const Dashboard = async () => {
   //   .catch((error) => console.log('error', error));
 
   return (
-    <main className="main dashboard--container">
-      <div className="dashboard--account-overview">Dashboard</div>
-      <Link href="/wallet">
-        <BalanceDisplay name="Wallet balance" balance={account?.balance} />
-      </Link>
-      {cryptoData.map((coin) => (
-        <BalanceDisplay key={coin.id} name={`${coin.name} price`} balance={coin.current_price} imgSrc={coin.image} />
-      ))}
-    </main>
+    <MotionProvider>
+
+      <main className="main dashboard--container">
+        <div className="dashboard--account-overview">Dashboard</div>
+        <Link href="/wallet">
+          <BalanceDisplay name="Wallet balance" balance={account?.balance} />
+        </Link>
+        {cryptoData.map((coin) => (
+          <BalanceDisplay key={coin.id} name={`${coin.name} price`} balance={coin.current_price} imgSrc={coin.image} />
+        ))}
+      </main>
+    </MotionProvider>
   );
 };
 
