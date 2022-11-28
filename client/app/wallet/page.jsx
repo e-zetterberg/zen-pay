@@ -29,51 +29,51 @@ const Wallet = async () => {
   return (
     <MotionProvider>
 
-    <main className="main homepage--balance">
-      <section className="balance--container">
-        <Suspense fallback={<CreditCard balance="loading" holder="James Bond" cardNumber="000000000000" />}>
+      <main className="main homepage--balance">
+        <section className="balance--container">
+          <Suspense fallback={<CreditCard balance="loading" holder="James Bond" cardNumber="000000000000" />}>
 
-          <CreditCard
-            balance={account.balance}
-            holder={user.name}
-            cardNumber={walletId}
-          />
-        </Suspense>
+            <CreditCard
+              balance={account.balance}
+              holder={user.name}
+              cardNumber={walletId}
+            />
+          </Suspense>
 
-        <TransactionForm max={account.balance} walletId={walletId} />
-        <div className="transactions--header-container">
-          <Link href="/wallet/transactions">
-            <h3 className="transactions--header">Transactions</h3>
-          </Link>
-          <hr />
-        </div>
-        <div className="transaction-container">
-          <ul className="transaction-list">
-            {account.transactions.map((tx) => (
-              <li key={tx.transactionId}>
-                <div className="transaction">
+          <TransactionForm max={account.balance} walletId={walletId} />
+          <div className="transactions--header-container">
+            <Link href="/wallet/transactions">
+              <h3 className="transactions--header">Transactions</h3>
+            </Link>
+            <hr />
+          </div>
+          <div className="transaction-container">
+            <ul className="transaction-list">
+              {account.transactions.map((tx) => (
+                <li key={tx.transactionId}>
+                  <div className="transaction">
 
-                  <span>
-                    {tx.amount}
-                    €
-                    {' '}
-                  </span>
-                  <span className="tx-description">
-                    {tx.description}
-                    {' '}
-                  </span>
-                  <div>
-                    {tx.timeStamp}
-                    {' '}
+                    <span>
+                      {tx.amount}
+                      €
+                      {' '}
+                    </span>
+                    <span className="tx-description">
+                      {tx.description}
+                      {' '}
+                    </span>
+                    <div>
+                      {tx.timeStamp}
+                      {' '}
+                    </div>
                   </div>
-                </div>
-                <hr />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    </main>
+                  <hr />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      </main>
     </MotionProvider>
   );
 };

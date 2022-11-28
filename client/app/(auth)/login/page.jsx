@@ -2,15 +2,16 @@ import React from 'react';
 import { redirect } from 'next/navigation';
 import { getSession } from '../../../lib/session';
 import LoginButton from './LoginButton';
+import { fetchUserByEmail } from '../../../lib/fetching';
 import '../../../styles/login.css';
 
 const Login = async () => {
   const session = await getSession();
 
   const email = session?.user.email;
-  const res = await fetch(`http://localhost:8080/api/users/${email}`);
+  const user = await fetchUserByEmail(email);
 
-  if (!res.ok && session) {
+  if (!user.userId && session) {
     redirect('/register');
   }
 
