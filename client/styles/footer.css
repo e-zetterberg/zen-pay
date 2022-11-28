@@ -4,14 +4,14 @@
     justify-content: center;
     width: 100%;
     position: absolute;
-    bottom: 0.3em;
+    bottom: 1em;
 }
 
 .footer--menu {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 20px;
     width: 77%;
     height: 4.5em;
     display: flex;

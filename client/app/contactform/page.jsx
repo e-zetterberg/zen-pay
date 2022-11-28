@@ -1,39 +1,32 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
 'use client';
 
 import React from 'react';
 import '../../styles/contactform.css';
+import MotionProvider from '../../components/MotionProvider';
 
 const ContactForm = () => (
-  <div className="contact--container">
-    <div>
-      <p className="contact-us">Contact us</p>
-    </div>
-    <div className="contact--name">
-      <div className="contact--categories">Full name *</div>
-      <div className="col-xs-12">
-        <div className="styled-input wide">
-          <input type="text" required />
-        </div>
+  <MotionProvider>
+    <div className="contact-page-container">
+      <div>
+        <p className="contact-us">Contact us</p>
       </div>
-      <div className="contact--categories">Email *</div>
-      <div className="col-md-6 col-sm-12">
-        <div className="styled-input">
-          <input type="text" required />
-        </div>
-      </div>
-      <div className="contact--categories">Your message *</div>
-      <div className="col-xs-12">
-        <div className="styled-input wide">
-          <textarea required />
-        </div>
-      </div>
-      <div className="col-xs-12">
-        <div className="btn-lrg submit-btn">Send</div>
+      <div className="contact-form-container">
+        <form className="contact-form">
+          <input className="contact-field" placeholder="Full name" />
+          <input className="contact-field" placeholder="Email address" />
+          <textarea className="contact-field-message" placeholder="  Send us your message here" />
+          <div className="contact-">
+            <button className="send--btn" type="submit">
+              Send
+            </button>
+          </div>
+        </form>
       </div>
     </div>
-  </div>
+  </MotionProvider>
 );
 
 export default ContactForm;

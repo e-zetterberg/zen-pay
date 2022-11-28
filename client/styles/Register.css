@@ -1,14 +1,29 @@
-.registration--form{
-
+.register-form-container {
     display: flex;
-    flex-direction: column;
-    width: 50%;  
+    justify-content: center;
     align-items: center;
 }
 
-.form--input{
-    top: 3em;
+.register-form--input{
+    width: 17em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2em;
+    margin-bottom: 4em;
 }
+
+.register-all-inputs {
+    width: 17em;
+}
+
+
+
+
+
+
+
 
 .edit-user-page {
     display: flex;
@@ -25,12 +40,13 @@
     height: 2.8em;
 }
 
-.zen-button{
-    
-   text-align: center;
-   padding: 2em;
-    margin: 20px auto;
-}
+
+
+
+
+
+
+
 
 /* For creating a new account*/
 .create-account-container {
@@ -54,7 +70,7 @@
     color: #FFFFFF;
     border-radius: 8px;
     padding: 14px 24px 16px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     line-height: 1;
     transition: transform 200ms,background 200ms;    
