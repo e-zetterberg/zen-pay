@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import '../../../styles/Register.css';
-import { Button, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 import { Stack } from '@mui/system';
 import toDateString from '../../../lib/dateString';
 import { baseApiPath } from '../../../lib/fetching';
@@ -46,11 +46,11 @@ const Register = () => {
   };
 
   return (
-    <main className="main">
-      <form onSubmit={(e) => handleSubmit(e)} className="form--input">
-        <Stack spacing={4}>
+    <main className="main register-form-container">
+      <form onSubmit={(e) => handleSubmit(e)} className="register-form--input">
+        <Stack className="register-all-inputs" spacing={4}>
           <TextField
-            label="Zen Name"
+            label="Username"
             size="small"
             variant="standard"
             value={zenName}
@@ -92,9 +92,9 @@ const Register = () => {
             variant="standard"
           />
         </Stack>
-        <Button className="zen-button" variant="contained" type="submit">
-          Create Zen Account
-        </Button>
+        <button className="global--btn" type="submit">
+          Create Account
+        </button>
       </form>
     </main>
   );
