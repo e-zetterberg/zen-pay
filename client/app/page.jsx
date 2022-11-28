@@ -6,6 +6,7 @@ import '../styles/Dashboard.css';
 import BalanceDisplay from '../components/dashboard/BalanceDisplay';
 import { fetchUserByEmail, fetchAccount } from '../lib/fetching';
 import MotionProvider from '../components/MotionProvider';
+import Register from '../components/Register';
 
 const Dashboard = async () => {
   const session = await getSession();
@@ -17,12 +18,7 @@ const Dashboard = async () => {
 
   if (!user.userId) {
     return (
-      <main className="main">
-        <h3>You need to register a Zen-Account in order to access this page</h3>
-        <Link href="/register">
-          <button type="button" className="btn">Register</button>
-        </Link>
-      </main>
+      <Register />
     );
   }
 

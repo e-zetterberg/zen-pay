@@ -1,8 +1,8 @@
 import '../../../styles/transactions.css';
 import React, { Suspense } from 'react';
-import Link from 'next/link';
 import { getSession } from '../../../lib/session';
 import { fetchUserByEmail, fetchAccount } from '../../../lib/fetching';
+import Register from '../../../components/Register';
 
 const Transactions = async () => {
   const session = await getSession();
@@ -11,12 +11,7 @@ const Transactions = async () => {
 
   if (!user.userId) {
     return (
-      <main className="main">
-        <h3>You need to register a Zen-Account in order to access your wallet</h3>
-        <Link href="/register">
-          <button type="button" className="btn">Register</button>
-        </Link>
-      </main>
+      <Register />
     );
   }
   const account = await fetchAccount(user.accountId);
