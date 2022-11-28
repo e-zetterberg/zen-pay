@@ -15,7 +15,7 @@ public class AccountService {
 
     public Account addTransactionToAccount(TransactionDto dto, long accountId) {
         Account account = getAccount(accountId);
-        if (account.getBalance() < dto.amount()){
+        if (account.getBalance() < dto.amount() && dto.description().equals("withdraw")){
             throw new IllegalArgumentException();
         }
         account.addTransaction(new Transaction(dto));
