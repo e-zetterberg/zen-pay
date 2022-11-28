@@ -49,7 +49,7 @@ jobs:
           cache: 'maven'
 
       - name: Build with Maven
-        run: mvn clean install -DskipTests
+        run: mvn clean package -DskipTests
       - run: mkdir staging && cp target/*.jar staging
       
 
@@ -67,6 +67,7 @@ jobs:
     defaults:
       run:
         working-directory: server
+
     needs: build
     environment:
       name: 'Development'
@@ -82,7 +83,6 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          path: server
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: '*.jar'
