@@ -1,6 +1,6 @@
 .contact-us {
-    font-family: 'Poppins';
-    font-weight: 400;
+    font-family: 'system-ui';
+    font-weight: 700;
     text-align: center;
     font-size: 19px;
     color: rgb(41, 41, 41);
@@ -12,6 +12,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin-top: 3em;
 }
 
 .contact-form-container {
@@ -37,7 +38,7 @@
 }
 
 .contact-field{
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.5;
     border: none;
     background: #FFFFFF;
@@ -50,8 +51,8 @@
     border-radius: 7px;
     border: solid 1px;
     border-color: #e7e6e6;
-    width: 12em;
-    height: 2em;
+    width: 13em;
+    height: 2.5em;
     } 
     
 .contact-field::placeholder{
@@ -61,7 +62,7 @@
 .contact-field:focus {
     outline: none;
     border-color: #6179b2;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .contact-field-message {
@@ -76,13 +77,35 @@
 .contact-field-message:focus {
     outline: none;
     border-color: #6179b2;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .contact-question {
     font-family: 'system-ui';
     font-weight: 400;
     font-size: 15px;
+}
+
+.contact-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.send--btn {
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    background: #000000;
+    color: #FFFFFF;
+    border-radius: 8px;
+    padding: 14px 24px 16px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    transition: transform 200ms,background 200ms;  
+    width: 6em; 
+    height: 2.7em; 
 }
 
 

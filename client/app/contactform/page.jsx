@@ -17,10 +17,12 @@ const ContactForm = () => (
         <form className="contact-form">
           <input className="contact-field" placeholder="Full name" />
           <input className="contact-field" placeholder="Email address" />
-          <textarea className="contact-field-message" placeholder="Send us your message here" />
-          <button className="global--btn" type="submit">
-            Send
-          </button>
+          <textarea className="contact-field-message" placeholder="  Send us your message here" />
+          <div className="contact-">
+            <button className="send--btn" type="submit">
+              Send
+            </button>
+          </div>
         </form>
       </div>
     </div>
