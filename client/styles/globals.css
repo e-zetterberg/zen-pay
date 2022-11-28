@@ -25,7 +25,7 @@ html, body {
   padding: 0;
   width: 100%;
   background-color: #f3f4fa;
-  font-family: Poppins;
+  font-family: 'Poppins';
 }
 
 .pure-material-progress-linear {

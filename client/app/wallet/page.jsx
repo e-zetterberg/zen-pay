@@ -1,9 +1,11 @@
 import React, { Suspense } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getCurrentUser } from '../../lib/session';
 import TransactionForm from './TransactionForm';
 import CreditCard from '../../components/CreditCard';
 import '../../styles/transactions.css';
+import '../../styles/create-account.css';
 
 const Wallet = async () => {
   const user = await getCurrentUser();
@@ -20,10 +22,11 @@ const Wallet = async () => {
   const data = await fetchAccount();
   if (!data) {
     return (
-      <main className="main">
-        <h3>You need to register a Zen-Account in order to access your wallet</h3>
+      <main className="main create-account-container">
+        <div className="create-account-text">Create your ZenPay account</div>
+        <Image href="/public/create-account.jpg" />
         <Link href="/register">
-          <button type="button" className="btn">Register</button>
+          <button type="button" className="create-account-btn">Register</button>
         </Link>
       </main>
     );
