@@ -1,5 +1,6 @@
 import React from 'react';
 import { redirect } from 'next/navigation';
+import Image from 'next/image';
 import { getSession } from '../../../lib/session';
 import LoginButton from './LoginButton';
 import { fetchUserByEmail } from '../../../lib/fetching';
@@ -22,7 +23,10 @@ const Login = async () => {
   return (
 
     <main className="main login">
-      <LoginButton />
+      <div className="login--container">
+        <Image src="/../public/sign-in.png" alt="sign-in" width={210} height={200} />
+        <LoginButton />
+      </div>
     </main>
   );
 };

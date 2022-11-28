@@ -2,5 +2,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 97vh;
+    width: 15em;
+    height: 2em;
+    height: 10vh;
+}
+
+.google-icon {
+    width: 13em;
+    height: 3em;
+}
+
+.login--container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 90vh;
 }
