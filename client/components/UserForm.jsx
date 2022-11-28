@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import '../styles/Register.css';
 import { Button, TextField } from '@mui/material';
 import { Stack } from '@mui/system';
+import { baseApiPath } from '../lib/fetching';
 
 const UserForm = ({ user }) => {
   const router = useRouter();
@@ -28,7 +29,7 @@ const UserForm = ({ user }) => {
       zenName,
       address,
     };
-    const response = await fetch('http://localhost:8080/api/users', {
+    const response = await fetch(`${baseApiPath}/users`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
