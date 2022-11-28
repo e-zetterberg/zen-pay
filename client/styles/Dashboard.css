@@ -80,8 +80,9 @@
 }
 
 .dashboard--account-overview {
-    font-weight: 400;
-    font-size: 19px;
+    font-weight: 500;
+    font-family: 'system-ui';
+    font-size: 18px;
     color: rgb(41, 41, 41);
 }
 

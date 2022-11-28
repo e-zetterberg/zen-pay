@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import '../styles/Register.css';
-import { Button, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 import { Stack } from '@mui/system';
 import { baseApiPath } from '../lib/fetching';
 
@@ -43,9 +43,9 @@ const UserForm = ({ user }) => {
   };
 
   return (
-    <main className="main edit-user-page">
-      <form className="form--input" onSubmit={(e) => handleSubmit(e)}>
-        <Stack spacing={4} className="edit-user--all-fields">
+    <main className="main edit-user-container">
+      <form onSubmit={(e) => handleSubmit(e)} className="edit-form-input">
+        <Stack spacing={4} className="edit-all-inputs">
           <TextField
             label="Zen Name"
             size="small"
@@ -89,9 +89,9 @@ const UserForm = ({ user }) => {
             variant="standard"
           />
         </Stack>
-        <Button type="submit" className="zen-button save-button" variant="contained">
+        <button type="submit" className="edit-save-button">
           Save
-        </Button>
+        </button>
 
       </form>
     </main>

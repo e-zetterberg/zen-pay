@@ -37,8 +37,8 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    row-gap:0.3em;
-    margin: 0.5em;
+    row-gap:0.2em;
+    margin: 0.3em;
     font-weight: 200;
 }
 
@@ -61,7 +61,7 @@
     justify-content: space-around;
     align-items: center;
     margin-top: 1em;
-    row-gap: 2em;
+    row-gap: 1em;
     background-color: #fefeff;
     
 }
@@ -73,3 +73,4 @@
     background-color: #fefeff;
     margin-right: 0;
 }
+
