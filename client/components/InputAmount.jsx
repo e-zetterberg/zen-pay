@@ -52,7 +52,7 @@ const InputAmount = ({ type, walletId, max }) => {
           required
           value={amount}
           type="number"
-          max={type === 'withdraw' ? max : 10000}
+          max={type === 'withdraw' ? max : 100000}
           min={1}
           className="input-field no-spin"
           placeholder="Amount"

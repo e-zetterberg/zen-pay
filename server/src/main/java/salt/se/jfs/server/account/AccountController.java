@@ -44,8 +44,10 @@ public class AccountController {
         try {
             Account account = service.transferMoney(transactionDto, fromAccount, toAccount);
             return ResponseEntity.ok(account);
-        } catch (NoSuchElementException e){
-            throw  new ResponseStatusException(HttpStatus.NOT_FOUND);
+        } catch (NoSuchElementException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        } catch (IllegalArgumentException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE);
         }
     }
 
@@ -56,6 +58,8 @@ public class AccountController {
             return ResponseEntity.accepted().body(account);
         } catch (NoSuchElementException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        } catch (IllegalArgumentException e){
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE);
         }
     }
 
