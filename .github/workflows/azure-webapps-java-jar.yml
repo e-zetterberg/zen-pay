@@ -27,17 +27,17 @@ env:
 on:
   push:
     branches: [ "production" ]
-  workflow_dispatch:
-
-permissions:
-  contents: read
+    
+defaults:
+      run:
+        working-directory: server
 
 jobs:
   build:
+    permissions:
+      contents: read  
+      packages: write
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: server
 
     steps:
       - uses: actions/checkout@v3
@@ -50,18 +50,22 @@ jobs:
           cache: 'maven'
 
       - name: Build with Maven
-        run: mvn clean install
+        run: mvn clean package -DskipTests
+      - run: mkdir staging && cp target/*.jar staging
+      
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
-          name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          name: Package
+          path: server/staging
 
   deploy:
     permissions:
-      contents: none
+      contents: read
+      packages: write
     runs-on: ubuntu-latest
+
     needs: build
     environment:
       name: 'Development'
@@ -71,7 +75,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: java-app
+          name: Package
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
