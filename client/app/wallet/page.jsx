@@ -5,6 +5,7 @@ import TransactionForm from './TransactionForm';
 import CreditCard from '../../components/CreditCard';
 import '../../styles/transactions.css';
 import { fetchUserByEmail, fetchAccount } from '../../lib/fetching';
+import MotionProvider from '../../components/MotionProvider';
 
 const Wallet = async () => {
   const session = await getSession();
@@ -26,6 +27,8 @@ const Wallet = async () => {
   const account = await fetchAccount(user.accountId);
 
   return (
+    <MotionProvider>
+
     <main className="main homepage--balance">
       <section className="balance--container">
         <Suspense fallback={<CreditCard balance="loading" holder="James Bond" cardNumber="000000000000" />}>
@@ -71,6 +74,7 @@ const Wallet = async () => {
         </div>
       </section>
     </main>
+    </MotionProvider>
   );
 };
 export default Wallet;
