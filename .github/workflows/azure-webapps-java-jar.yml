@@ -62,7 +62,8 @@ jobs:
 
   deploy:
     permissions:
-      contents: none
+      contents: read
+      packages: write
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -77,6 +78,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: Package
+          path: staging
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
