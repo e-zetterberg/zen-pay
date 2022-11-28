@@ -7,6 +7,7 @@ import '../../../styles/Register.css';
 import { Button, TextField } from '@mui/material';
 import { Stack } from '@mui/system';
 import toDateString from '../../../lib/dateString';
+import { baseApiPath } from '../../../lib/fetching';
 
 const Register = () => {
   const { data: session } = useSession();
@@ -31,7 +32,7 @@ const Register = () => {
       address,
       createdOn: toDateString(new Date()),
     };
-    const response = await fetch('http://localhost:8080/api/users', {
+    const response = await fetch(`${baseApiPath}/users`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

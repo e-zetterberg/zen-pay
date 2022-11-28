@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const BalanceDisplay = ({ name, balance, imgSrc }) => (
   <div className="dashboard--card">
@@ -12,7 +13,7 @@ const BalanceDisplay = ({ name, balance, imgSrc }) => (
       </div>
     </div>
     {imgSrc ? (
-      <img className="dashboard--crypto-image" alt="bitcoin price" src={imgSrc} />)
+      <Image className="dashboard--crypto-image" alt="bitcoin price" src={imgSrc} height={50} width={50} />)
       : (<button type="button" className="dashboard--add-funds">+</button>)}
   </div>
 );

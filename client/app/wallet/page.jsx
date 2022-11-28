@@ -6,21 +6,19 @@ import TransactionForm from './TransactionForm';
 import CreditCard from '../../components/CreditCard';
 import '../../styles/transactions.css';
 import '../../styles/create-account.css';
+import { getSession } from '../../lib/session';
+import TransactionForm from './TransactionForm';
+import CreditCard from '../../components/CreditCard';
+import { fetchUserByEmail, fetchAccount } from '../../lib/fetching';
+import MotionProvider from '../../components/MotionProvider';
+
 
 const Wallet = async () => {
-  const user = await getCurrentUser();
-  const email = user?.email;
+  const session = await getSession();
+  const email = session?.user.email;
 
-  const fetchAccount = async () => {
-    const response = await fetch(`http://localhost:8080/api/users/${email}`, {
-      cache: 'no-store',
-    });
-    const data = await response.json();
-    return data.account;
-  };
-
-  const data = await fetchAccount();
-  if (!data) {
+  const user = await fetchUserByEmail(email);
+  if (!user.userId) {
     return (
       <main className="main create-account-container">
         <div className="create-account-text">Create your ZenPay account</div>
@@ -32,51 +30,58 @@ const Wallet = async () => {
     );
   }
 
-  const walletId = data.accountId;
+  const walletId = user.accountId;
+  const account = await fetchAccount(user.accountId);
 
   return (
-    <main className="main homepage--balance">
-      <section className="balance--container">
-        <Suspense fallback={<CreditCard balance="loading" holder="James Bond" cardNumber="000000000000" />}>
+    <MotionProvider>
 
-          <CreditCard
-            balance={data.balance}
-            holder={user.name}
-            cardNumber={walletId}
-          />
-        </Suspense>
+      <main className="main homepage--balance">
+        <section className="balance--container">
+          <Suspense fallback={<CreditCard balance="loading" holder="James Bond" cardNumber="000000000000" />}>
 
-        <TransactionForm max={data.balance} walletId={walletId} />
-        <div className="transactions--header-container">
-          <Link href="/wallet/transactions">
-            <h3 className="transactions--header">Transactions</h3>
-          </Link>
-          <hr />
-        </div>
-        <div className="transaction-container">
-          <ul className="transaction-list">
-            {data.transactions.map((tx) => (
-              <li key={tx.transactionId}>
-                <span>
-                  {tx.amount}
-                  €
-                  {' '}
-                </span>
-                <span className="tx-description">
-                  {tx.description}
-                  {' '}
-                </span>
-                <div>
-                  {tx.timeStamp}
-                  {' '}
-                </div>
-                <hr />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    </main>
+            <CreditCard
+              balance={account.balance}
+              holder={user.name}
+              cardNumber={walletId}
+            />
+          </Suspense>
+
+          <TransactionForm max={account.balance} walletId={walletId} />
+          <div className="transactions--header-container">
+            <Link href="/wallet/transactions">
+              <h3 className="transactions--header">Transactions</h3>
+            </Link>
+            <hr />
+          </div>
+          <div className="transaction-container">
+            <ul className="transaction-list">
+              {account.transactions.map((tx) => (
+                <li key={tx.transactionId}>
+                  <div className="transaction">
+
+                    <span>
+                      {tx.amount}
+                      €
+                      {' '}
+                    </span>
+                    <span className="tx-description">
+                      {tx.description}
+                      {' '}
+                    </span>
+                    <div>
+                      {tx.timeStamp}
+                      {' '}
+                    </div>
+                  </div>
+                  <hr />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      </main>
+    </MotionProvider>
   );
 };
 export default Wallet;

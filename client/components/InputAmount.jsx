@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/InputAmount.css';
 import toDateString from '../lib/dateString';
+import { baseApiPath } from '../lib/fetching';
 
 const InputAmount = ({ type, walletId, max }) => {
   const router = useRouter();
@@ -21,7 +22,7 @@ const InputAmount = ({ type, walletId, max }) => {
     };
     const message = toast.loading('Processing transaction');
     const response = await fetch(
-      `http://localhost:8080/api/accounts/${walletId}/transaction`,
+      `${baseApiPath}/accounts/${walletId}/transaction`,
       {
         method: 'POST',
         headers: {

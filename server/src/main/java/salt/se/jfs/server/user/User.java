@@ -16,6 +16,7 @@ public class User {
     private long userId;
     private String name;
     private String zenName;
+    @Column(unique = true)
     private String email;
     private String phone;
 
@@ -79,7 +80,6 @@ public class User {
     public String getZenName() {
         return zenName;
     }
-
     public void setZenName(String zenName) {
         this.zenName = zenName;
     }
@@ -102,7 +102,7 @@ public class User {
         this.email = dto.email();
         this.phone = dto.phone();
         this.address = dto.address();
-        this.createdOn = dto.createdOn();
+        this.createdOn = "Member since: " + dto.createdOn();
         this.account = account;
     }
 
@@ -113,6 +113,6 @@ public class User {
         this.email = dto.email();
         this.phone = dto.phone();
         this.address = dto.address();
-        this.createdOn = dto.createdOn();
+        this.createdOn = "Member since: " +  dto.createdOn();
     }
 }
