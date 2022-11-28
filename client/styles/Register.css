@@ -4,9 +4,6 @@
     flex-direction: column;
     width: 50%;  
     align-items: center;
-    
-    
-
 }
 
 .form--input{
@@ -33,4 +30,36 @@
    text-align: center;
    padding: 2em;
     margin: 20px auto;
+}
+
+/* For creating a new account*/
+.create-account-container {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-account-text {
+    font-weight: 500;
+    font-size: 19px;
+    color: rgb(41, 41, 41);
+}
+
+.create-account-btn {
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    background: #000000;
+    color: #FFFFFF;
+    border-radius: 8px;
+    padding: 14px 24px 16px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    transition: transform 200ms,background 200ms;    
+}
+
+.create-account-btn:hover{
+    transform: translateY(-2px);
 }

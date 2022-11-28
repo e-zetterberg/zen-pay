@@ -1,17 +1,13 @@
 import React, { Suspense } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { getCurrentUser } from '../../lib/session';
 import TransactionForm from './TransactionForm';
 import CreditCard from '../../components/CreditCard';
 import '../../styles/transactions.css';
 import '../../styles/create-account.css';
 import { getSession } from '../../lib/session';
-import TransactionForm from './TransactionForm';
-import CreditCard from '../../components/CreditCard';
 import { fetchUserByEmail, fetchAccount } from '../../lib/fetching';
 import MotionProvider from '../../components/MotionProvider';
-
+import Register from '../../components/Register';
 
 const Wallet = async () => {
   const session = await getSession();
@@ -20,13 +16,7 @@ const Wallet = async () => {
   const user = await fetchUserByEmail(email);
   if (!user.userId) {
     return (
-      <main className="main create-account-container">
-        <div className="create-account-text">Create your ZenPay account</div>
-        <Image src="/../public/create-account.png" alt="create-account" width={260} height={250} />
-        <Link href="/register">
-          <button type="button" className="create-account-btn">Register</button>
-        </Link>
-      </main>
+      <Register />
     );
   }
 
