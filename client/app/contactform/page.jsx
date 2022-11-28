@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
 'use client';
@@ -8,18 +9,20 @@ import MotionProvider from '../../components/MotionProvider';
 
 const ContactForm = () => (
   <MotionProvider>
-    <div className="contact--container">
+    <div className="contact-page-container">
       <div>
         <p className="contact-us">Contact us</p>
       </div>
-      <form className="contact-form">
-        <input className="balloon" placeholder="Email address" />
-        <input className="contact-field-email" placeholder="email" />
-        <textarea className="contact-field-message" placeholder="email" />
-        <button className="global--btn" type="submit">
-          Send
-        </button>
-      </form>
+      <div className="contact-form-container">
+        <form className="contact-form">
+          <input className="contact-field" placeholder="Full name" />
+          <input className="contact-field" placeholder="Email address" />
+          <textarea className="contact-field-message" placeholder="Send us your message here" />
+          <button className="global--btn" type="submit">
+            Send
+          </button>
+        </form>
+      </div>
     </div>
   </MotionProvider>
 );
