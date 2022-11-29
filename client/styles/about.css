@@ -6,13 +6,13 @@
 }
 
 .about--container {
-    top: 1em;
+    top: 1vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 22em;
-    height: 28em;
+    width: 88vw;
+    height: 50vh;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     overflow: hidden;
