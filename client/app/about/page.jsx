@@ -6,7 +6,7 @@ import MotionProvider from '../../components/MotionProvider';
 const About = () => (
   <MotionProvider>
     <main className="main main--container">
-      <div className="about--about">About ZenPay</div>
+      <div className="about--about">About us</div>
       <div className="about--container">
         <Image className="about--image" src="/../public/about-pic.png" alt="about-us" width={360} height={250} />
         <p className="about--description">

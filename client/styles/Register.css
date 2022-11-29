@@ -18,32 +18,44 @@
     width: 17em;
 }
 
+.edit-form-input {
+    width: 17em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2em;
+    margin-bottom: 4em;
+}
+
+.edit-all-inputs {
+    width: 17em;
+}
+
+.edit-save-button {
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    background: #000000;
+    color: #FFFFFF;
+    border-radius: 8px;
+    padding: 14px 24px 16px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    transition: transform 200ms,background 200ms;  
+}
 
 
-
-
-
-
-
-.edit-user-page {
+.edit-user-container {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .edit-user--all-fields {
     width: 13em;
 }
-
-.save-button {
-    background-color: #012169;
-    width: 7em;
-    height: 2.8em;
-}
-
-
-
-
-
 
 
 

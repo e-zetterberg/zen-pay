@@ -31,23 +31,8 @@ const Dashboard = async () => {
   });
   const cryptoData = await res.json();
 
-  // const myHeaders = new Headers();
-  // myHeaders.append('apikey', process.env.API_KEY);
-
-  // const requestOptions = {
-  //   method: 'GET',
-  //   redirect: 'follow',
-  //   headers: myHeaders,
-  // };
-
-  // fetch('https://api.apilayer.com/currency_data/change?start_date=2022-11-20&end_date=2022-11-01', requestOptions)
-  //   .then((response) => response.text())
-  //   .then((result) => console.log(result))
-  //   .catch((error) => console.log('error', error));
-
   return (
     <MotionProvider>
-
       <main className="main dashboard--container">
         <div className="dashboard--account-overview">Dashboard</div>
         <Link href="/wallet">

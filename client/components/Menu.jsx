@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../styles/Menu.css';
 import { IoPersonCircle } from 'react-icons/io5';
 import { GoSettings } from 'react-icons/go';
@@ -13,34 +13,23 @@ import { signOut, useSession } from 'next-auth/react';
 const Menu = () => {
   const session = useSession();
   const [toggle, setToggle] = useState(false);
-  function useOutsideAlerter(ref) {
-    useEffect(() => {
-      /**
-       * Alert if clicked on outside of element
-       */
-      function handleClickOutside(event) {
-        if (ref.current && !ref.current.contains(event.target)) {
-          setToggle(!toggle);
-        }
-      }
-      // Bind the event listener
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => {
-        // Unbind the event listener on clean up
-        document.removeEventListener('mousedown', handleClickOutside);
-      };
-    }, [ref]);
-  }
-
-  const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef);
-
   const collapseMenu = () => {
     setToggle(!toggle);
   };
 
+  // const refOne = useRef(null);
+  // const handleClickOutside = (e) => {
+  //   if (refOne.current && !refOne.current.contains(e.target)) {
+  //     setToggle(!toggle);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener('mousedown', handleClickOutside, true);
+  // }, []);
+
   return (
-    <div ref={wrapperRef} id="menuToggle">
+    <div id="menuToggle">
       <input type="checkbox" onChange={collapseMenu} checked={toggle} />
       <span />
       <span />

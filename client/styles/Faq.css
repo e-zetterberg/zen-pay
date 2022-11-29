@@ -3,16 +3,18 @@
 .faq--page-title {
     font-weight: 400;
     font-size: 19px;
+    font-family: 'system-ui';
 }
 
 .faq--question {
-    font-weight: 400;
+    font-weight: 500;
     font-size: 14px;
 }
 
 .faq--answer {
     font-weight: 400;
     font-size: 12px;
+    font-family: 'system-ui';
 }
 
 .faq--contents {
@@ -24,7 +26,7 @@
     height: 40em;
     row-gap: 1em;
     width: 80%;
-    font-family: Poppins;
+    font-family: 'system-ui';
 }
 
 .accordion--panel {
