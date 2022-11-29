@@ -1,18 +1,22 @@
 
 
 .faq--page-title {
-    font-weight: 400;
+    font-weight: 600;
+    font-family: 'Inter';
     font-size: 19px;
+    color: rgb(41, 41, 41);
 }
 
 .faq--question {
-    font-weight: 400;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Inter';
 }
 
 .faq--answer {
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
+    font-family: 'Inter';
 }
 
 .faq--contents {
@@ -24,7 +28,7 @@
     height: 40em;
     row-gap: 1em;
     width: 80%;
-    font-family: Poppins;
+    font-family: 'system-ui';
 }
 
 .accordion--panel {

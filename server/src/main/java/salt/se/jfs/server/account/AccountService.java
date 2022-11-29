@@ -1,6 +1,7 @@
 package salt.se.jfs.server.account;
 
 import org.springframework.stereotype.Service;
+import salt.se.jfs.server.account.dtos.CardDto;
 import salt.se.jfs.server.account.dtos.TransactionDto;
 
 
@@ -15,12 +16,18 @@ public class AccountService {
 
     public Account addTransactionToAccount(TransactionDto dto, long accountId) {
         Account account = getAccount(accountId);
+        if (account.getBalance() < dto.amount() && dto.description().equals("withdraw")){
+            throw new IllegalArgumentException();
+        }
         account.addTransaction(new Transaction(dto));
         return repo.saveAccount(account);
     }
 
     public Account transferMoney(TransactionDto dto, long fromAccount, long toAccount) {
         Account sender = repo.getAccount(fromAccount);
+        if (sender.getBalance() < dto.amount()){
+            throw new IllegalArgumentException();
+        }
         Account receiver = repo.getAccount(toAccount);
 
         Transaction received = new Transaction("Received from:" + sender.accountId, dto.amount(), dto.timeStamp());
@@ -37,4 +44,8 @@ public class AccountService {
     }
 
 
+    public CardDto updateCardDetailsToAccount(Account account) {
+        Account updatedAccount = repo.saveAccount(account);
+        return new CardDto(updatedAccount.getCards().get(0));
+    }
 }

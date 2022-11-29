@@ -8,17 +8,19 @@ import React from 'react';
 import { signIn } from 'next-auth/react';
 
 const LoginButton = () => (
-  <div type="button" className="google-btn" onClick={() => signIn('google')}>
-    <div className="google-icon-wrapper">
-      <img
-        className="google-icon"
-        src="https://developers.google.com/static/identity/images/btn_google_signin_dark_normal_web.png"
-        alt="Google Login Button"
-      />
+  <div className="sign-in--container">
+    <div type="button" className="google-btn" onClick={() => signIn('google')}>
+      <div className="google-icon-wrapper">
+        <img
+          className="google-icon"
+          src="https://developers.google.com/static/identity/images/btn_google_signin_dark_normal_web.png"
+          alt="Google Login Button"
+        />
+      </div>
+      <p className="btn-text">
+        <b />
+      </p>
     </div>
-    <p className="btn-text">
-      <b />
-    </p>
   </div>
 );
 

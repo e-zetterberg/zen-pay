@@ -2,6 +2,7 @@ import React from 'react';
 import UserForm from '../../../components/UserForm';
 import { getSession } from '../../../lib/session';
 import { fetchUserByEmail } from '../../../lib/fetching';
+import MotionProvider from '../../../components/MotionProvider';
 
 const Edit = async () => {
   const session = await getSession();
@@ -9,7 +10,9 @@ const Edit = async () => {
   const user = await fetchUserByEmail(email);
 
   return (
-    <UserForm type="edit" user={user} />
+    <MotionProvider>
+      <UserForm type="edit" user={user} />
+    </MotionProvider>
   );
 };
 

@@ -6,6 +6,8 @@ import { IoPersonCircle } from 'react-icons/io5';
 import { FaEdit } from 'react-icons/fa';
 import { getSession } from '../../lib/session';
 import { fetchUserByEmail } from '../../lib/fetching';
+import MotionProvider from '../../components/MotionProvider';
+import ToastifyMessage from '../../components/ToastifyMessage';
 
 const Details = async () => {
   const session = await getSession();
@@ -13,49 +15,51 @@ const Details = async () => {
   const user = await fetchUserByEmail(email);
 
   return (
-    <main className="main">
-      <div className="details--container">
+    <MotionProvider>
+      <main className="main">
+        <div className="details--container">
 
-        <div className="details--card">
-          <div className="details--edit-section">
-            <Link href="/details/edit">
-
+          <div className="details--card">
+            <div className="details--edit-section">
               <button type="button" className="edit-btn">
-                <FaEdit />
+                <Link href="/details/edit">
+                  <FaEdit />
+                </Link>
               </button>
-            </Link>
-          </div>
-          <div className="details--first-section">
-            {session
-              ? <Image src={session.user.image} height={75} width={75} />
-              : <IoPersonCircle className="details--avatar" />}
+            </div>
+            <div className="details--first-section">
+              {session
+                ? <Image src={session.user.image} height={75} width={75} />
+                : <IoPersonCircle className="details--avatar" />}
 
-            <div className="details--name">{user?.zenName}</div>
-          </div>
-          <div className="details--second-section">
-            <p className="details--second-section--items">
-              {' '}
-              {user?.name}
-            </p>
-            <p className="details--second-section--items">
-              {' '}
-              {email}
-            </p>
-            <p className="details--second-section--items">
-              {' '}
-              {user?.phone}
-            </p>
-            <p className="details--second-section--items">
-              {' '}
-              {user?.address}
-            </p>
-            <p className="details--second-section--items">
-              {user?.createdOn}
-            </p>
+              <div className="details--name">{user?.zenName}</div>
+            </div>
+            <div className="details--second-section">
+              <p className="details--second-section--items">
+                {' '}
+                {user?.name}
+              </p>
+              <p className="details--second-section--items">
+                {' '}
+                {email}
+              </p>
+              <p className="details--second-section--items">
+                {' '}
+                {user?.phone}
+              </p>
+              <p className="details--second-section--items">
+                {' '}
+                {user?.address}
+              </p>
+              <p className="details--second-section--items">
+                {user?.createdOn}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+      <ToastifyMessage />
+    </MotionProvider>
   );
 };
 

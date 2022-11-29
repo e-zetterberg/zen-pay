@@ -4,10 +4,13 @@ import React, { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import '../../../styles/Register.css';
-import { Button, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 import { Stack } from '@mui/system';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import toDateString from '../../../lib/dateString';
 import { baseApiPath } from '../../../lib/fetching';
+import MotionProvider from '../../../components/MotionProvider';
 
 const Register = () => {
   const { data: session } = useSession();
@@ -40,64 +43,70 @@ const Register = () => {
       body: JSON.stringify(data),
     });
     if (response.status === 201) {
-      router.refresh();
-      router.push('/');
+      if (response.ok) {
+        toast.success(' Account created Successfully', {
+          position: toast.POSITION.TOP_CENTER,
+        });
+        router.push('/card');
+        router.refresh();
+      }
     }
   };
 
   return (
-    <main className="main">
-      <form onSubmit={(e) => handleSubmit(e)} className="form--input">
-        <Stack spacing={4}>
-          <TextField
-            label="Zen Name"
-            size="small"
-            variant="standard"
-            value={zenName}
-            onChange={onZenNameChange}
-            required
-          />
-          <TextField
-            label="Name"
-            size="small"
-            variant="standard"
-            value={name}
-            disabled
-            InputProps={{ readOnly: true }}
-            required
-          />
-          <TextField
-            label="Phone"
-            size="small"
-            type="tel"
-            value={phone}
-            onChange={onPhoneChange}
-            variant="standard"
-            required
-          />
-          <TextField
-            label="Email"
-            size="small"
-            type="email"
-            value={email}
-            disabled
-            InputProps={{ readOnly: true }}
-            variant="standard"
-          />
-          <TextField
-            label="Address"
-            size="small"
-            value={address}
-            onChange={onAddressChange}
-            variant="standard"
-          />
-        </Stack>
-        <Button className="zen-button" variant="contained" type="submit">
-          Create Zen Account
-        </Button>
-      </form>
-    </main>
+    <MotionProvider>
+      <main className="main register-form-container">
+        <form onSubmit={(e) => handleSubmit(e)} className="register-form--input">
+          <Stack className="register-all-inputs" spacing={4}>
+            <TextField
+              label="Username"
+              size="small"
+              variant="standard"
+              value={zenName}
+              onChange={onZenNameChange}
+              required
+            />
+            <TextField
+              label="Name"
+              size="small"
+              variant="standard"
+              value={name}
+              disabled
+              InputProps={{ readOnly: true }}
+              required
+            />
+            <TextField
+              label="Phone"
+              size="small"
+              type="tel"
+              value={phone}
+              onChange={onPhoneChange}
+              variant="standard"
+              required
+            />
+            <TextField
+              label="Email"
+              size="small"
+              type="email"
+              value={email}
+              disabled
+              InputProps={{ readOnly: true }}
+              variant="standard"
+            />
+            <TextField
+              label="Address"
+              size="small"
+              value={address}
+              onChange={onAddressChange}
+              variant="standard"
+            />
+          </Stack>
+          <button className="global--btn" type="submit">
+            Create Account
+          </button>
+        </form>
+      </main>
+    </MotionProvider>
   );
 };
-
 export default Register;

@@ -1,7 +1,5 @@
 package salt.se.jfs.server.account;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.transaction.annotation.Transactional;
 import salt.se.jfs.server.account.dtos.TransactionDto;
 
 import javax.persistence.*;

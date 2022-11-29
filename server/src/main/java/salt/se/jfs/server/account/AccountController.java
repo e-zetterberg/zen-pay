@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import salt.se.jfs.server.account.dtos.CardDto;
 import salt.se.jfs.server.account.dtos.TransactionDto;
 import salt.se.jfs.server.user.UserDto;
 
@@ -31,6 +32,22 @@ public class AccountController {
         }
     }
 
+    @PostMapping("/{accountId}/card")
+    ResponseEntity<CardDto> saveCardDetails(
+            @PathVariable long accountId,
+            @RequestBody CardDto cardDto){
+        try {
+            Account account = service.getAccount(accountId);
+            account.getCards().add(new Card(cardDto));
+            CardDto dto = service.updateCardDetailsToAccount(account);
+            return ResponseEntity.accepted().body(dto);
+        } catch (NoSuchElementException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+
+
+    }
+
     @GetMapping("/{accountId}/balance")
     ResponseEntity<Double> getBalance(@PathVariable long accountId){
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -44,8 +61,10 @@ public class AccountController {
         try {
             Account account = service.transferMoney(transactionDto, fromAccount, toAccount);
             return ResponseEntity.ok(account);
-        } catch (NoSuchElementException e){
-            throw  new ResponseStatusException(HttpStatus.NOT_FOUND);
+        } catch (NoSuchElementException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        } catch (IllegalArgumentException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE);
         }
     }
 
@@ -56,6 +75,8 @@ public class AccountController {
             return ResponseEntity.accepted().body(account);
         } catch (NoSuchElementException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        } catch (IllegalArgumentException e){
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE);
         }
     }
 

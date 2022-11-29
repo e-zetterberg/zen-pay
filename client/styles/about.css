@@ -1,8 +1,8 @@
 .about--description {
-    font-family: Poppins;
     font-size: 13px;
-    font-weight: 300;
+    font-weight: 400;
     padding: 15px;
+    font-family: 'Inter';
 }
 
 .about--container {
@@ -20,8 +20,8 @@
 }
 
 .about--image {
-    object-fit:fill;
-    margin-top: -10px;
+    object-fit: fill;
+    margin-top: -40px;
 }
 
 .main--container {
@@ -32,10 +32,11 @@
 }
 
 .about--about {
-    color: rgb(41, 41, 41);
-    font-weight: 400;
+    top:2em;
+    font-weight: 600;
+    font-family: 'Inter';
     font-size: 19px;
-    top:3em;
+    color: rgb(41, 41, 41);
 }
 
 

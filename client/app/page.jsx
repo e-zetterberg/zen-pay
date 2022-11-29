@@ -6,6 +6,8 @@ import '../styles/Dashboard.css';
 import BalanceDisplay from '../components/dashboard/BalanceDisplay';
 import { fetchUserByEmail, fetchAccount } from '../lib/fetching';
 import MotionProvider from '../components/MotionProvider';
+import Register from '../components/Register';
+import ToastifyMessage from '../components/ToastifyMessage';
 
 const Dashboard = async () => {
   const session = await getSession();
@@ -17,12 +19,7 @@ const Dashboard = async () => {
 
   if (!user.userId) {
     return (
-      <main className="main">
-        <h3>You need to register a Zen-Account in order to access this page</h3>
-        <Link href="/register">
-          <button type="button" className="btn">Register</button>
-        </Link>
-      </main>
+      <Register />
     );
   }
 
@@ -35,23 +32,8 @@ const Dashboard = async () => {
   });
   const cryptoData = await res.json();
 
-  // const myHeaders = new Headers();
-  // myHeaders.append('apikey', process.env.API_KEY);
-
-  // const requestOptions = {
-  //   method: 'GET',
-  //   redirect: 'follow',
-  //   headers: myHeaders,
-  // };
-
-  // fetch('https://api.apilayer.com/currency_data/change?start_date=2022-11-20&end_date=2022-11-01', requestOptions)
-  //   .then((response) => response.text())
-  //   .then((result) => console.log(result))
-  //   .catch((error) => console.log('error', error));
-
   return (
     <MotionProvider>
-
       <main className="main dashboard--container">
         <div className="dashboard--account-overview">Dashboard</div>
         <Link href="/wallet">
@@ -61,6 +43,7 @@ const Dashboard = async () => {
           <BalanceDisplay key={coin.id} name={`${coin.name} price`} balance={coin.current_price} imgSrc={coin.image} />
         ))}
       </main>
+      <ToastifyMessage />
     </MotionProvider>
   );
 };

@@ -1,11 +1,14 @@
 import React, { Suspense } from 'react';
 import Link from 'next/link';
-import { getSession } from '../../lib/session';
 import TransactionForm from './TransactionForm';
 import CreditCard from '../../components/CreditCard';
 import '../../styles/transactions.css';
+import '../../styles/create-account.css';
+import { getSession } from '../../lib/session';
 import { fetchUserByEmail, fetchAccount } from '../../lib/fetching';
 import MotionProvider from '../../components/MotionProvider';
+import Register from '../../components/Register';
+import ToastifyMessage from '../../components/ToastifyMessage';
 
 const Wallet = async () => {
   const session = await getSession();
@@ -14,12 +17,7 @@ const Wallet = async () => {
   const user = await fetchUserByEmail(email);
   if (!user.userId) {
     return (
-      <main className="main">
-        <h3>You need to register a Zen-Account in order to access your wallet</h3>
-        <Link href="/register">
-          <button type="button" className="btn">Register</button>
-        </Link>
-      </main>
+      <Register />
     );
   }
 
@@ -40,7 +38,11 @@ const Wallet = async () => {
             />
           </Suspense>
 
-          <TransactionForm max={account.balance} walletId={walletId} />
+          <TransactionForm
+            max={account.balance}
+            walletId={walletId}
+            hasFundingCard={account.cards.length > 0}
+          />
           <div className="transactions--header-container">
             <Link href="/wallet/transactions">
               <h3 className="transactions--header">Transactions</h3>
@@ -74,6 +76,7 @@ const Wallet = async () => {
           </div>
         </section>
       </main>
+      <ToastifyMessage />
     </MotionProvider>
   );
 };
