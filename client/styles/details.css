@@ -19,6 +19,7 @@
     margin-top: 1em;
     font-family: Poppins;
     background-color: #f4f5f9;
+    row-gap: 2em;
 }
 
 .details--first-section {
@@ -44,7 +45,9 @@
     align-items: center;
     row-gap:0.2em;
     margin: 0.3em;
-    font-weight: 200;
+    font-weight: 500;
+    font-family: 'Inter';
+
 }
 
 .details--second-section--items {
@@ -53,7 +56,9 @@
 }
 
 .details--name {
-    font-size: 25px;
+    font-size: 21px;
+    font-family: 'Inter';
+    font-weight: 600;
 }
 
 .details--card {
@@ -77,5 +82,20 @@
     margin-left: 12em;
     background-color: #fefeff;
     margin-right: 0;
+}
+
+.sign-out-btn {
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    background: #000000;
+    color: #FFFFFF;
+    border-radius: 8px;
+    padding: 14px 24px 16px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    transition: transform 200ms,background 200ms;  
+    width: 9em; 
 }
 

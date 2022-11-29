@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import '../styles/Menu.css';
 import { IoPersonCircle } from 'react-icons/io5';
-import { GoSettings } from 'react-icons/go';
 import { RiQuestionnaireFill } from 'react-icons/ri';
 import { FiInfo } from 'react-icons/fi';
 import Link from 'next/link';
@@ -53,13 +52,6 @@ const Menu = () => {
             </li>
           </Link>
         ) : ''}
-        <Link href="/settings" onClick={collapseMenu}>
-          <li className="menu--items">
-            <GoSettings className="menu--icons" />
-            {' '}
-            Settings
-          </li>
-        </Link>
         <Link href="/faq" onClick={collapseMenu}>
           <li className="menu--items">
             <RiQuestionnaireFill className="menu--icons" />
