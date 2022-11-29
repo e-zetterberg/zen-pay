@@ -20,12 +20,11 @@ const Details = async () => {
 
           <div className="details--card">
             <div className="details--edit-section">
-              <Link href="/details/edit">
-
-                <button type="button" className="edit-btn">
+              <button type="button" className="edit-btn">
+                <Link href="/details/edit">
                   <FaEdit />
-                </button>
-              </Link>
+                </Link>
+              </button>
             </div>
             <div className="details--first-section">
               {session
