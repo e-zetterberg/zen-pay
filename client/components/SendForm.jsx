@@ -56,6 +56,7 @@ const SendForm = ({ type, walletId, max }) => {
           minLength={16}
           maxLength={16}
           type="text"
+          inputMode="numeric"
           className="input-field"
           placeholder="Destination Account Number"
         />
@@ -66,6 +67,7 @@ const SendForm = ({ type, walletId, max }) => {
           max={max}
           min={1}
           type="number"
+          inputMode="numeric"
           className="input-field no-spin"
           placeholder="Amount"
         />

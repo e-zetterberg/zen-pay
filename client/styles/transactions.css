@@ -1,6 +1,10 @@
 
 .transactions--header-container{
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vh;
+    align-items: flex-end;
 }
 .transactions--page-header{
   width: 80%;
@@ -11,12 +15,16 @@
 }
   
   .transaction-container{
-    border: 1px solid lightgray;
-    padding: 5px;
-    border-radius: 5px;
-    overflow-y: scroll;
-    width: 100%;
-    height: 17vh;
+    width: 82vw;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+    justify-content: space-between;
+    padding: 0 2em;
+    align-items: center;
+    margin-top: 0.7em;
+    top: 5em;
+    background-color: #fefeff;  
   }
 
   .transaction-page-container{
@@ -43,11 +51,18 @@
     text-decoration: none;
     color: black;
   }
+.line{
+  width: 100%;
+}
 
 .transaction{
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 10px 1px; 
+}
+
+.transactions-link {
+  color: rgb(44, 44, 255);
 }
 
   

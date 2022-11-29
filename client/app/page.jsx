@@ -8,6 +8,7 @@ import { fetchUserByEmail, fetchAccount } from '../lib/fetching';
 import MotionProvider from '../components/MotionProvider';
 import Register from '../components/Register';
 import ToastifyMessage from '../components/ToastifyMessage';
+import CryptoDisplay from '../components/dashboard/CryptoDisplay';
 
 const Dashboard = async () => {
   const session = await getSession();
@@ -39,9 +40,11 @@ const Dashboard = async () => {
         <Link href="/wallet">
           <BalanceDisplay name="Wallet balance" balance={account?.balance} />
         </Link>
-        {cryptoData.map((coin) => (
-          <BalanceDisplay key={coin.id} name={`${coin.name} price`} balance={coin.current_price} imgSrc={coin.image} />
-        ))}
+        <div className="dashboard--cryptocontainer">
+          {cryptoData.map((coin) => (
+            <CryptoDisplay key={coin.id} crypto={`${coin.name} price`} price={coin.current_price} imgSrc={coin.image} />
+          ))}
+        </div>
       </main>
       <ToastifyMessage />
     </MotionProvider>

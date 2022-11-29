@@ -46,7 +46,8 @@
  #menuToggle span
  {
    display: block;
-   width: 33px;
+   min-width: 33px;
+   width: 3.2vw;
    height: 4px;
    margin-bottom: 5px;
    position: relative;
@@ -110,8 +111,8 @@
    position: absolute;
    right: -1em;
    width: 225px;
-   height: 115vh;
-   margin: -100px 0 0 -50px;
+   height: calc(107.38vh);
+   margin: -15vh 0 0 0px;
    padding: 50px;
    padding-top: 125px;
    background: #ededed;
