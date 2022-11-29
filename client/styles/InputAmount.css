@@ -14,7 +14,11 @@
     font-size: 16px;
     height: 6vh;
     width: 82vw;
-    border-radius: 5px;
+    border-radius: 5px; 
+}
+
+.input-field:focus{
+    border: solid 1px blue;
 }
 
 .input-field:hover{
