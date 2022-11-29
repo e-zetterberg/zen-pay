@@ -37,7 +37,11 @@ const Wallet = async () => {
             />
           </Suspense>
 
-          <TransactionForm max={account.balance} walletId={walletId} />
+          <TransactionForm
+            max={account.balance}
+            walletId={walletId}
+            hasFundingCard={account.cards.length > 0}
+          />
           <div className="transactions--header-container">
             <Link href="/wallet/transactions">
               <h3 className="transactions--header">Transactions</h3>

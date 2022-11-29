@@ -37,8 +37,8 @@ const UserForm = ({ user }) => {
       body: JSON.stringify(data),
     });
     if (response.ok) {
-      router.refresh();
       router.push('/details');
+      router.refresh();
     }
   };
 

@@ -41,8 +41,8 @@ const Register = () => {
       body: JSON.stringify(data),
     });
     if (response.status === 201) {
-      router.refresh();
       router.push('/');
+      router.refresh();
     }
   };
 

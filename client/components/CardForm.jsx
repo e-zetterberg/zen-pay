@@ -25,7 +25,7 @@ const CardForm = ({ accountId }) => {
   const [cardTypeUrl, setCardTypeUrl] = useState('https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png');
 
   const handleNum = (e) => {
-    setCardNum(e.target.value);
+    setCardNum(e.target.rawValue);
   };
 
   const handleType = (type) => {
@@ -72,11 +72,10 @@ const CardForm = ({ accountId }) => {
       body: JSON.stringify(data),
     });
     if (response.ok) {
+      router.push('/wallet');
       router.refresh();
-      router.push('/details');
     }
   };
-  // cleave.js logic
   return (
     <div className="card--container">
       <form id="form" onSubmit={(e) => saveCardDetails(e)}>
