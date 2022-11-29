@@ -26,6 +26,11 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    row-gap: 10px;
+    
+}
+.details--first-section img {
+    border-radius: 50%;
 }
 .details--edit-section {
     display: flex;
