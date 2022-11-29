@@ -44,7 +44,7 @@ const TransactionForm = ({ walletId, max, hasFundingCard }) => {
               </button>
               <button type="button" className="btn--transfer" onClick={() => setAction('transfer')} disabled={max === 0}>
                 <Image
-                  src="/../public/tx-button.png"
+                  src="/txbutton.png"
                   alt="Transaction Button"
                   width={50}
                   height={50}
