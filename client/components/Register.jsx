@@ -9,7 +9,7 @@ const Register = () => (
       <div className="welcome-text">Welcome to ZenPay!</div>
       <div className="create-account-text">Create a ZenPay account to continue</div>
     </div>
-    <Image src="/../public/create-account.png" alt="create-account" width={260} height={250} />
+    <Image src="/../public/createAccount.png" alt="create-account" width={260} height={250} />
     <Link href="/register">
       <button type="button" className="create-account-btn">Register</button>
     </Link>

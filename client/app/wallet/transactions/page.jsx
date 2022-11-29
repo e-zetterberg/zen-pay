@@ -32,15 +32,15 @@ const Transactions = async () => {
               {transactions.map((tx) => (
                 <li key={tx.transactionId}>
                   <div className="transaction">
-                    <span className="transaction--amount">
-                      {tx.amount}
-                      €
-                    </span>
                     <span className="tx-description">
                       {tx.description}
                     </span>
                     <span>
                       {tx.timeStamp}
+                    </span>
+                    <span className="transaction--amount">
+                      {tx.amount}
+                      €
                     </span>
                   </div>
                   <hr />
