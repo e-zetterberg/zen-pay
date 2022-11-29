@@ -52,6 +52,7 @@ const InputAmount = ({ type, walletId, max }) => {
           required
           value={amount}
           type="number"
+          inputMode="numeric"
           max={type === 'withdraw' ? max : 100000}
           min={1}
           className="input-field no-spin"
