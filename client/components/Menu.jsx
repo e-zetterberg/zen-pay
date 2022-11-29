@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import '../styles/Menu.css';
 import { IoPersonCircle } from 'react-icons/io5';
 import { RiQuestionnaireFill } from 'react-icons/ri';
@@ -16,19 +16,19 @@ const Menu = () => {
     setToggle(!toggle);
   };
 
-  // const refOne = useRef(null);
-  // const handleClickOutside = (e) => {
-  //   if (refOne.current && !refOne.current.contains(e.target)) {
-  //     setToggle(!toggle);
-  //   }
-  // };
+  const refOne = useRef(null);
+  const handleClickOutside = (e) => {
+    if (refOne.current && !refOne.current.contains(e.target)) {
+      setToggle(false);
+    }
+  };
 
-  // useEffect(() => {
-  //   window.addEventListener('mousedown', handleClickOutside, true);
-  // }, []);
+  useEffect(() => {
+    window.addEventListener('mousedown', handleClickOutside, true);
+  }, []);
 
   return (
-    <div id="menuToggle">
+    <div ref={refOne} id="menuToggle">
       <input type="checkbox" onChange={collapseMenu} checked={toggle} />
       <span />
       <span />
