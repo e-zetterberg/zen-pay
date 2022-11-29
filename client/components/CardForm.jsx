@@ -25,7 +25,7 @@ const CardForm = ({ accountId }) => {
   const [cardTypeUrl, setCardTypeUrl] = useState('https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png');
 
   const handleNum = (e) => {
-    setCardNum(e.target.rawValue);
+    setCardNum(e.target.value);
   };
 
   const handleType = (type) => {
