@@ -1,6 +1,7 @@
 package salt.se.jfs.server.account;
 
 import org.springframework.stereotype.Service;
+import salt.se.jfs.server.account.dtos.CardDto;
 import salt.se.jfs.server.account.dtos.TransactionDto;
 
 
@@ -37,4 +38,8 @@ public class AccountService {
     }
 
 
+    public CardDto updateCardDetailsToAccount(Account account) {
+        Account updatedAccount = repo.saveAccount(account);
+        return new CardDto(updatedAccount.getCards().get(0));
+    }
 }

@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import Cleave from 'cleave.js/react';
 import '../styles/CardForm.css';
 import 'animate.css';
+import { useRouter } from 'next/navigation';
+import { baseApiPath } from '../lib/fetching';
 
 const imageUrls = [
   'https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png',
@@ -14,16 +16,16 @@ const imageUrls = [
   'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/JCB_logo.svg/1280px-JCB_logo.svg.png',
 ];
 
-const CardForm = () => {
-  const [creditCardNum, setCreditCardNum] = useState('#### #### #### ####');
+const CardForm = ({ accountId }) => {
+  const router = useRouter();
+  const [cardNum, setCardNum] = useState('#### #### #### ####');
   const [cardHolder, setCardHolder] = useState('Your Full Name');
   const [expireMonth, setExpireMonth] = useState('MM');
   const [expireYear, setExpireYear] = useState('YYYY');
   const [cardTypeUrl, setCardTypeUrl] = useState('https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png');
-  // const [flip, setFlip] = useState(null);
 
   const handleNum = (e) => {
-    setCreditCardNum(e.target.rawValue);
+    setCardNum(e.target.rawValue);
   };
 
   const handleType = (type) => {
@@ -54,11 +56,30 @@ const CardForm = () => {
     setExpireYear(e.target.value);
   };
 
+  const saveCardDetails = async (e) => {
+    e.preventDefault();
+    const data = {
+      cardNum,
+      cardHolder,
+      expireMonth,
+      expireYear,
+    };
+    const response = await fetch(`${baseApiPath}/accounts/${accountId}/card`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    if (response.ok) {
+      router.refresh();
+      router.push('/details');
+    }
+  };
   // cleave.js logic
-
   return (
     <div className="card--container">
-      <form id="form">
+      <form id="form" onSubmit={(e) => saveCardDetails(e)}>
         <div id="card">
           <div className="card--header">
             <div className="sticker" />
@@ -67,7 +88,7 @@ const CardForm = () => {
             </div>
           </div>
           <div className="card--body">
-            <h2 id="creditCardNumber">{creditCardNum}</h2>
+            <h2 id="creditCardNumber">{cardNum}</h2>
           </div>
           <div className="card--footer">
             <div>

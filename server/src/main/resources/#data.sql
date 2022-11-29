@@ -6,4 +6,5 @@ INSERT INTO public.account(account_id, balance, fk_user_id) VALUES (145217949590
 INSERT INTO public.account(account_id, balance, fk_user_id) VALUES (8691807644003600, 2000, 103);
 
 
-
+insert into users (user_id, address, created_on, email, name, phone, zen_name)
+values (123, 'adsdd', '2022-11-23', 'swe@gmail.com', 'swetha', 2423444, 'sen');

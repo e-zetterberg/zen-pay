@@ -20,6 +20,10 @@ public class Account {
     @JoinColumn(name = "fk_acc_id", referencedColumnName = "account_id")
     private List<Transaction> transactions;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_acc_id", referencedColumnName = "account_id")
+    private List<Card> cards;
+
     public long getAccountId() {
         return accountId;
     }
@@ -44,6 +48,14 @@ public class Account {
         this.transactions = transactions;
     }
 
+    public List<Card> getCards() {
+        return cards;
+    }
+
+    public void setCards(List<Card> cards) {
+        this.cards = cards;
+    }
+
     public Account(){
 
     }
@@ -51,6 +63,7 @@ public class Account {
         this.accountId = random();
         this.balance = balance;
         this.transactions = new ArrayList<>();
+        this.cards = new ArrayList<>();
     }
 
     public static long  random() {
@@ -65,6 +78,10 @@ public class Account {
     public void addTransaction(Transaction transaction){
         transactions.add(transaction);
         setBalance(getBalance() + transaction.getAmount());
+    }
+
+    public void addCard(Card card){
+        cards.add(card);
     }
 
 }
