@@ -1,12 +1,9 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
 import '../../styles/details.css';
 import Image from 'next/image';
 import { IoPersonCircle } from 'react-icons/io5';
 import { FaEdit } from 'react-icons/fa';
-import { signOut } from 'next-auth/react';
 import { getSession } from '../../lib/session';
 import { fetchUserByEmail } from '../../lib/fetching';
 import MotionProvider from '../../components/MotionProvider';
@@ -59,9 +56,6 @@ const Details = async () => {
               </p>
             </div>
           </div>
-          <Link href="/" onClick={() => signOut()}>
-            <button className="sign-out-btn" type="button">Sign out</button>
-          </Link>
         </div>
       </main>
       <ToastifyMessage />
