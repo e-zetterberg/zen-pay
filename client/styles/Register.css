@@ -69,9 +69,10 @@
 }
 
 .create-account-text {
-    font-weight: 500;
-    font-size: 19px;
+    font-weight: 600;
+    font-size: 17px;
     color: rgb(41, 41, 41);
+    font-family: 'system-ui';
 }
 
 .create-account-btn {
@@ -90,4 +91,20 @@
 
 .create-account-btn:hover{
     transform: translateY(-2px);
+}
+
+.welcome-text {
+    font-weight: 600;
+    font-size: 28px;
+    color: rgb(41, 41, 41);
+    font-family: 'system-ui';
+}
+
+.both-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 1.5em;
+
 }
