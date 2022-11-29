@@ -5,7 +5,10 @@ import Cleave from 'cleave.js/react';
 import '../styles/CardForm.css';
 import 'animate.css';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { baseApiPath } from '../lib/fetching';
+import ToastifyMessage from './ToastifyMessage';
 
 const imageUrls = [
   'https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png',
@@ -18,14 +21,16 @@ const imageUrls = [
 
 const CardForm = ({ accountId }) => {
   const router = useRouter();
-  const [cardNum, setCardNum] = useState('#### #### #### ####');
+  const [cardNum, setCardNum] = useState('');
+  const [cardNumOnScreen, setCardNumOnScreen] = useState('#### #### #### ####');
   const [cardHolder, setCardHolder] = useState('Your Full Name');
   const [expireMonth, setExpireMonth] = useState('MM');
   const [expireYear, setExpireYear] = useState('YYYY');
   const [cardTypeUrl, setCardTypeUrl] = useState('https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png');
 
   const handleNum = (e) => {
-    setCardNum(e.target.value);
+    setCardNum(e.target.rawValue);
+    setCardNumOnScreen(e.target.value);
   };
 
   const handleType = (type) => {
@@ -72,8 +77,11 @@ const CardForm = ({ accountId }) => {
       body: JSON.stringify(data),
     });
     if (response.ok) {
+      await toast.success('Card Added to Wallet Successfully !', {
+        position: toast.POSITION.TOP_CENTER,
+      });
+      router.push('/wallet');
       router.refresh();
-      router.push('/details');
     }
   };
   // cleave.js logic
@@ -88,7 +96,7 @@ const CardForm = ({ accountId }) => {
             </div>
           </div>
           <div className="card--body">
-            <h2 id="creditCardNumber">{cardNum}</h2>
+            <h2 id="creditCardNumber">{cardNumOnScreen}</h2>
           </div>
           <div className="card--footer">
             <div>
@@ -167,6 +175,7 @@ const CardForm = ({ accountId }) => {
 
         <button type="submit">Add Card</button>
       </form>
+      <ToastifyMessage />
     </div>
   );
 };

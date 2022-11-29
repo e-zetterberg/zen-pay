@@ -7,6 +7,7 @@ import { FaEdit } from 'react-icons/fa';
 import { getSession } from '../../lib/session';
 import { fetchUserByEmail } from '../../lib/fetching';
 import MotionProvider from '../../components/MotionProvider';
+import ToastifyMessage from '../../components/ToastifyMessage';
 
 const Details = async () => {
   const session = await getSession();
@@ -58,6 +59,7 @@ const Details = async () => {
           </div>
         </div>
       </main>
+      <ToastifyMessage />
     </MotionProvider>
   );
 };

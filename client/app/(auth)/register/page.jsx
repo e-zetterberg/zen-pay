@@ -6,6 +6,8 @@ import { useRouter } from 'next/navigation';
 import '../../../styles/Register.css';
 import { TextField } from '@mui/material';
 import { Stack } from '@mui/system';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import toDateString from '../../../lib/dateString';
 import { baseApiPath } from '../../../lib/fetching';
 import MotionProvider from '../../../components/MotionProvider';
@@ -41,8 +43,13 @@ const Register = () => {
       body: JSON.stringify(data),
     });
     if (response.status === 201) {
-      router.refresh();
-      router.push('/');
+      if (response.ok) {
+        toast.success(' Account created Successfully', {
+          position: toast.POSITION.TOP_CENTER,
+        });
+        router.push('/card');
+        router.refresh();
+      }
     }
   };
 
@@ -102,5 +109,4 @@ const Register = () => {
     </MotionProvider>
   );
 };
-
 export default Register;
