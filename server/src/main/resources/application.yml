@@ -10,14 +10,6 @@ spring:
     init:
       platform: postgresql
       mode: always
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: postgres123
-    hikari:
-      connectionTimeout: 2000
-      maximumPoolSize: 5
   jpa:
     show-sql: true
     generate-ddl: true
