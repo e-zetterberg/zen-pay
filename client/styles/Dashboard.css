@@ -58,7 +58,9 @@
 }
 
 .dashboard--amount {
-    font-size: 30px;
+    font-size: 25px;
+    font-family: 'Inter';
+    font-weight: 500;
 }
 
 .dashboard--currency {
@@ -68,8 +70,10 @@
 }
 
 .dashboard--current-balance-text {
-    font-size: 11px;
+    font-size: 13px;
     color: rgb(64, 64, 64);
+    font-family: 'Inter';
+    font-weight: 500;
 
 }
 
@@ -80,9 +84,9 @@
 }
 
 .dashboard--account-overview {
-    font-weight: 500;
-    font-family: 'system-ui';
-    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Inter';
+    font-size: 19px;
     color: rgb(41, 41, 41);
 }
 
@@ -90,4 +94,5 @@
     height: 50px;
     width: 50px;
 }
+
 

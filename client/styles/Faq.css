@@ -1,20 +1,22 @@
 
 
 .faq--page-title {
-    font-weight: 400;
+    font-weight: 600;
+    font-family: 'Inter';
     font-size: 19px;
-    font-family: 'system-ui';
+    color: rgb(41, 41, 41);
 }
 
 .faq--question {
+    font-size: 15px;
     font-weight: 500;
-    font-size: 14px;
+    font-family: 'Inter';
 }
 
 .faq--answer {
     font-weight: 400;
-    font-size: 12px;
-    font-family: 'system-ui';
+    font-size: 14px;
+    font-family: 'Inter';
 }
 
 .faq--contents {
