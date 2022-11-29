@@ -3,9 +3,7 @@ export const devApiPath = 'http://localhost:8080/api';
 export const prodApiPath = 'https://zenpay.azurewebsites.net/api';
 
 export const fetchUserByEmail = async (email) => {
-  const response = await fetch(`${baseApiPath}/users/${email}`, {
-    cache: 'no-store',
-  });
+  const response = await fetch(`${baseApiPath}/users/${email}`);
   return response.json();
 };
 

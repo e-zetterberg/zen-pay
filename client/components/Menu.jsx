@@ -1,9 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import '../styles/Menu.css';
 import { IoPersonCircle } from 'react-icons/io5';
-import { GoSettings } from 'react-icons/go';
 import { RiQuestionnaireFill } from 'react-icons/ri';
 import { FiInfo } from 'react-icons/fi';
 import Link from 'next/link';
@@ -17,19 +16,19 @@ const Menu = () => {
     setToggle(!toggle);
   };
 
-  // const refOne = useRef(null);
-  // const handleClickOutside = (e) => {
-  //   if (refOne.current && !refOne.current.contains(e.target)) {
-  //     setToggle(!toggle);
-  //   }
-  // };
+  const refOne = useRef(null);
+  const handleClickOutside = (e) => {
+    if (refOne.current && !refOne.current.contains(e.target)) {
+      setToggle(false);
+    }
+  };
 
-  // useEffect(() => {
-  //   window.addEventListener('mousedown', handleClickOutside, true);
-  // }, []);
+  useEffect(() => {
+    window.addEventListener('mousedown', handleClickOutside, true);
+  }, []);
 
   return (
-    <div id="menuToggle">
+    <div ref={refOne} id="menuToggle">
       <input type="checkbox" onChange={collapseMenu} checked={toggle} />
       <span />
       <span />
@@ -53,13 +52,6 @@ const Menu = () => {
             </li>
           </Link>
         ) : ''}
-        <Link href="/settings" onClick={collapseMenu}>
-          <li className="menu--items">
-            <GoSettings className="menu--icons" />
-            {' '}
-            Settings
-          </li>
-        </Link>
         <Link href="/faq" onClick={collapseMenu}>
           <li className="menu--items">
             <RiQuestionnaireFill className="menu--icons" />

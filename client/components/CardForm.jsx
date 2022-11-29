@@ -84,7 +84,6 @@ const CardForm = ({ accountId }) => {
       router.refresh();
     }
   };
-  // cleave.js logic
   return (
     <div className="card--container">
       <form id="form" onSubmit={(e) => saveCardDetails(e)}>
