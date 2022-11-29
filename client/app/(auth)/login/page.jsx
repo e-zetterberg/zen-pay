@@ -5,6 +5,7 @@ import { getSession } from '../../../lib/session';
 import LoginButton from './LoginButton';
 import { fetchUserByEmail } from '../../../lib/fetching';
 import '../../../styles/login.css';
+import MotionProvider from '../../../components/MotionProvider';
 
 const Login = async () => {
   const session = await getSession();
@@ -21,13 +22,14 @@ const Login = async () => {
   }
 
   return (
-
-    <main className="main login">
-      <div className="login--container">
-        <Image src="/../public/sign-in.png" alt="sign-in" width={210} height={200} />
-        <LoginButton />
-      </div>
-    </main>
+    <MotionProvider>
+      <main className="main login">
+        <div className="login--container">
+          <Image src="/../public/sign-in.png" alt="sign-in" width={210} height={200} />
+          <LoginButton />
+        </div>
+      </main>
+    </MotionProvider>
   );
 };
 

@@ -8,6 +8,7 @@ import { TextField } from '@mui/material';
 import { Stack } from '@mui/system';
 import toDateString from '../../../lib/dateString';
 import { baseApiPath } from '../../../lib/fetching';
+import MotionProvider from '../../../components/MotionProvider';
 
 const Register = () => {
   const { data: session } = useSession();
@@ -46,57 +47,59 @@ const Register = () => {
   };
 
   return (
-    <main className="main register-form-container">
-      <form onSubmit={(e) => handleSubmit(e)} className="register-form--input">
-        <Stack className="register-all-inputs" spacing={4}>
-          <TextField
-            label="Username"
-            size="small"
-            variant="standard"
-            value={zenName}
-            onChange={onZenNameChange}
-            required
-          />
-          <TextField
-            label="Name"
-            size="small"
-            variant="standard"
-            value={name}
-            disabled
-            InputProps={{ readOnly: true }}
-            required
-          />
-          <TextField
-            label="Phone"
-            size="small"
-            type="tel"
-            value={phone}
-            onChange={onPhoneChange}
-            variant="standard"
-            required
-          />
-          <TextField
-            label="Email"
-            size="small"
-            type="email"
-            value={email}
-            disabled
-            InputProps={{ readOnly: true }}
-            variant="standard"
-          />
-          <TextField
-            label="Address"
-            size="small"
-            value={address}
-            onChange={onAddressChange}
-            variant="standard"
-          />
-        </Stack>
-        <button className="global--btn" type="submit">
-          Create Account
-        </button>
-      </form>
-    </main>
+    <MotionProvider>
+      <main className="main register-form-container">
+        <form onSubmit={(e) => handleSubmit(e)} className="register-form--input">
+          <Stack className="register-all-inputs" spacing={4}>
+            <TextField
+              label="Username"
+              size="small"
+              variant="standard"
+              value={zenName}
+              onChange={onZenNameChange}
+              required
+            />
+            <TextField
+              label="Name"
+              size="small"
+              variant="standard"
+              value={name}
+              disabled
+              InputProps={{ readOnly: true }}
+              required
+            />
+            <TextField
+              label="Phone"
+              size="small"
+              type="tel"
+              value={phone}
+              onChange={onPhoneChange}
+              variant="standard"
+              required
+            />
+            <TextField
+              label="Email"
+              size="small"
+              type="email"
+              value={email}
+              disabled
+              InputProps={{ readOnly: true }}
+              variant="standard"
+            />
+            <TextField
+              label="Address"
+              size="small"
+              value={address}
+              onChange={onAddressChange}
+              variant="standard"
+            />
+          </Stack>
+          <button className="global--btn" type="submit">
+            Create Account
+          </button>
+        </form>
+      </main>
+    </MotionProvider>
   );
 };
 
