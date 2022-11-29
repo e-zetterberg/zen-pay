@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import salt.se.jfs.server.account.dtos.CardDto;
 import salt.se.jfs.server.account.dtos.TransactionDto;
 import salt.se.jfs.server.user.UserDto;
 
@@ -29,6 +30,22 @@ public class AccountController {
         } catch (NoSuchElementException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @PostMapping("/{accountId}/card")
+    ResponseEntity<CardDto> saveCardDetails(
+            @PathVariable long accountId,
+            @RequestBody CardDto cardDto){
+        try {
+            Account account = service.getAccount(accountId);
+            account.getCards().add(new Card(cardDto));
+            CardDto dto = service.updateCardDetailsToAccount(account);
+            return ResponseEntity.accepted().body(dto);
+        } catch (NoSuchElementException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+
+
     }
 
     @GetMapping("/{accountId}/balance")
