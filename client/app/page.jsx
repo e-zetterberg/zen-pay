@@ -7,6 +7,7 @@ import BalanceDisplay from '../components/dashboard/BalanceDisplay';
 import { fetchUserByEmail, fetchAccount } from '../lib/fetching';
 import MotionProvider from '../components/MotionProvider';
 import Register from '../components/Register';
+import ToastifyMessage from '../components/ToastifyMessage';
 
 const Dashboard = async () => {
   const session = await getSession();
@@ -42,6 +43,7 @@ const Dashboard = async () => {
           <BalanceDisplay key={coin.id} name={`${coin.name} price`} balance={coin.current_price} imgSrc={coin.image} />
         ))}
       </main>
+      <ToastifyMessage />
     </MotionProvider>
   );
 };

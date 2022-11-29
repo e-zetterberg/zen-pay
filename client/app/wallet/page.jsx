@@ -8,6 +8,7 @@ import { getSession } from '../../lib/session';
 import { fetchUserByEmail, fetchAccount } from '../../lib/fetching';
 import MotionProvider from '../../components/MotionProvider';
 import Register from '../../components/Register';
+import ToastifyMessage from '../../components/ToastifyMessage';
 
 const Wallet = async () => {
   const session = await getSession();
@@ -75,6 +76,7 @@ const Wallet = async () => {
           </div>
         </section>
       </main>
+      <ToastifyMessage />
     </MotionProvider>
   );
 };

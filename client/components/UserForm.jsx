@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import '../styles/Register.css';
 import { TextField } from '@mui/material';
 import { Stack } from '@mui/system';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { baseApiPath } from '../lib/fetching';
 
 const UserForm = ({ user }) => {
@@ -37,6 +39,9 @@ const UserForm = ({ user }) => {
       body: JSON.stringify(data),
     });
     if (response.ok) {
+      toast.success(' Information Updated Successfully', {
+        position: toast.POSITION.TOP_CENTER,
+      });
       router.push('/details');
       router.refresh();
     }
