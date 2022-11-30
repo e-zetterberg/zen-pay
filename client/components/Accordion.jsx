@@ -8,7 +8,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Link from 'next/link';
 
 const SimpleAccordion = () => (
-  <div>
+  <div className="accordion-container">
     <Accordion>
       <AccordionSummary
         className="accordion--panel"
