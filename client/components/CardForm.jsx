@@ -10,21 +10,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import { baseApiPath } from '../lib/fetching';
 import ToastifyMessage from './ToastifyMessage';
 
-const imageUrls = [
-  'https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png',
-  'https://brand.mastercard.com/content/dam/mccom/brandcenter/thumbnails/mastercard_vrt_rev_92px_2x.png',
-  'https://www.discover.com/company/images/newsroom/media-downloads/discover.png',
-  'https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg',
-  'https://cdn4.iconfinder.com/data/icons/simple-peyment-methods/512/diners_club-512.png',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/JCB_logo.svg/1280px-JCB_logo.svg.png',
-];
-
 const CardForm = ({ accountId }) => {
   const router = useRouter();
   const [cardNum, setCardNum] = useState('');
   const [cardHolder, setCardHolder] = useState('Your Full Name');
-  const [expireMonth, setExpireMonth] = useState('MM');
-  const [expireYear, setExpireYear] = useState('YYYY');
+  const [expireMonth, setExpireMonth] = useState('December');
+  const [expireYear, setExpireYear] = useState('2022');
   const handleNum = (e) => {
     setCardNum(e.target.rawValue);
   };
@@ -92,7 +83,7 @@ const CardForm = ({ accountId }) => {
           <div className="input-grp">
             <div className="input-container">
               <h4>Exp Year</h4>
-              <select value={expireYear} onChange={handleExpYear}>
+              <select value={expireMonth} onChange={handleExpYear}>
                 <option value="January">January</option>
                 <option value="February">February</option>
                 <option value="March">March</option>
@@ -109,7 +100,7 @@ const CardForm = ({ accountId }) => {
             </div>
             <div className="input-container">
               <h4>Month</h4>
-              <select value={expireMonth} onChange={handleExpMonth}>
+              <select value={expireYear} onChange={handleExpMonth}>
                 <option value="2022">2022</option>
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>

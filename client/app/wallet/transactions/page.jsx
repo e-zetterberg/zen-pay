@@ -29,7 +29,7 @@ const Transactions = async () => {
           <ul className="transaction-list">
             <Suspense fallback={<p>Loading transactions</p>}>
 
-              {transactions.map((tx) => (
+              {transactions.slice(0).reverse().map((tx) => (
                 <li key={tx.transactionId}>
                   <div className="transaction">
                     <span className="tx-description">

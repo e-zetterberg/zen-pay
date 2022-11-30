@@ -23,6 +23,7 @@ const Wallet = async () => {
 
   const walletId = user.accountId;
   const account = await fetchAccount(user.accountId);
+  const { transactions } = account;
   const lastTransaction = account.transactions.at(-1);
   const nextToLastTransaction = account.transactions.at(-2);
 
@@ -60,19 +61,21 @@ const Wallet = async () => {
 
             <ul className="transaction-list">
 
-              <li>
-                <div className="transaction">
+              {transactions.slice(0).reverse().slice(0, 2).map((tx) => (
+                <li>
+                  <div className="transaction">
 
-                  <span>
-                    {`${lastTransaction?.amount} €`}
-                  </span>
+                    <span>
+                      {`${tx?.amount} €`}
+                    </span>
 
-                  <div>
-                    {lastTransaction?.timeStamp.substring(10, 16)}
+                    <div>
+                      {tx?.timeStamp.substring(10, 16)}
+                    </div>
                   </div>
-                </div>
-              </li>
-              <li>
+                </li>
+              ))}
+              {/* <li>
                 <div className="transaction">
 
                   <span>
@@ -84,7 +87,7 @@ const Wallet = async () => {
                     {nextToLastTransaction?.timeStamp.substring(10, 16)}
                   </div>
                 </div>
-              </li>
+              </li> */}
             </ul>
           </div>
 
