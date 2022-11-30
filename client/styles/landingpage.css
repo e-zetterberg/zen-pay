@@ -36,19 +36,19 @@
       margin-top: 2.5em;  
   }
   
-  .dashboard--card {
-      width: 90vw;
-      height: 13vh;
-      border-radius: 10px;
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-      display: flex;
-      justify-content: space-between;
-      padding: 0 2em;
-      align-items: center;
-      margin-top: 0.7em;
-      top: 5em;
-      background-color: #fefeff;  
-  }
+.dashboard--card {
+    width: 90vw;
+    height: 13vh;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2em;
+    align-items: center;
+    margin-top: 0.7em;
+    top: 5em;
+    background-color: #fefeff;  
+}
   
   .dashboard--crypto {
       width: 90vw;
@@ -177,5 +177,27 @@
     opacity: 1;
     transform: translateY(-2px);
   }
+
+  .square--card {
+    width: 40vw;
+    height: 13vh;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2em;
+    align-items: center;
+    margin-top: 0.7em;
+    top: 5em;
+    background-color: #fefeff;  
+}
+
+.two-squares {
+    display: flex;
+    flex-direction: row;
+    column-gap: 4vw;
+  }
+
+
   
   

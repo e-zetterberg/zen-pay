@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import Link from 'next/link';
+import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from 'react-icons/bs';
 import TransactionForm from './TransactionForm';
 import CreditCard from '../../components/CreditCard';
 import '../../styles/transactions.css';
@@ -62,10 +63,16 @@ const Wallet = async () => {
               {transactions.slice(0).reverse().slice(0, 2).map((tx) => (
                 <li>
                   <div className="transaction">
+                    <div className="transaction-icon-amount">
+                      {tx?.amount > 0
+                        ? <BsFillArrowLeftCircleFill className="deposit-icon" />
+                        : <BsFillArrowRightCircleFill className="withdraw-icon" />}
+                      &emsp;
+                      <span>
+                        {`${tx?.amount} €`}
+                      </span>
 
-                    <span>
-                      {`${tx?.amount} €`}
-                    </span>
+                    </div>
 
                     <div>
                       {tx?.timeStamp.substring(12)}
@@ -75,7 +82,6 @@ const Wallet = async () => {
               ))}
             </ul>
           </div>
-
         </section>
       </main>
       <ToastifyMessage />
