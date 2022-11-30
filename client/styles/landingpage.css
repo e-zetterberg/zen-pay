@@ -2,6 +2,7 @@
 .landingpage--main {
     gap: 1vh;
     height: 86vh;
+    padding-top: 7vh;
 }
 
 .sp-highlight{
@@ -36,15 +37,19 @@
       margin-top: 2.5em;  
   }
   
-.dashboard--card {
+  .dashboard--card-ads {
+    margin-top: 10vh;
     width: 90vw;
-    height: 13vh;
+    padding-top: 2vh;
+    height: 30vh;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 2vh;
     padding: 0 2em;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 0.7em;
     top: 5em;
     background-color: #fefeff;  
@@ -91,7 +96,7 @@
   }
   
   .dashboard--amount {
-      font-size: 25px;
+      font-size: 20px;
       font-family: 'Inter';
       font-weight: 500;
   }
@@ -197,6 +202,8 @@
     flex-direction: row;
     column-gap: 4vw;
   }
+
+
 
 
   
