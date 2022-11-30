@@ -1,10 +1,10 @@
 import React from 'react';
 import '../styles/footer.css';
-import { TfiWallet } from 'react-icons/tfi';
-import { AiOutlineHome } from 'react-icons/ai';
-import { IoPersonCircle } from 'react-icons/io5';
 import Link from 'next/link';
 import { getSession } from '../lib/session';
+import FooterHomeIcon from './footer-links/FooterHomeIcon';
+import FooterWalletIcon from './footer-links/FooterWalletIcon';
+import FooterAccountIcon from './footer-links/FooterAccountIcon';
 
 const Footer = async () => {
   const session = await getSession();
@@ -14,19 +14,13 @@ const Footer = async () => {
     <div className="footer">
       <div className="footer--menu">
         <Link href={session ? '/dashboard' : '/'}>
-          <div className="footer--icons-placeholder">
-            <AiOutlineHome className="footer--icons--home" />
-          </div>
+          <FooterHomeIcon />
         </Link>
         <Link href="/wallet">
-          <div className="footer--icons-placeholder">
-            <TfiWallet className="footer--icons--wallet" />
-          </div>
+          <FooterWalletIcon />
         </Link>
         <Link href="/details">
-          <div className="footer--icons-placeholder">
-            <IoPersonCircle className="footer--icons--profile" />
-          </div>
+          <FooterAccountIcon />
         </Link>
       </div>
     </div>

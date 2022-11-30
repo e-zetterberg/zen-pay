@@ -18,7 +18,7 @@
     background-color: #8590ac;
 }
 
-.footer--icons--home, .footer--icons--profile, .footer--icons--wallet {
+.footer-icon{
     width: 100%;
     font-size: 1.7em;
     text-decoration: none;
@@ -34,20 +34,17 @@
     align-items: center;
 }
 
-.footer--icons-placeholder:active, .footer--icons-placeholder:focus, .footer--icons-placeholder:hover > .footer--icons--home {
-    color:black;
-}
-
-.footer--icons-placeholder:active, .footer--icons-placeholder:focus, .footer--icons-placeholder:hover > .footer--icons--profile {
-    color:black;
-}
-
-.footer--icons-placeholder:active, .footer--icons-placeholder:focus, .footer--icons-placeholder:hover > .footer--icons--wallet {
+.footer--icons-placeholder:active, .footer--icons-placeholder:focus, .footer--icons-placeholder:hover > .footer-icon {
     color:black;
 }
 
 .footer--icons-placeholder:active, .footer--icons-placeholder:focus, .footer--icons-placeholder:hover {
     background-color:white;
+}
+
+.footer-icon--active {
+    background-color: white;
+    color: black;
 }
 
 @media screen and (min-width: 1000px) {
