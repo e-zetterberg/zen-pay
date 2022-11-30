@@ -2,7 +2,7 @@
 .landingpage--main {
     gap: 1vh;
     height: 86vh;
-    padding-top: 7vh;
+    padding-top: 2vh;
 }
 
 .sp-highlight{
@@ -40,72 +40,25 @@
   .dashboard--card-ads {
     margin-top: 10vh;
     width: 90vw;
-    padding-top: 2vh;
-    height: 30vh;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     row-gap: 2vh;
-    padding: 0 2em;
+    padding: 2em 2em;
     align-items: flex-start;
     margin-top: 0.7em;
-    top: 5em;
     background-color: #fefeff;  
 }
-  
-  .dashboard--crypto {
-      width: 90vw;
-      height: 11vh;
-      border-radius: 10px;
-  
-      display: flex;
-      justify-content: space-between;
-      padding: 0 2em;
-      align-items: center;
-      top: 5em;
-      background-color: #fefeff;
-  }
-  
-  .dashboard--balance {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      column-gap: 0.5em;
-  
-  }
-  
-  .dashboard--add-funds {
-      border-radius: 50%;
-      font-size: 3em;
-      border-width: 1px;
-      height: 50px;
-      width: 50px;
-      background-color: #ba1e29;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      align-self: center;
-      line-height: 0;
-      font-size: 27px;
-      color: #ffffff;
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-      border: none;
-  }
+
   
   .dashboard--amount {
       font-size: 20px;
       font-family: 'Inter';
       font-weight: 500;
   }
-  
-  .dashboard--currency {
-      font-size: 20px;
-      font-family: 'Inter';
-  }
-  
+
   .dashboard--current-balance-text {
       font-size: 13px;
       color: rgb(64, 64, 64);

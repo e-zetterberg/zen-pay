@@ -23,6 +23,8 @@ const Landingpage = async () => {
           <SellingPoint text="Earn" highlight=" 1% " moreText="interest" />
           <SellingPoint text="" highlight=" 3% " moreText="cashback on Amazon.com" />
           <SellingPoint text="Get" highlight=" exclusive Rewards " moreText="and save as you spend" />
+          <SellingPoint text="" highlight=" Magic " moreText="internet money" />
+          <SellingPoint text="...and" highlight=" much more " moreText="" />
         </div>
 
         <div className="two-squares">
