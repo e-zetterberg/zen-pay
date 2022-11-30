@@ -1,5 +1,5 @@
 .input-form{
-    margin: 20px auto;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -13,8 +13,10 @@
     text-indent: 14px;
     font-size: 16px;
     height: 6vh;
-    width: 82vw;
+    width: 80vw;
+    align-self: center;
     border-radius: 5px; 
+    max-width: 320px;
 }
 
 .input-field:focus{

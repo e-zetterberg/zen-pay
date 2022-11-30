@@ -1,6 +1,4 @@
-export const baseApiPath = 'http://localhost:8080/api';
-export const devApiPath = 'http://localhost:8080/api';
-export const prodApiPath = 'https://zenpay.azurewebsites.net/api';
+import { baseApiPath } from './apiPath';
 
 export const fetchUserByEmail = async (email) => {
   const response = await fetch(`${baseApiPath}/users/${email}`);

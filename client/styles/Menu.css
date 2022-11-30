@@ -109,7 +109,7 @@
  {
    position: absolute;
    right: -1em;
-   width: 225px;
+   width: 240px;
    height: calc(107.38vh);
    margin: -15vh 0 0 0px;
    padding: 50px;
@@ -148,6 +148,5 @@
  .menu--icons {
     margin-right: 10px;
  }
-
 
 

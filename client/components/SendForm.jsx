@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/InputAmount.css';
 import toDateString from '../lib/dateString';
-import { baseApiPath } from '../lib/fetching';
+import { baseApiPath } from '../lib/apiPath';
 
 const SendForm = ({ type, walletId, max }) => {
   const router = useRouter();

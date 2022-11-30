@@ -21,6 +21,7 @@
     width: 82vw;
     display: flex;
     justify-content: space-between;
+    max-width: 320px;
 
 }
 
@@ -56,6 +57,7 @@
   font-weight: 700;
   line-height: 1;
   transition: transform 200ms, background 200ms;
+  max-width: 300px;
   
 }
 
@@ -102,3 +104,10 @@
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+
+
+@media screen and (min-width: 1000px) {
+  .btn{
+   max-width: 250px;
+  }
+ }

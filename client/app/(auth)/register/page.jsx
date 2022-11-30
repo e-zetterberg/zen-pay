@@ -9,7 +9,7 @@ import { Stack } from '@mui/system';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import toDateString from '../../../lib/dateString';
-import { baseApiPath } from '../../../lib/fetching';
+import { baseApiPath } from '../../../lib/apiPath';
 import MotionProvider from '../../../components/MotionProvider';
 
 const Register = () => {

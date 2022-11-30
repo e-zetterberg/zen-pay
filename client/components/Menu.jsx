@@ -4,9 +4,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import '../styles/Menu.css';
 import { IoPersonCircle } from 'react-icons/io5';
 import { HiOutlineMail } from 'react-icons/hi';
-import { RiQuestionnaireFill } from 'react-icons/ri';
+import { RiQuestionnaireFill, RiDashboard3Line } from 'react-icons/ri';
 import { FiInfo } from 'react-icons/fi';
 import Link from 'next/link';
+
 import { TfiWallet } from 'react-icons/tfi';
 import { signOut, useSession } from 'next-auth/react';
 
@@ -35,6 +36,15 @@ const Menu = () => {
       <span />
       <span />
       <ul id="menu">
+        {session.data ? (
+          <Link href="/dashboard" onClick={collapseMenu}>
+            <li className="menu--items">
+              <RiDashboard3Line className="menu--icons dashboard-icon" />
+              {' '}
+              Dashboard
+            </li>
+          </Link>
+        ) : ''}
         {session.data ? (
           <Link href="/wallet" onClick={collapseMenu}>
             <li className="menu--items">

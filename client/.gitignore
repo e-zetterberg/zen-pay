@@ -294,3 +294,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+#github actions
+/.github
+
+#apipath
+/lib/apiPath.js

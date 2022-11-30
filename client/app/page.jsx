@@ -2,53 +2,36 @@ import React from 'react';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { getSession } from '../lib/session';
-import '../styles/Dashboard.css';
-import BalanceDisplay from '../components/dashboard/BalanceDisplay';
-import { fetchUserByEmail, fetchAccount } from '../lib/fetching';
+import '../styles/landingpage.css';
+import SellingPoint from '../components/landingpage/SellingPoint';
+import Square from '../components/landingpage/Square';
 import MotionProvider from '../components/MotionProvider';
-import Register from '../components/Register';
 import ToastifyMessage from '../components/ToastifyMessage';
-import CryptoDisplay from '../components/dashboard/CryptoDisplay';
 
-const Dashboard = async () => {
+const Landingpage = async () => {
   const session = await getSession();
-  if (!session) {
-    redirect('/login');
+
+  if (session) {
+    redirect('/dashboard');
   }
-  const { email } = session.user;
-  const user = await fetchUserByEmail(email);
-
-  if (!user.userId) {
-    return (
-      <Register />
-    );
-  }
-
-  const account = await fetchAccount(user.accountId);
-
-  const res = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=bitcoin%2Cethereum%2Ccardano&order=market_cap_desc&per_page=3&page=1&sparkline=false', {
-    headers: {
-      accept: 'application/json',
-    },
-  });
-  const cryptoData = await res.json();
 
   return (
     <MotionProvider>
-      <main className="main dashboard--container">
-        <div className="dashboard--account-overview">Dashboard</div>
-        <Link href="/wallet">
-          <BalanceDisplay name="Wallet balance" balance={account?.balance} />
-        </Link>
-        <div className="dashboard--cryptocontainer">
-          {cryptoData.map((coin) => (
-            <CryptoDisplay key={coin.id} crypto={`${coin.name} price`} price={coin.current_price} imgSrc={coin.image} />
-          ))}
+      <main className="main landingpage--main">
+        <div>
+          <SellingPoint text="" highlight=" 3% " moreText="cashback on Amazon" />
         </div>
+        <div className="two-squares">
+          <Square text="Earn" highlight=" 1% " moreText="interest" />
+          <Square text="Earn" highlight=" 1% " moreText="interest" />
+        </div>
+        <Link href="/login">
+          <button className="btn" type="button">Get a free account now</button>
+        </Link>
       </main>
       <ToastifyMessage />
     </MotionProvider>
   );
 };
 
-export default Dashboard;
+export default Landingpage;
