@@ -1,6 +1,7 @@
 import React from 'react';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getSession } from '../lib/session';
 import '../styles/landingpage.css';
 import SellingPoint from '../components/landingpage/SellingPoint';
@@ -18,9 +19,12 @@ const Landingpage = async () => {
   return (
     <MotionProvider>
       <main className="main landingpage--main">
-        <div>
-          <SellingPoint text="" highlight=" 3% " moreText="cashback on Amazon" />
+        <div className="dashboard--card-ads">
+          <SellingPoint text="Earn" highlight=" 1% " moreText="interest" />
+          <SellingPoint text="" highlight=" 3% " moreText="cashback on Amazon.com" />
+          <SellingPoint text="Get" highlight=" exclusive Rewards " moreText="and save as you spend" />
         </div>
+
         <div className="two-squares">
           <Square text="Earn" highlight=" 1% " moreText="interest" />
           <Square text="Earn" highlight=" 1% " moreText="interest" />
@@ -28,6 +32,14 @@ const Landingpage = async () => {
         <Link href="/login">
           <button className="btn" type="button">Get a free account now</button>
         </Link>
+        <div className="image-container">
+          <Image className="header--logo" src="/logo-visa.png" alt="Logo" width={70} height={50} />
+          <Image className="header--logo" src="/logo-mastercard.png" alt="mastercard" width={70} height={50} />
+          <Image className="header--logo" src="/logo-applepay.png" alt="applepay" width={70} height={50} />
+          <Image className="header--logo" src="/logo-gpay.png" alt="gpay" width={70} height={50} />
+          <Image className="header--logo" src="/icon-contactless.png" alt="contactless" width={70} height={50} />
+
+        </div>
       </main>
       <ToastifyMessage />
     </MotionProvider>
