@@ -35,7 +35,7 @@ const Menu = () => {
       <span />
       <span />
       <ul id="menu">
-        {session.data ? (
+        {session.data.user ? (
           <Link href="/wallet" onClick={collapseMenu}>
             <li className="menu--items">
               <TfiWallet className="menu--icons" />
@@ -44,7 +44,7 @@ const Menu = () => {
             </li>
           </Link>
         ) : ''}
-        {session.data ? (
+        {session.data.user ? (
           <Link href="/details" onClick={collapseMenu}>
             <li className="menu--items">
               <IoPersonCircle className="menu--icons" />
@@ -76,7 +76,7 @@ const Menu = () => {
           </li>
         </Link>
         {
-          session.data
+          session.data.user
             ? <Link href="/" onClick={() => signOut()}><li>Sign out</li></Link>
             : <Link href="/login"><li>Sign in</li></Link>
           }

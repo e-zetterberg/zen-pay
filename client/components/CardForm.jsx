@@ -7,7 +7,7 @@ import 'animate.css';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { baseApiPath } from '../lib/fetching';
+import { baseApiPath } from '../lib/apiPath';
 import ToastifyMessage from './ToastifyMessage';
 
 const CardForm = ({ accountId }) => {

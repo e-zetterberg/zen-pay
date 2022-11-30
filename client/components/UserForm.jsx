@@ -7,7 +7,7 @@ import { TextField } from '@mui/material';
 import { Stack } from '@mui/system';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { baseApiPath } from '../lib/fetching';
+import { baseApiPath } from '../lib/apiPath';
 
 const UserForm = ({ user }) => {
   const router = useRouter();
