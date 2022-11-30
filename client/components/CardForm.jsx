@@ -66,6 +66,7 @@ const CardForm = ({ accountId }) => {
             <Cleave
               required
               delimiter="-"
+              inputMode="numeric"
               options={{
                 numericOnly: true,
                 creditCard: true,
