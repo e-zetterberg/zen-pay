@@ -18,7 +18,7 @@
     width: 82vw;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
+    min-height: 10vh;
     justify-content: space-between;
     padding: 0 2em;
     align-items: center;

@@ -164,6 +164,12 @@
     transition: transform 200ms, background 200ms;
     
   }
+
+  .checkmark{
+    color: #ba1e29;
+    position: relative;
+    bottom: -0.12em;
+  }
   
 
 
