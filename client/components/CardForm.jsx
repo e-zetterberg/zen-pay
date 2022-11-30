@@ -121,6 +121,7 @@ const CardForm = ({ accountId }) => {
             required
             delimiter="-"
             options={{
+              numericOnly: true,
               creditCard: true,
               onCreditCardTypeChanged: handleType,
             }}

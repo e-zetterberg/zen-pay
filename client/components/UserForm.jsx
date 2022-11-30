@@ -73,6 +73,7 @@ const UserForm = ({ user }) => {
             size="small"
             type="tel"
             value={phone}
+            inputMode="tel"
             onChange={onPhoneChange}
             variant="standard"
             required

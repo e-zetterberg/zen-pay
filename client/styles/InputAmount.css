@@ -3,17 +3,22 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 20rem;
+    width: 82vw;
     gap: 5px;
 }
 
 .input-field{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     border: solid 1px rgb(190, 190, 190);
     text-indent: 14px;
     font-size: 16px;
-    height: 4rem;
-    width: 20rem;
-    border-radius: 5px;
+    height: 6vh;
+    width: 82vw;
+    border-radius: 5px; 
+}
+
+.input-field:focus{
+    border: solid 1px blue;
 }
 
 .input-field:hover{

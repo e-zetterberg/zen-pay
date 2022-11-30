@@ -23,6 +23,8 @@ const Wallet = async () => {
 
   const walletId = user.accountId;
   const account = await fetchAccount(user.accountId);
+  const lastTransaction = account.transactions.at(-1);
+  const nextToLastTransaction = account.transactions.at(-2);
 
   return (
     <MotionProvider>
@@ -43,37 +45,49 @@ const Wallet = async () => {
             walletId={walletId}
             hasFundingCard={account.cards.length > 0}
           />
-          <div className="transactions--header-container">
-            <Link href="/wallet/transactions">
-              <h3 className="transactions--header">Transactions</h3>
-            </Link>
-            <hr />
-          </div>
           <div className="transaction-container">
-            <ul className="transaction-list">
-              {account.transactions.map((tx) => (
-                <li key={tx.transactionId}>
-                  <div className="transaction">
+            <div className="transactions--header-container">
+              <h3 className="transactions--header">Latest transactions</h3>
+              <Link href="/wallet/transactions">
+                <span className="transactions-link">See all</span>
+              </Link>
+            </div>
 
-                    <span>
-                      {tx.amount}
-                      €
-                      {' '}
-                    </span>
-                    <span className="tx-description">
-                      {tx.description}
-                      {' '}
-                    </span>
-                    <div>
-                      {tx.timeStamp}
-                      {' '}
-                    </div>
+            <div className="line">
+
+              <hr />
+            </div>
+
+            <ul className="transaction-list">
+
+              <li>
+                <div className="transaction">
+
+                  <span>
+                    {`${lastTransaction?.amount} €`}
+                  </span>
+
+                  <div>
+                    {lastTransaction?.timeStamp.substring(10, 16)}
                   </div>
-                  <hr />
-                </li>
-              ))}
+                </div>
+              </li>
+              <li>
+                <div className="transaction">
+
+                  <span>
+                    {`${nextToLastTransaction?.amount} €`}
+
+                  </span>
+
+                  <div>
+                    {nextToLastTransaction?.timeStamp.substring(10, 16)}
+                  </div>
+                </div>
+              </li>
             </ul>
           </div>
+
         </section>
       </main>
       <ToastifyMessage />

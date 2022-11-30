@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
+import { BiTransfer } from 'react-icons/bi';
 import InputAmount from '../../components/InputAmount';
 import SendForm from '../../components/SendForm';
 import '../../styles/account.css';
@@ -42,14 +42,16 @@ const TransactionForm = ({ walletId, max, hasFundingCard }) => {
               >
                 Withdraw
               </button>
-              <button type="button" className="btn--transfer" onClick={() => setAction('transfer')} disabled={max === 0}>
-                <Image
-                  src="/../public/tx-button.png"
-                  alt="Transaction Button"
-                  width={50}
-                  height={50}
-                  hidden={max === 0}
-                />
+              <button
+                type="button"
+                className={action === 'transfer'
+                  ? 'btn btn--transfer'
+                  : 'btn btn--inactive btn--transfer'}
+                onClick={() => setAction('transfer')}
+                disabled={max === 0}
+                hidden={max === 0}
+              >
+                <BiTransfer fontSize={24} color="inherit" />
               </button>
             </>
           )}

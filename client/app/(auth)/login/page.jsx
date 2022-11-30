@@ -25,7 +25,7 @@ const Login = async () => {
     <MotionProvider>
       <main className="main login">
         <div className="login--container">
-          <Image src="/../public/sign-in.png" alt="sign-in" width={210} height={200} />
+          <Image src="/signin.png" alt="sign-in" width={210} height={200} />
           <LoginButton />
         </div>
       </main>

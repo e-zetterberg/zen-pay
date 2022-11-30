@@ -1,6 +1,8 @@
 
 
-
+.details--main {
+ justify-content: space-between;
+}
 
 .details {
     height: 79vh;
@@ -85,6 +87,8 @@
 }
 
 .sign-out-btn {
+
+
     outline: 0;
     border: 0;
     cursor: pointer;
@@ -96,6 +100,7 @@
     font-weight: 700;
     line-height: 1;
     transition: transform 200ms,background 200ms;  
-    width: 9em; 
+    width: 64vw;
+    margin-bottom: 20vh;
 }
 

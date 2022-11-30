@@ -66,7 +66,11 @@ const Menu = () => {
             About
           </li>
         </Link>
-        <Link href="/" onClick={() => signOut()}><li>Sign out</li></Link>
+        {
+          session.data
+            ? <Link href="/" onClick={() => signOut()}><li>Sign out</li></Link>
+            : <Link href="/login"><li>Sign in</li></Link>
+          }
       </ul>
     </div>
   );

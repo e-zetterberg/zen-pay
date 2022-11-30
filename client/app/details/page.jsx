@@ -8,6 +8,7 @@ import { getSession } from '../../lib/session';
 import { fetchUserByEmail } from '../../lib/fetching';
 import MotionProvider from '../../components/MotionProvider';
 import ToastifyMessage from '../../components/ToastifyMessage';
+import SignOutButton from '../../components/buttons/SignOutButton';
 
 const Details = async () => {
   const session = await getSession();
@@ -16,7 +17,7 @@ const Details = async () => {
 
   return (
     <MotionProvider>
-      <main className="main">
+      <main className="main details--main">
         <div className="details--container">
 
           <div className="details--card">
@@ -52,11 +53,12 @@ const Details = async () => {
                 {user?.address}
               </p>
               <p className="details--second-section--items">
-                {user?.createdOn}
+                {user?.createdOn?.substring(0, 24)}
               </p>
             </div>
           </div>
         </div>
+        <SignOutButton />
       </main>
       <ToastifyMessage />
     </MotionProvider>

@@ -12,20 +12,20 @@
     border: 1px solid black;
     margin: 10px auto;
     text-align: center;
-    width: 20rem;
+    width: 82vw;
     font-size: xx-large;
     border-radius: 10px;
 }
 
 .balance--button-container{
-    width: 20rem;
+    width: 82vw;
     display: flex;
     justify-content: space-between;
 
 }
 
 .btn {
-  background-color: #001e5e;
+
   border: 1px solid transparent;
   border-radius: .75rem;
   box-sizing: border-box;
@@ -44,29 +44,57 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   width: auto;
+
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background: #000000;
+  color: #FFFFFF;
+  border-radius: 8px;
+  padding: 14px 24px 16px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  transition: transform 200ms, background 200ms;
+  
 }
 
 .btn--inactive{
   opacity: 50%;
-  background-color: whitesmoke;
-  border: 1px solid #001e5e;
-  color: #001e5e;
+
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 14px 24px 16px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  transition: transform 200ms,background 200ms;
+  background: transparent;
+  color: #000000;
+  box-shadow: 0 0 0 2px #000000 inset;
+
 }
 
-
+.btn--confirm {
+  margin-top: 1vh;
+  width: 64vw;
+  align-self: center;
+  
+}
 
 
 .btn:hover {
   opacity: 1;
-  background-color: #365aa9;
-  color: whitesmoke;
+  transform: translateY(-2px);
 }
 
 .btn--transfer{
   padding: 0;
+  padding: 7px 12px 8px;
   border: 1px solid transparent;
   background-color: transparent;
-  display: block;
   cursor: pointer;
 }
 

@@ -7,11 +7,13 @@
 
 .header--navbar {
     display: flex;
-    margin-right: 1em;
+    padding-right: 1em;
+    padding-left: 1em;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height: 12vh;
+    max-height: 12vh;
 }
 
 .header--logo {
