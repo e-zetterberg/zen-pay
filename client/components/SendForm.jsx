@@ -75,7 +75,11 @@ const SendForm = ({ type, walletId, max }) => {
           placeholder="Amount"
         />
 
-        <button className="btn btn--confirm" type="submit">
+        <button
+          className="btn btn--confirm"
+          type="submit"
+          hidden={account === '' || amount === ''}
+        >
           Confirm
         </button>
       </form>

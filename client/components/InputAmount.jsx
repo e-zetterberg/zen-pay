@@ -61,7 +61,11 @@ const InputAmount = ({ type, walletId, max }) => {
           className="input-field no-spin"
           placeholder="Amount"
         />
-        <button className="btn btn--confirm" type="submit">
+        <button
+          className="btn btn--confirm"
+          type="submit"
+          hidden={amount === ''}
+        >
           Confirm
         </button>
       </form>

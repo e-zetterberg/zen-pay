@@ -61,7 +61,7 @@ const Wallet = async () => {
             <ul className="transaction-list">
 
               {transactions.slice(0).reverse().slice(0, 2).map((tx) => (
-                <li>
+                <li key={tx.transactionId}>
                   <div className="transaction">
                     <div className="transaction-icon-amount">
                       {tx?.amount > 0

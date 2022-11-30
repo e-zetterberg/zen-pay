@@ -1,5 +1,6 @@
 .about--description {
-    font-size: 13px;
+    font-size: 16px;
+    line-height: 24px;
     font-weight: 400;
     padding: 15px;
     font-family: 'Inter';
@@ -12,7 +13,6 @@
     justify-content: center;
     align-items: center;
     width: 88vw;
-    height: 50vh;
 
     max-width: 350px;
     border-radius: 10px;
@@ -28,16 +28,16 @@
 
 .main--container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     row-gap: 3.8vh;
     background-color: #f4f5f9;
 }
 
 .about--about {
-    top: 3.8vh;
+    margin-top: 3.8vh;
     font-weight: 600;
     font-family: 'Inter';
-    font-size: 19px;
+    font-size: 24px;
     color: rgb(41, 41, 41);
 }
 
