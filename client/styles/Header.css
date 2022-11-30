@@ -1,8 +1,7 @@
  .header{
     display: block;
     width: 100%;
-    background: rgb(0,23,73);
-    background: radial-gradient(circle, rgba(0,23,73,1) 0%, rgba(0,30,94,1) 72%);
+    background: rgb(26, 26, 26);
 }
 
 .header--navbar {
