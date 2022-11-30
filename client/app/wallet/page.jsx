@@ -24,8 +24,6 @@ const Wallet = async () => {
   const walletId = user.accountId;
   const account = await fetchAccount(user.accountId);
   const { transactions } = account;
-  const lastTransaction = account.transactions.at(-1);
-  const nextToLastTransaction = account.transactions.at(-2);
 
   return (
     <MotionProvider>
@@ -70,24 +68,11 @@ const Wallet = async () => {
                     </span>
 
                     <div>
-                      {tx?.timeStamp.substring(10, 16)}
+                      {tx?.timeStamp.substring(12)}
                     </div>
                   </div>
                 </li>
               ))}
-              {/* <li>
-                <div className="transaction">
-
-                  <span>
-                    {`${nextToLastTransaction?.amount} €`}
-
-                  </span>
-
-                  <div>
-                    {nextToLastTransaction?.timeStamp.substring(10, 16)}
-                  </div>
-                </div>
-              </li> */}
             </ul>
           </div>
 
