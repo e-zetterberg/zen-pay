@@ -5,7 +5,7 @@ const SellingPoint = ({ text, highlight, moreText }) => (
   <div className="dashboard--current-balance">
     <div className="dashboard--current-balance-text" />
     <div className="dashboard--balance">
-      <div className="dashboard--amount">
+      <div className="selling-point--text">
         <span className="checkmark">
           <AiOutlineCheck strokeWidth={100} />
           {' '}

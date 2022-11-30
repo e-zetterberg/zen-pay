@@ -5,18 +5,13 @@
     padding-top: 3vh;
     display: flex;
     flex-direction: column;
-    row-gap: 6vh;
+    row-gap: 2vh;
 }
 
 .sp-highlight{
     color: #ba1e29;
     font-weight: bold;
 }
-
-.dashboard {
-
-    background-color: #fefeff
-  }
   
   .dashboard--container {
       display: flex;
@@ -28,21 +23,10 @@
       row-gap: 0.4em;
   }
   
-  .dashboard--cryptocontainer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: #fefeff;
-  
-      border-radius: 10px;
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  
-      margin-top: 2.5em;  
-  }
-  
   .dashboard--card-ads {
     margin-top: 10vh;
     width: 90vw;
+    max-width: 800px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     display: flex;
@@ -57,7 +41,7 @@
 }
 
   
-  .dashboard--amount {
+  .selling-point--text {
       font-size: 20px;
       font-family: 'Inter';
       font-weight: 500;
@@ -91,7 +75,7 @@
       width: 50px;
   }
 
-  .btn {
+  .btn-landing {
 
     border: 1px solid transparent;
     border-radius: .75rem;
@@ -136,7 +120,7 @@
   
 
 
-  .btn:hover {
+  .btn-landing:hover {
     opacity: 1;
     transform: translateY(-2px);
   }
@@ -151,16 +135,17 @@
     padding: 0 2em;
     align-items: center;
     margin-top: 0.7em;
+    flex-grow: 1;
     background-color: #fefeff;  
 }
 
 .two-squares {
     display: flex;
     width: 90vw;
+    max-width: 800px;
     justify-content: space-between;
     gap: 5.5vw;
   }
-<<<<<<< HEAD
 
   .image-container {
     display: flex;
@@ -174,20 +159,6 @@
 
   .sellingpoint-item {
     font-size: 12px;
-  }
-
-  .btn-landing {
-    outline: 0;
-    border: 0;
-    cursor: pointer;
-    background: #000000;
-    color: #FFFFFF;
-    border-radius: 8px;
-    padding: 14px 24px 16px;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1;
-    transition: transform 200ms,background 200ms;  
   }
 
   .bottom-items {
@@ -204,13 +175,9 @@
     align-items: center;
   }
 
-  
-
-=======
 .image-container{
   opacity: 60%;
 }
->>>>>>> main
 
 
 
