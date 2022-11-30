@@ -27,7 +27,7 @@ const Details = async () => {
                     <FaEdit />
                   </Link>
                 </button>
-              ) : <></>}
+              ) : ''}
             </div>
             <div className="details--first-section">
               {session

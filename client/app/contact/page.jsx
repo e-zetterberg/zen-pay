@@ -14,7 +14,7 @@ const ContactForm = () => {
   const router = useRouter();
   const handleClick = async (e) => {
     e.preventDefault();
-    toast.success('Message sent Successfully !');
+    toast.success('Message sent successfully !');
     router.push('/');
     router.refresh();
   };

@@ -34,7 +34,10 @@ const InputAmount = ({ type, walletId, max }) => {
     setAmount('');
     if (response.ok) {
       toast.update(message, {
-        render: `Succesfully ${type === 'deposit' ? 'deposited ' : 'withdrew '} ${amount}€`, type: 'success', isLoading: false, autoClose: 3000,
+        render: `Succesfully ${type === 'deposit' ? 'deposited ' : 'withdrew '} ${amount}€`,
+        type: 'success',
+        isLoading: false,
+        autoClose: 3000,
       });
       router.refresh();
       return;
@@ -62,7 +65,7 @@ const InputAmount = ({ type, walletId, max }) => {
           Confirm
         </button>
       </form>
-      <ToastContainer />
+      <ToastContainer closeOnClick position="top-center" />
     </>
   );
 };
