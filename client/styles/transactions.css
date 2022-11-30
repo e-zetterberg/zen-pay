@@ -12,7 +12,7 @@
 }
 .all-transactions--header{
     align-self: center;
-    font-size: 17px;
+    font-size: 24px;
     margin: 0;
 }
 
@@ -119,7 +119,7 @@ width: 100%;
 
 .transactions-link {
   color: #2626eb;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .deposit-icon {
@@ -159,7 +159,7 @@ width: 100%;
 
 .back-button {
   color: #2626eb;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .top-titles {

@@ -21,8 +21,8 @@ const ContactForm = () => {
   return (
     <MotionProvider>
       <div className="contact-page-container">
-        <div>
-          <p className="contact-us">Contact us</p>
+        <div className="contact-us">
+          Contact us
         </div>
         <div className="contact-form-container">
           <form className="contact-form">

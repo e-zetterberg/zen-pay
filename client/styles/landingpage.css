@@ -113,7 +113,7 @@
     width: 90vw;
     max-width: 400px;
 
-    margin-top: 4vh;
+    margin-top: 2vh;
     outline: 0;
     border: 0;
     cursor: pointer;
@@ -142,24 +142,25 @@
   }
 
   .square--card {
-    width: 40vw;
     height: 13vh;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     display: flex;
+    font-size: 20px;
     justify-content: space-between;
     padding: 0 2em;
     align-items: center;
     margin-top: 0.7em;
-    top: 5em;
     background-color: #fefeff;  
 }
 
 .two-squares {
     display: flex;
-    flex-direction: row;
-    column-gap: 4vw;
+    width: 90vw;
+    justify-content: space-between;
+    gap: 5.5vw;
   }
+<<<<<<< HEAD
 
   .image-container {
     display: flex;
@@ -205,6 +206,11 @@
 
   
 
+=======
+.image-container{
+  opacity: 60%;
+}
+>>>>>>> main
 
 
 
