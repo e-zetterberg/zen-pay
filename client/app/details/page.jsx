@@ -22,11 +22,13 @@ const Details = async () => {
 
           <div className="details--card">
             <div className="details--edit-section">
-              <button type="button" className="edit-btn">
-                <Link href="/details/edit">
-                  <FaEdit />
-                </Link>
-              </button>
+              {user.userId ? (
+                <button type="button" className="edit-btn">
+                  <Link href="/details/edit">
+                    <FaEdit />
+                  </Link>
+                </button>
+              ) : <></>}
             </div>
             <div className="details--first-section">
               {session
@@ -53,7 +55,7 @@ const Details = async () => {
                 {user?.address}
               </p>
               <p className="details--second-section--items">
-                {user?.createdOn.substring(0, 24)}
+                {user?.createdOn?.substring(0, 24)}
               </p>
             </div>
           </div>

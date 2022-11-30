@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 *{
     margin:0;
     padding:0;
+    font-family: inherit;
 }
 .card--container {
     max-width: 1200px;
@@ -14,23 +14,23 @@
 
 
 #form {
-    top: 7em;
+    top: 5vh;
     background: #fff;
     max-width: 80%;
     height: 60%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 1rem;
+    padding: 2vh;
     border-radius: 10px;
-    box-shadow: 3px 3px 40px #545454e8;
+    box-shadow: 0 0 3px #545454e8;
     position: relative;
   }
   
   #form input,
   #form select {
-    margin: .5rem 0;
-    padding: 0.6rem 0.1rem;
+    margin: 2vh 0;
+    padding: .8vh 3vw;
     outline: none;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -40,29 +40,25 @@
   
   #form h4 {
     color:rgb(147, 146, 146);
-    font-size: .90rem;
-  }
-  
-  .mt {
-    margin-top: 8rem;
+    font-size: 2vh;
   }
   
   #form .input-container {
     position: relative;
-    font-size: .7rem;
+    font-size: .7vh;
     color: #333;
   }
   
   #form .input-grp {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 0.5rem;
+    grid-gap: 0.6vh;
   }
   
   #form button {
     width: 100%;
-    padding: 1rem 0.5rem;
-    margin-top: 1.5rem;
+    padding: 1.5vh 0.5vw;
+    margin-top: 1.5vh;
     outline: none;
     border: none;
     border-radius: 7px;
@@ -85,80 +81,11 @@
     z-index: -1;
   }
   
-  #form button:hover:before {
-    width: 100%;
-    transition: .2s all;
+  .card--page-title{
+    padding-top: 3vh;
+    font-weight: 600;
+    font-family: 'Inter';
+    text-align: center;
+    font-size: 19px;
+    color: rgb(41, 41, 41)
   }
-  
-  #card {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    height: 200px;
-    width: 100%;
-    max-width: 385px;
-    position: absolute;
-    top: -70px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 15px;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-image: url("https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-    background-size: cover;
-    background-position: center;
-    color: #eee;
-    filter: drop-shadow(1px 3px 10px #222);
-  
-    animation: fadeIn .2s linear 1;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      top: -150px;
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  
-  #card .card--header {
-    display: flex;
-    justify-content: space-between;
-    height: 25px;
-  }
-  
-  #card .sticker {
-    width: 50px;
-    height: 40px;
-    background-image: url("https://images.pexels.com/photos/728471/pexels-photo-728471.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
-    background-position: center;
-    background-size: cover;
-    object-fit: contain;
-    border-radius: 5px;
-  }
-  
-  #card .logo {
-    max-width: 60px;
-  }
-  
-  #card .card--body {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 60%;
-    padding-top : 3rem;
-    
-  }
-  
-  #card .card--footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px;
-  }
-  
