@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../styles/Menu.css';
 import { IoPersonCircle } from 'react-icons/io5';
+import { HiOutlineMail } from 'react-icons/hi';
 import { RiQuestionnaireFill } from 'react-icons/ri';
 import { FiInfo } from 'react-icons/fi';
 import Link from 'next/link';
@@ -57,6 +58,14 @@ const Menu = () => {
             <RiQuestionnaireFill className="menu--icons" />
             {' '}
             FAQ
+          </li>
+        </Link>
+        <Link href="/contact" onClick={collapseMenu}>
+          <li className="menu--items">
+
+            <HiOutlineMail className="menu--icons" />
+            {' '}
+            Contact
           </li>
         </Link>
         <Link href="/about" onClick={collapseMenu}>
