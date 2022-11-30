@@ -24,8 +24,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 3em;
-    height: 40em;
+    margin-top: 4vh;
     row-gap: 1em;
     width: 80%;
     font-family: 'system-ui';
@@ -37,7 +36,7 @@
 }
 
 .accordion--panel2 {
-    height: 4.7em;
+    height: 9vh;
 }
 
 .redirect-link-to-form {

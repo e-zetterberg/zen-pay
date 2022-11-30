@@ -9,7 +9,7 @@ const Faq = () => (
   <MotionProvider>
     <main className="main faq--container">
       <div className="faq--contents">
-        <div className="faq--page-title">FAQ</div>
+        <div className="faq--page-title">Frequently Asked Questions</div>
         <SimpleAccordion className="faq--accordion" />
       </div>
     </main>

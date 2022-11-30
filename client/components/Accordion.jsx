@@ -22,7 +22,7 @@ const SimpleAccordion = () => (
         <p className="faq--answer">
           You can send us your query through
           {' '}
-          <Link className="redirect-link-to-form" href="./contactform">this contact form.</Link>
+          <Link className="redirect-link-to-form" href="/contact">this contact form.</Link>
         </p>
       </AccordionDetails>
     </Accordion>

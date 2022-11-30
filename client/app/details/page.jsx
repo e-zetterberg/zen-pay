@@ -19,7 +19,6 @@ const Details = async () => {
     <MotionProvider>
       <main className="main details--main">
         <div className="details--container">
-
           <div className="details--card">
             <div className="details--edit-section">
               {user.userId ? (
@@ -34,7 +33,6 @@ const Details = async () => {
               {session
                 ? <Image src={session.user.image} height={75} width={75} />
                 : <IoPersonCircle className="details--avatar" />}
-
               <div className="details--name">{user?.zenName}</div>
             </div>
             <div className="details--second-section">

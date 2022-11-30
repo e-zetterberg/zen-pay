@@ -14,9 +14,7 @@ const ContactForm = () => {
   const router = useRouter();
   const handleClick = async (e) => {
     e.preventDefault();
-    toast.success('Message sent Successfully !', {
-      position: toast.POSITION.TOP_CENTER,
-    });
+    toast.success('Message sent Successfully !');
     router.push('/');
     router.refresh();
   };
@@ -30,7 +28,7 @@ const ContactForm = () => {
           <form className="contact-form">
             <input className="contact-field" placeholder="Full name" />
             <input className="contact-field" placeholder="Email address" />
-            <textarea className="contact-field-message" placeholder="  Send us your message here" />
+            <textarea className="contact-field-message" placeholder="  Write your message here" />
             <div className="contact-">
               <button className="send--btn" onClick={(e) => handleClick(e)} type="submit">
                 Send

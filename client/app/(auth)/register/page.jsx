@@ -44,9 +44,7 @@ const Register = () => {
     });
     if (response.status === 201) {
       if (response.ok) {
-        toast.success(' Account created Successfully', {
-          position: toast.POSITION.TOP_CENTER,
-        });
+        toast.success(' Account created Successfully');
         router.push('/card');
         router.refresh();
       }
