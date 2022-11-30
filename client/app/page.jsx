@@ -35,11 +35,11 @@ const Landingpage = async () => {
           <button className="btn" type="button">Get a free account now</button>
         </Link>
         <div className="image-container">
-          <Image className="header--logo" src="/logo-visa.png" alt="Logo" width={70} height={50} />
-          <Image className="header--logo" src="/logo-mastercard.png" alt="mastercard" width={70} height={50} />
-          <Image className="header--logo" src="/logo-applepay.png" alt="applepay" width={70} height={50} />
-          <Image className="header--logo" src="/logo-gpay.png" alt="gpay" width={70} height={50} />
-          <Image className="header--logo" src="/icon-contactless.png" alt="contactless" width={70} height={50} />
+          <Image className="header--logo" src="/logo-visa.png" alt="Logo" width={80} height={50} />
+          <Image className="header--logo" src="/logo-mastercard.png" alt="mastercard" width={68} height={50} />
+          <Image className="header--logo" src="/logo-applepay.png" alt="applepay" width={88.5} height={50} />
+          <Image className="header--logo" src="/logo-gpay.png" alt="gpay" width={94} height={50} />
+          <Image className="header--logo" src="/icon-contactless.png" alt="contactless" width={48.5} height={50} />
 
         </div>
       </main>
