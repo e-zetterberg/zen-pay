@@ -7,7 +7,6 @@ import { FaEdit } from 'react-icons/fa';
 import { getSession } from '../../lib/session';
 import { fetchUserByEmail } from '../../lib/fetching';
 import MotionProvider from '../../components/MotionProvider';
-import ToastifyMessage from '../../components/ToastifyMessage';
 import SignOutButton from '../../components/buttons/SignOutButton';
 
 const Details = async () => {
@@ -60,7 +59,6 @@ const Details = async () => {
         </div>
         <SignOutButton />
       </main>
-      <ToastifyMessage />
     </MotionProvider>
   );
 };
