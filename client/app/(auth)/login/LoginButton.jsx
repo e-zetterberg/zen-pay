@@ -13,7 +13,7 @@ const LoginButton = () => (
       <div className="google-icon-wrapper">
         <img
           className="google-icon"
-          src="https://developers.google.com/static/identity/images/btn_google_signin_dark_normal_web.png"
+          src="/google-signin-dark.png"
           alt="Google Login Button"
         />
       </div>
