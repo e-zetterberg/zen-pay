@@ -160,7 +160,6 @@
     justify-content: space-between;
     gap: 5.5vw;
   }
-<<<<<<< HEAD
 
   .image-container {
     display: flex;
@@ -204,13 +203,9 @@
     align-items: center;
   }
 
-  
-
-=======
 .image-container{
   opacity: 60%;
 }
->>>>>>> main
 
 
 

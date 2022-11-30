@@ -3,7 +3,7 @@
 .faq--page-title {
     font-weight: 600;
     font-family: 'Inter';
-    font-size: 22px;
+    font-size: 18px;
     color: rgb(41, 41, 41);
 }
 
@@ -15,7 +15,7 @@
 
 .faq--answer {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     font-family: 'Inter';
 }
 
@@ -25,7 +25,7 @@
     align-items: center;
     justify-content: flex-start;
     margin-top: 4vh;
-    row-gap: 1em;
+    row-gap: 2em;
     width: 80%;
     font-family: 'system-ui';
 }
@@ -41,5 +41,9 @@
 
 .redirect-link-to-form {
     text-decoration: underline;
+}
+
+.accordion-container {
+    border-radius: 20px;
 }
 
