@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BalanceDisplay = ({ text, highlight, moreText }) => (
+const SellingPoint = ({ text, highlight, moreText }) => (
   <div className="dashboard--card">
     <div className="dashboard--current-balance">
       <div className="dashboard--current-balance-text" />
@@ -16,4 +16,4 @@ const BalanceDisplay = ({ text, highlight, moreText }) => (
   </div>
 );
 
-export default BalanceDisplay;
+export default SellingPoint;
