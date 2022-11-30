@@ -299,4 +299,4 @@ dist
 /.github
 
 #apipath
-/lib/apipath.js
+/lib/apiPath.js
