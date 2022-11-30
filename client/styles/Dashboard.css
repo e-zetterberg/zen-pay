@@ -90,8 +90,7 @@
 
 .dashboard--currency {
     font-size: 20px;
-
-
+    font-family: 'Inter';
 }
 
 .dashboard--current-balance-text {
@@ -99,6 +98,7 @@
     color: rgb(64, 64, 64);
     font-family: 'Inter';
     font-weight: 500;
+    margin-bottom: 0.5vh;
 
 }
 
