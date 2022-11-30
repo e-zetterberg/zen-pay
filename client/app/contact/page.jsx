@@ -30,7 +30,7 @@ const ContactForm = () => {
           <form className="contact-form">
             <input className="contact-field" placeholder="Full name" />
             <input className="contact-field" placeholder="Email address" />
-            <textarea className="contact-field-message" placeholder="  Send us your message here" />
+            <textarea className="contact-field-message" placeholder="  Write your message here" />
             <div className="contact-">
               <button className="send--btn" onClick={(e) => handleClick(e)} type="submit">
                 Send
