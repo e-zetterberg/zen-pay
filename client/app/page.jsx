@@ -28,8 +28,8 @@ const Landingpage = async () => {
         </div>
 
         <div className="two-squares">
-          <Square text="Earn" highlight=" 1% " moreText="interest" />
-          <Square text="Earn" highlight=" 1% " moreText="interest" />
+          <Square text="" highlight=" No " moreText="fees" />
+          <Square text="Become" highlight=" successful " moreText="" />
         </div>
         <Link href="/login">
           <button className="btn" type="button">Get a free account now</button>
