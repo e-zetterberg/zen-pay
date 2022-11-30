@@ -6,13 +6,15 @@
 }
 
 .about--container {
-    top: 1em;
+    top: 1vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 22em;
-    height: 28em;
+    width: 88vw;
+    height: 50vh;
+
+    max-width: 350px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     overflow: hidden;
@@ -27,12 +29,12 @@
 .main--container {
     display: flex;
     justify-content: center;
-    row-gap: 2em;
+    row-gap: 3.8vh;
     background-color: #f4f5f9;
 }
 
 .about--about {
-    top:2em;
+    top: 3.8vh;
     font-weight: 600;
     font-family: 'Inter';
     font-size: 19px;
