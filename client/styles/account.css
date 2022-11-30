@@ -84,7 +84,7 @@
   margin-top: 1vh;
   width: 64vw;
   align-self: center;
-  
+  transition: opacity 400ms ease;
 }
 
 
@@ -104,6 +104,11 @@
   box-shadow: none;
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.opacity{
+  
+  opacity: 30%;
 }
 
 

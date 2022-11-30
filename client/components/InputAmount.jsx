@@ -62,9 +62,8 @@ const InputAmount = ({ type, walletId, max }) => {
           placeholder="Amount"
         />
         <button
-          className="btn btn--confirm"
+          className={amount !== '' ? 'btn btn--confirm' : 'btn btn--confirm opacity'}
           type="submit"
-          hidden={amount === ''}
         >
           Confirm
         </button>

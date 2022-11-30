@@ -78,7 +78,7 @@ const SendForm = ({ type, walletId, max }) => {
         <button
           className="btn btn--confirm"
           type="submit"
-          hidden={account === '' || amount === ''}
+          disabled={account === '' || amount === ''}
         >
           Confirm
         </button>
