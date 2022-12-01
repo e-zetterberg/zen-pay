@@ -3,6 +3,7 @@ import { baseApiPath } from './apiPath';
 export const fetchUserByEmail = async (email) => {
   const response = await fetch(`${baseApiPath}/users/${email}`, {
     cache: 'no-store',
+    next: { revalidate: 10 },
   });
   return response.json();
 };
