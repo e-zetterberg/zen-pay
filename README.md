@@ -2,7 +2,7 @@
 
 ## Demo
 
-  Example: (https://user-images.githubusercontent.com/124599/198038921-2b16b18b-cb4d-44b1-bd1d-6419d4a8d92c.png)
+ ![screenshot-1](https://user-images.githubusercontent.com/108729175/205116246-93b68a2d-3780-4604-80ad-a433a5d13e5d.png)
 
 ## About this project
 
