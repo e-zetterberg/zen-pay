@@ -43,7 +43,7 @@ const Wallet = async () => {
           <TransactionForm
             max={account.balance}
             walletId={walletId}
-            hasFundingCard={account.cards.length > 0}
+            hasFundingCard={account.cards?.length > 0}
           />
           <div className="transaction-container">
             <div className="transactions--header-container">
@@ -60,7 +60,7 @@ const Wallet = async () => {
 
             <ul className="transaction-list">
 
-              {transactions.slice(0).reverse().slice(0, 2).map((tx) => (
+              {transactions?.slice(0).reverse().slice(0, 2).map((tx) => (
                 <li key={tx.transactionId}>
                   <div className="transaction">
                     <div className="transaction-icon-amount">
