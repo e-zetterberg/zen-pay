@@ -1,8 +1,7 @@
 # final-project
 
 ## Demo
-
- ![screenshot-1](https://user-images.githubusercontent.com/108729175/205116246-93b68a2d-3780-4604-80ad-a433a5d13e5d.png)
+<img width="292" alt="Skärmavbild 2022-12-01 kl  18 09 14" src="https://user-images.githubusercontent.com/108729175/205116246-93b68a2d-3780-4604-80ad-a433a5d13e5d.png">
 
 ## About this project
 
