@@ -42,7 +42,7 @@
 
   
   .selling-point--text {
-      font-size: 20px;
+      font-size: 18px;
       font-family: 'Inter';
       font-weight: 500;
   }
@@ -130,7 +130,8 @@
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     display: flex;
-    font-size: 20px;
+    font-size: 18px;
+    text-align: center;
     justify-content: space-between;
     padding: 0 2em;
     align-items: center;

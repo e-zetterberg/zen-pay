@@ -6,9 +6,7 @@ export const fetchUserByEmail = async (email) => {
 };
 
 export const fetchAccount = async (accountId) => {
-  const response = await fetch(`${baseApiPath}/accounts/${accountId}`, {
-    cache: 'no-store',
-  });
+  const response = await fetch(`${baseApiPath}/accounts/${accountId}`);
   return response.json();
 };
 

@@ -39,7 +39,7 @@ const UserForm = ({ user }) => {
       body: JSON.stringify(data),
     });
     if (response.ok) {
-      toast.success(' Information Updated Successfully', {
+      toast.success('Information updated successfully', {
         position: toast.POSITION.TOP_CENTER,
       });
       router.push('/details');

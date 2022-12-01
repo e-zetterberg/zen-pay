@@ -48,7 +48,7 @@ const CardForm = ({ accountId }) => {
       body: JSON.stringify(data),
     });
     if (response.ok) {
-      await toast.success('Card Added to Wallet Successfully !', {
+      await toast.success('Card added to Wallet successfully!', {
         position: toast.POSITION.TOP_CENTER,
       });
       router.push('/wallet');
@@ -83,8 +83,8 @@ const CardForm = ({ accountId }) => {
 
           <div className="input-grp">
             <div className="input-container">
-              <h4>Exp Year</h4>
-              <select value={expireMonth} onChange={handleExpYear}>
+              <h4>Month</h4>
+              <select value={expireMonth} onChange={handleExpMonth}>
                 <option value="January">January</option>
                 <option value="February">February</option>
                 <option value="March">March</option>
@@ -100,8 +100,8 @@ const CardForm = ({ accountId }) => {
               </select>
             </div>
             <div className="input-container">
-              <h4>Month</h4>
-              <select value={expireYear} onChange={handleExpMonth}>
+              <h4>Year</h4>
+              <select value={expireYear} onChange={handleExpYear}>
                 <option value="2022">2022</option>
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>

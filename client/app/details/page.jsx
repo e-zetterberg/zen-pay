@@ -52,7 +52,7 @@ const Details = async () => {
                 {user?.address}
               </p>
               <p className="details--second-section--items">
-                {user?.createdOn?.substring(0, 24)}
+                {user?.createdOn?.substring(0, 25)}
               </p>
             </div>
           </div>

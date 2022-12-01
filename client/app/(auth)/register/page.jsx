@@ -44,7 +44,7 @@ const Register = () => {
     });
     if (response.status === 201) {
       if (response.ok) {
-        toast.success(' Account created Successfully');
+        toast.success(' Account created successfully');
         router.push('/card');
         router.refresh();
       }

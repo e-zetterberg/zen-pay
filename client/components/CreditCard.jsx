@@ -41,7 +41,7 @@ const CreditCard = ({ balance, holder, cardNumber }) => {
         </div>
         <div className="end">
           <span className="end-text">Valid thru:</span>
-          <span className="end-date"> 11/22</span>
+          <span className="end-date"> 11/24</span>
         </div>
         <div className="card-holder">{holder}</div>
         <div className="master">
