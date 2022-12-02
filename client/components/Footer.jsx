@@ -5,6 +5,7 @@ import { getSession } from '../lib/session';
 import FooterHomeIcon from './footer-links/FooterHomeIcon';
 import FooterWalletIcon from './footer-links/FooterWalletIcon';
 import FooterAccountIcon from './footer-links/FooterAccountIcon';
+import DashboardLink from './dashboard/DashboardLink';
 
 const Footer = async () => {
   const session = await getSession();
@@ -13,9 +14,9 @@ const Footer = async () => {
 
     <div className="footer">
       <div className="footer--menu">
-        <Link href={session ? '/dashboard' : '/'}>
+        <DashboardLink href={session ? '/dashboard' : '/'}>
           <FooterHomeIcon />
-        </Link>
+        </DashboardLink>
         <Link href="/wallet">
           <FooterWalletIcon />
         </Link>
