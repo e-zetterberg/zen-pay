@@ -62,7 +62,13 @@ java -jar *.jar
 npm install
 ```
 8. Start the development server:
-
 ```sh
 npm run dev
+```
+9. Alternatively, start a production build:
+```sh
+npm run build
+```
+```sh
+npm start
 ```
