@@ -1,0 +1,36 @@
+.btn {
+
+    border: 1px solid transparent;
+    border-radius: .75rem;
+    box-sizing: border-box;
+    cursor: pointer;
+    flex: 0 0 auto;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    padding: .75rem 1.2rem;
+    text-align: center;
+    text-decoration: none #6B7280 solid;
+    transition-duration: .2s;
+    transition-property: background-color,border-color,color,fill,stroke;
+    transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: auto;
+    align-self: flex-start;
+    margin-left: 5vw;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    background: rgb(255, 255, 255);
+    color: #000000;
+    border-radius: 8px;
+    padding: 14px 24px 16px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    transition: transform 200ms, background 200ms;
+    max-width: 300px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    
+  }

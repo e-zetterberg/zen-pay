@@ -9,6 +9,7 @@ import MotionProvider from '../../components/MotionProvider';
 import Register from '../../components/Register';
 import ToastifyMessage from '../../components/ToastifyMessage';
 import CryptoDisplay from '../../components/dashboard/CryptoDisplay';
+import RefreshButton from '../../components/buttons/RefreshButton';
 
 const Dashboard = async () => {
   const session = await getSession();
@@ -30,6 +31,7 @@ const Dashboard = async () => {
     headers: {
       accept: 'application/json',
     },
+    next: { revalidate: 300 },
   });
   const cryptoData = await res.json();
 
@@ -37,11 +39,12 @@ const Dashboard = async () => {
     <MotionProvider>
       <main className="main dashboard--container">
         <div className="dashboard--account-overview">Dashboard</div>
+        <RefreshButton />
         <Link href="/wallet">
           <BalanceDisplay name="Wallet balance" balance={account?.balance} />
         </Link>
         <div className="dashboard--cryptocontainer">
-          {cryptoData.map((coin) => (
+          {cryptoData?.map((coin) => (
             <CryptoDisplay
               key={coin.id}
               crypto={`${coin.name} price`}
