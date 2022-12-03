@@ -55,7 +55,9 @@ java -jar *.jar
 
 6. Backend should now be up and running! Go back to the project root folder and CD into /client
 
-7. Copy `.env.example` to `.env.local` and configure the variables.
+7. Rename `.env.example` to `.env.local` and configure the variables.
+
+8. Run
 ```sh
 npm install
 ```
