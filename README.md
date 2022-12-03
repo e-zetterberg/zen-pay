@@ -14,8 +14,11 @@ This project was built in less than two weeks by three up and coming full-stack 
 
 ## Techstack
 Backend: **Java**, **Spring boot**, **PostgreSQL**; Deployed on **Azure**
+
 Frontend: **JavaScript**, **NextJs 13**, **ReactJs**, **HTML**, **CSS**, **NextAuth**; Deployed on **Vercel**
+
 Deployment automated via **Github actions**
+
 Other tools/libraries: MUI, Framer Motion, CleaveJS, React Icons, Toastify
 
 ## Next 13 Features
